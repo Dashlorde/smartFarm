@@ -12,6 +12,11 @@ package com.smartFarm.pojo;
 public class Doctor {
     long id;
     String name, phone, speciaty;
+    String password;
+    
+    public Doctor(){
+        
+    }
 
     public long getId() {
         return id;
@@ -43,6 +48,14 @@ public class Doctor {
 
     public void setSpeciaty(String speciaty) {
         this.speciaty = speciaty;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     

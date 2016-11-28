@@ -12,6 +12,10 @@ package com.smartFarm.pojo;
 public class Cow {
     long id;
     String milkProduction, estrousDetection;
+    
+    public Cow(){
+        
+    }
 
     public long getId() {
         return id;

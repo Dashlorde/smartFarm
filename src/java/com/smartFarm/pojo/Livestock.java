@@ -13,6 +13,10 @@ public class Livestock {
     long Id, EmployeeId;
     int age, weight;
     String gender, type;
+    
+    public Livestock(){
+        
+    }
 
     public long getId() {
         return Id;

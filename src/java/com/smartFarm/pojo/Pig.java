@@ -12,6 +12,10 @@ package com.smartFarm.pojo;
 public class Pig {
     long id;
     String estrousDetection;
+    
+    public Pig(){
+        
+    }
 
     public long getId() {
         return id;
