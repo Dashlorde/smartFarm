@@ -52,7 +52,7 @@ public class loginController {
         }
         
         if(character.equals("employee")){
-            Employee employee=userDao.verifyEmpolyee(name, password);
+            Employee employee=userDao.verifyEmployee(name, password);
             if(employee!=null){
                 session.setAttribute("Id", employee.getId());
                 session.setAttribute("Name", employee.getName());

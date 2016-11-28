@@ -52,7 +52,7 @@ public class userDao extends DAO{
     }
     
     
-    public Employee verifyEmpolyee(String name, String pwd) throws SQLException{
+    public Employee verifyEmployee(String name, String pwd) throws SQLException{
         try{
             conn=getConnection();
             String query="select * from Employee where Name= ? and Password= ?";
