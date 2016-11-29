@@ -67,7 +67,7 @@
             <c:forEach var="livestock" items="${requestScope.livestockList}">
                 <tr>
                     <td>${livestock.Id}</td>
-                    <td>l${ivestock.EmpolyeeId}</td>
+                    <td>${ivestock.EmpolyeeId}</td>
                     <td>${livestock.age}</td>
                     <td>${livestock.weight}</td>
                     <td>${livestock.gender}</td>

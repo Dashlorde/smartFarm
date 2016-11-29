@@ -17,7 +17,7 @@ import org.apache.commons.dbutils.DbUtils;
  * @author zhouyunlu
  */
 public class DAO {
-     private String driver;
+    private String driver;
     private String dburl;
     private String dbuser;
     private String dbpassword;
@@ -33,13 +33,26 @@ public class DAO {
     
     public Connection getConnection(){
         Connection conn =null;
+
         
         
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Where is your MySQL JDBC Driver?");
+            e.printStackTrace();
+        }
+
         try{
             conn = DriverManager.getConnection(dburl,dbuser,dbpassword);
             
         }catch(SQLException ex){
+            System.out.println("Connection Failed! Check output console");
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE,null,ex);
+        }
+        if (conn != null) {
+            System.out.println("You made it, take control your database now!");
         }
         return conn;
     }
