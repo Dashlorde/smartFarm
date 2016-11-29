@@ -10,13 +10,14 @@ package com.smartFarm.pojo;
  * @author zhouyunlu
  */
 public class Cow {
-    long id;
+    public long id;
     String milkProduction, estrousDetection;
     
-    public Cow(){
+     public Cow(){
         
     }
-
+     
+    
     public long getId() {
         return id;
     }
@@ -24,6 +25,7 @@ public class Cow {
     public void setId(long id) {
         this.id = id;
     }
+
 
     public String getMilkProduction() {
         return milkProduction;

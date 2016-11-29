@@ -1,19 +1,79 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome to Spring Web MVC project</title>
+        <title>Livestock Information</title>
+        <style>
+            .menu{
+            background-color: #f1f1f1;
+            list-style-type:none;
+            margin:0;
+            padding:0;
+            float: top;
+            width:100%;
+            opacity: 0.8;
+	}
+        
+        .menu a{
+           display: block;
+            color:black;
+            text-align:center;
+            font-family:Lucida Grande;
+            padding: 10px 15px;
+            text-decoration: none; 
+        }
+        
+        table, th, td{
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+            
+        }
+        
+        table{
+            width: 100%
+        }
+        </style>
     </head>
+    
+    <c:choose>
+        <c:when test="${!empty sessionScope.doctor}">
+            <jsp:include page="menu2.jsp"/>
+        </c:when>
+        <c:when test="${!empty sessionScope.employee}">
+            <jsp:include page="menu3.jsp"/>
+        </c:when>
+        <c:otherwise>
+            <jsp:include page="menu1.jsp"/>
+        </c:otherwise>
+        
+    </c:choose>
 
     <body>
-        <p>Hello! This is the default welcome page for a Spring Web MVC project.</p>
-        <p><i>To display a different welcome page for this project, modify</i>
-            <tt>index.jsp</tt> <i>, or create your own welcome page then change
-                the redirection in</i> <tt>redirect.jsp</tt> <i>to point to the new
-                welcome page and also update the welcome-file setting in</i>
-            <tt>web.xml</tt>.</p>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Empoly_Id</th>
+                <th>Age</th>
+                <th>Weight</th>
+                <th>Gender</th>
+                <th>Type</th>
+            </tr>
+            
+            <c:forEach var="livestock" items="${requestScope.livestockList}">
+                <tr>
+                    <td>${livestock.Id}</td>
+                    <td>l${ivestock.EmpolyeeId}</td>
+                    <td>${livestock.age}</td>
+                    <td>${livestock.weight}</td>
+                    <td>${livestock.gender}</td>
+                    <td>${livestock.Type}</td>
+                </tr>
+            </c:forEach>
+        </table>
     </body>
 </html>

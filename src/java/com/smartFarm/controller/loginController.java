@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -27,46 +28,62 @@ public class loginController {
     @Autowired
     userDao userDao;
     
+    
+    @RequestMapping(method=RequestMethod.GET)
+    protected String getLoginPage(){
+        return "login";
+    }
+    
+    
+    
+    @RequestMapping(method=RequestMethod.POST)
     protected String login(HttpServletRequest request, Model model) throws Exception{
         HttpSession session=request.getSession();
         String character=request.getParameter("character");
         String name=request.getParameter("username");
+        System.out.println(name);
+        
         String password=request.getParameter("password");
+        System.out.println(password);
             
         
         if(character.equals("doctor")){
             
-            Doctor doc=userDao.verifyDoctor(name, password);
-            if(doc!=null){
-                session.setAttribute("Id", doc.getId());
-                session.setAttribute("Name", doc.getName());
-                
-                return "index";
+            Doctor doctor=userDao.verifyDoctor(name, password);
+            if(doctor!=null){
+                session.setAttribute("Id", doctor.getId());
+                session.setAttribute("Name", doctor.getName());                
+                return "redirect:/showAllLivestock.htm";
             }
             
             else{
                 model.addAttribute("error","Invalid username or password!");
+                
                 return "login";
-            }
-            
+            }            
         }
         
+       
         if(character.equals("employee")){
             Employee employee=userDao.verifyEmployee(name, password);
             if(employee!=null){
                 session.setAttribute("Id", employee.getId());
-                session.setAttribute("Name", employee.getName());
-                
-                return "index";
+                session.setAttribute("Name", employee.getName());                
+                return "redirect:/showAllLivestock.htm";
             }
             
             else{
                 model.addAttribute("error","Invalid username or password!");
+                
                 return "login";
             }
             
         }
         
-        return "index";
+        return "login";
     }
+
+    
+    
+    
 }

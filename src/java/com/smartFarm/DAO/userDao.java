@@ -28,16 +28,18 @@ public class userDao extends DAO{
         try{
             conn=getConnection();
             String query="select * from Doctor where Name= ? and Password= ?";
+            ps=conn.prepareStatement(query);
             ps.setString(1, name);
             ps.setString(2, pwd);
             rs = ps.executeQuery();
             while(rs.next()){
                 Doctor doc=new Doctor();
-                doc.setId(rs.getLong("Id"));
+                doc.setId(rs.getInt("Id"));
                 doc.setName(rs.getString("Name"));
                 doc.setPhone(rs.getString("Phone"));
                 doc.setSpeciaty(rs.getString("Speciaty"));
                 doc.setPassword(rs.getString("Password"));
+                
                 
                 return doc;
             }
@@ -56,12 +58,13 @@ public class userDao extends DAO{
         try{
             conn=getConnection();
             String query="select * from Employee where Name= ? and Password= ?";
+            ps=conn.prepareStatement(query);
             ps.setString(1, name);
             ps.setString(2, pwd);
             rs = ps.executeQuery();
             while(rs.next()){
                 Employee e=new Employee();
-                e.setId(rs.getLong("Id"));
+                e.setId(rs.getInt("Id"));
                 e.setCategory(rs.getString("Category"));
                 e.setName(rs.getString("Name"));
                 e.setPhone(rs.getString("Phone"));
