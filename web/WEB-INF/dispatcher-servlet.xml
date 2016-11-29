@@ -27,6 +27,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="index.htm">indexController</prop>
                 <prop key="showAllLivestock.htm">showLivestockController</prop>
                 <prop key="login.htm">loginController</prop>
+                <prop key="logout.htm">logoutController</prop>
                 
             </props>
         </property>
@@ -51,6 +52,8 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean name="showLivestockController" class="com.smartFarm.controller.showLivestockController">
         
     </bean>
+    
+    <bean name="logoutController" class="com.smartFarm.controller.logoutController" />
     
           
 

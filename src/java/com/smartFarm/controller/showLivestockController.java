@@ -6,6 +6,9 @@
 package com.smartFarm.controller;
 
 import com.smartFarm.DAO.LivestockDao;
+import com.smartFarm.DAO.userDao;
+import com.smartFarm.pojo.Doctor;
+import com.smartFarm.pojo.Employee;
 import com.smartFarm.pojo.Livestock;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -27,14 +30,13 @@ public class showLivestockController {
     @Autowired
     LivestockDao livestockDao=new LivestockDao();
     
+    @Autowired 
+    userDao userDao=new userDao();
     
     @RequestMapping(value="/showAllLivestock.htm", method=RequestMethod.GET)
     protected String showAllLivestock(Model model, HttpServletRequest request)throws Exception{
         List<Livestock> livestockList;
-        HttpSession session=request.getSession();
-        if(session.getAttribute("Name")!=null){
-            
-        }
+        
         ModelAndView mv=new ModelAndView();
         livestockList=livestockDao.getAllLivestock();
         for(Livestock l: livestockList){

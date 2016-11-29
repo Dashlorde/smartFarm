@@ -52,7 +52,8 @@ public class loginController {
             Doctor doctor=userDao.verifyDoctor(name, password);
             if(doctor!=null){
                 session.setAttribute("Id", doctor.getId());
-                session.setAttribute("Name", doctor.getName());                
+                session.setAttribute("Name", doctor.getName()); 
+                session.setAttribute("doctor", doctor);
                 return "redirect:/showAllLivestock.htm";
             }
             
@@ -68,7 +69,8 @@ public class loginController {
             Employee employee=userDao.verifyEmployee(name, password);
             if(employee!=null){
                 session.setAttribute("Id", employee.getId());
-                session.setAttribute("Name", employee.getName());                
+                session.setAttribute("Name", employee.getName()); 
+                session.setAttribute("employee", employee);
                 return "redirect:/showAllLivestock.htm";
             }
             

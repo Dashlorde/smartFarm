@@ -8,15 +8,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Livestock Information</title>
         <style>
-            .menu{
+           ul.menu{
             background-color: #f1f1f1;
             list-style-type:none;
             margin:0;
             padding:0;
-            float: top;
             width:100%;
             opacity: 0.8;
+            
 	}
+        
+       .menu li {
+            float: left;
+        }
         
         .menu a{
            display: block;
@@ -25,6 +29,11 @@
             font-family:Lucida Grande;
             padding: 10px 15px;
             text-decoration: none; 
+        }
+        
+        .menu a:hover{
+            background-color: black;
+            color:white;
         }
         
         table, th, td{
