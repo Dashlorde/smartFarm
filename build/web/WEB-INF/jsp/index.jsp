@@ -85,4 +85,11 @@
             </c:forEach>
         </table>
     </body>
+    
+    <div>
+    <ul class="menu">
+        <li><a href="admin.htm">Admin Login</a></li>
+    </ul>
+    </div>
+
 </html>
