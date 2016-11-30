@@ -34,6 +34,12 @@ public class loginController {
         return "login";
     }
     
+    @RequestMapping(value="/adminManagement.htm", method=RequestMethod.GET)
+    public String handleRequest(HttpServletRequest hsr) throws Exception{
+         return "adminManagement";
+        
+    }
+    
     
     
     @RequestMapping(method=RequestMethod.POST)

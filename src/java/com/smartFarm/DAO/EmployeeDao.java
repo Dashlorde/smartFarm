@@ -22,7 +22,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
  *
  * @author he.fa
  */
-public class employeeDao extends DAO{
+public class EmployeeDao extends DAO{
     Connection conn;
     PreparedStatement ps;
     ResultSet rs;

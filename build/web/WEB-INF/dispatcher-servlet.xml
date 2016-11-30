@@ -14,6 +14,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
     <bean id="livestockDao" class="com.smartFarm.DAO.LivestockDao"></bean>
     <bean id="userDao" class="com.smartFarm.DAO.userDao"></bean>
+    <bean id="EmployeeDao" class="com.smartFarm.DAO.EmployeeDao"></bean>
 
     
     <!--
@@ -31,6 +32,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="addLivestock.htm">addLivestockController</prop>
                 <prop key="login.htm">loginController</prop>
                 <prop key="logout.htm">logoutController</prop>
+                <prop key="adminManagement.htm">loginController</prop>
                 
             </props>
         </property>
