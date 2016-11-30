@@ -12,7 +12,7 @@ package com.smartFarm.pojo;
 public class Employee {
     long id;
     String name, phone, category;
-    String password;
+    
     
     public Employee(){
         
@@ -50,13 +50,5 @@ public class Employee {
         this.category = category;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
     
 }

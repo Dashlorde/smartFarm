@@ -97,7 +97,7 @@ public class userDao extends DAO{
                 e.setCategory(rs.getString("Category"));
                 e.setName(rs.getString("Name"));
                 e.setPhone(rs.getString("Phone"));
-                e.setPassword(rs.getString("Password"));
+               
                 
                 
                 return e;
@@ -126,7 +126,7 @@ public class userDao extends DAO{
                 e.setCategory(rs.getString("Category"));
                 e.setName(rs.getString("Name"));
                 e.setPhone(rs.getString("Phone"));
-                e.setPassword(rs.getString("Password"));
+                
                 
                 
                 return e;
