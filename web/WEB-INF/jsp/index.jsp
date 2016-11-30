@@ -66,21 +66,23 @@
         <table>
             <tr>
                 <th>Id</th>
-                <th>Empoly_Id</th>
+                <th>Employee_Id</th>
                 <th>Age</th>
                 <th>Weight</th>
                 <th>Gender</th>
                 <th>Type</th>
+                
             </tr>
             
             <c:forEach var="livestock" items="${requestScope.livestockList}">
                 <tr>
                     <td>${livestock.Id}</td>
-                    <td>${ivestock.EmpolyeeId}</td>
+                    <td>${livestock.EmployeeId}</td>
                     <td>${livestock.age}</td>
                     <td>${livestock.weight}</td>
                     <td>${livestock.gender}</td>
-                    <td>${livestock.Type}</td>
+                    <td>${livestock.type}</td>
+                    
                 </tr>
             </c:forEach>
         </table>

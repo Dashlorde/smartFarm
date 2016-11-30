@@ -7,6 +7,7 @@ package com.smartFarm.controller;
 
 import com.smartFarm.DAO.LivestockDao;
 import com.smartFarm.DAO.userDao;
+import com.smartFarm.pojo.Cow;
 import com.smartFarm.pojo.Doctor;
 import com.smartFarm.pojo.Employee;
 import com.smartFarm.pojo.Livestock;
@@ -42,11 +43,26 @@ public class showLivestockController {
         for(Livestock l: livestockList){
             System.out.println(l.getId()+" "+l.getType());
         }
-        model.addAttribute(livestockList);
+        model.addAttribute("livestockList",livestockList);
         return "index";
-
         
     }
+    
+    @RequestMapping(value="/showAllCow.htm", method=RequestMethod.GET)
+    protected String showAllCow(Model model) throws Exception{
+        List<Cow> cowList;
+        
+        ModelAndView mv=new ModelAndView();
+        cowList=livestockDao.getAllCow();
+        for(Cow c: cowList){
+            System.out.println(c.getId()+" "+c.getType());
+        }
+        model.addAttribute(cowList);
+        return "index";
+        
+    }
+    
+    
 
     
 }
