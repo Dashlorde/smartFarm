@@ -9,8 +9,8 @@
 <div>
     <ul class="menu">
         <li><a href="logout.htm">log out</a></li>
-        <li><a href="addCow.htm">add Cow</a></li>
-        <li><a href="addPig.htm">add Pig</a></li>
+        <li><a href="showAllCow.htm">Cow</a></li>
+        <li><a href="showAllPig.htm">Pig</a></li>
         <li><a href="addLivestock.htm">add livestock</a></li>
     </ul>
 </div>

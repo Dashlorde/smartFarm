@@ -10,7 +10,7 @@ package com.smartFarm.pojo;
  * @author zhouyunlu
  */
 public class Livestock {
-    long Id, EmployeeId;
+    long id, employeeId;
     int age, weight;
     String gender, type;
     
@@ -19,19 +19,19 @@ public class Livestock {
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
-    public void setId(long Id) {
-        this.Id = Id;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getEmployeeId() {
-        return EmployeeId;
+        return employeeId;
     }
 
-    public void setEmployeeId(long EmployeeId) {
-        this.EmployeeId = EmployeeId;
+    public void setEmployeeId(long employeeId) {
+        this.employeeId = employeeId;
     }
 
     public int getAge() {

@@ -9,5 +9,6 @@
 <div>
     <ul class="menu">
         <li><a href="login.htm">Sign in</a></li>
+        <li><a href="admin.htm">Admin Login</a></li>
     </ul>
 </div>

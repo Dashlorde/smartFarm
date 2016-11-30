@@ -19,20 +19,20 @@ public class Cow extends Livestock{
      
     
     public long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(long id) {
-        this.Id = id;
+        this.id = id;
     }
     
     
     public long getEmployeeId(){
-        return EmployeeId;
+        return employeeId;
     }
     
     public void setEmployeeId(long id){
-        this.EmployeeId=id;
+        this.employeeId=id;
     }
     
     public int getAge() {

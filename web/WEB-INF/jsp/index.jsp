@@ -43,9 +43,22 @@
             
         }
         
+        th,td{
+            padding: 10px 15px;
+        }
+        
         table{
             width: 100%
         }
+        
+        #modify {
+            text-decoration: none; 
+            display: block;
+            color:black;
+            text-align: center;
+        }
+        
+       
         </style>
     </head>
     
@@ -71,27 +84,31 @@
                 <th>Weight</th>
                 <th>Gender</th>
                 <th>Type</th>
+                <th></th>
                 
             </tr>
             
             <c:forEach var="livestock" items="${requestScope.livestockList}">
                 <tr>
-                    <td>${livestock.Id}</td>
-                    <td>${livestock.EmployeeId}</td>
+                    <td>${livestock.id}</td>
+                    <td>${livestock.employeeId}</td>
                     <td>${livestock.age}</td>
                     <td>${livestock.weight}</td>
                     <td>${livestock.gender}</td>
                     <td>${livestock.type}</td>
+                    <td>
+                        <c:choose>
+                        <c:when test="${!empty sessionScope.employee}">
+                            <a href="modifyLivestock.htm?type=${livestock.type}" id="modify">detail</a>
+                        </c:when>
+                        </c:choose>
+                    </td>
                     
                 </tr>
             </c:forEach>
         </table>
     </body>
     
-    <div>
-    <ul class="menu">
-        <li><a href="admin.htm">Admin Login</a></li>
-    </ul>
-    </div>
+    
 
 </html>

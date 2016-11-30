@@ -12,15 +12,15 @@ import java.math.BigDecimal;
  * @author zhouyunlu
  */
 public class VitalSign {
-    long Id;
+    long id;
     BigDecimal temperature, bloodpressure, humidity;
 
     public long getId() {
-        return Id;
+        return id;
     }
 
-    public void setId(long Id) {
-        this.Id = Id;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public BigDecimal getTemperature() {

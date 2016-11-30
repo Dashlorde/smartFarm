@@ -27,9 +27,8 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="index.htm">indexController</prop>
                 <prop key="showAllLivestock.htm">showLivestockController</prop>
                 <prop key="showAllCow.htm">showLivestockController</prop>
-                <prop key="/addCow.htm">addLivestockController</prop>
-                <prop key="/addPig.htm">addLivestockController</prop>
-                <prop key="/addLivestock.htm">addLivestockController</prop>
+                <prop key="showAllPig.htm">showLivestockController</prop>
+                <prop key="addLivestock.htm">addLivestockController</prop>
                 <prop key="login.htm">loginController</prop>
                 <prop key="logout.htm">logoutController</prop>
                 

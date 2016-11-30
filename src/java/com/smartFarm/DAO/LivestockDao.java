@@ -79,7 +79,7 @@ public class LivestockDao extends DAO {
             
     }
     
-   //-----------------------------------modify cow----------------------------------------------
+   //------------------------------get cow, 不能直接添加cow, 从livestock添加, addCow method没有用----------------------------------------------
     
     
     public int addCow(Cow cow) throws SQLException{
@@ -115,13 +115,13 @@ public class LivestockDao extends DAO {
     }
     
     
-    public List<Cow> getAllCow( )throws SQLException{
-        List<Cow> cowList=null;
+    public List<Livestock> getAllCow( )throws SQLException{
+        List<Livestock> cowList=null;
         try{
             conn=getConnection();
             QueryRunner runner=new QueryRunner();
-            ResultSetHandler<List<Cow>> resultSetHandler=new BeanListHandler<>(Cow.class);
-            String query="select * from Cow";
+            ResultSetHandler<List<Livestock>> resultSetHandler=new BeanListHandler<>(Livestock.class);
+            String query="select * from Livestock where Type='cow'";
             cowList=runner.query(conn,query, resultSetHandler);
         }catch (SQLException ex) {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -134,16 +134,16 @@ public class LivestockDao extends DAO {
     }
     
     
-    //---------------------------------modify pig------------------------------------------------
+    //---------------------------------get pig------------------------------------------------
     
     
-    public List<Pig> getAllPig( )throws SQLException{
-        List<Pig> pigList=null;
+    public List<Livestock> getAllPig( )throws SQLException{
+        List<Livestock> pigList=null;
         try{
             conn=getConnection();
             QueryRunner runner=new QueryRunner();
-            ResultSetHandler<List<Pig>> resultSetHandler=new BeanListHandler<>(Pig.class);
-            String query="select * from Pig";
+            ResultSetHandler<List<Livestock>> resultSetHandler=new BeanListHandler<>(Livestock.class);
+            String query="select * from Livestock where Type='pig'";
             pigList=runner.query(conn,query, resultSetHandler);
         }catch (SQLException ex) {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);

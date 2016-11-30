@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class VaccineRecord {
     long vaccineId, livestockId;
-    Date lastVaccineDate, NextVaccineDate;
+    Date lastVaccineDate, nextVaccineDate;
 
     public long getVaccineId() {
         return vaccineId;
@@ -40,11 +40,11 @@ public class VaccineRecord {
     }
 
     public Date getNextVaccineDate() {
-        return NextVaccineDate;
+        return nextVaccineDate;
     }
 
-    public void setNextVaccineDate(Date NextVaccineDate) {
-        this.NextVaccineDate = NextVaccineDate;
+    public void setNextVaccineDate(Date nextVaccineDate) {
+        this.nextVaccineDate = nextVaccineDate;
     }
     
     
