@@ -56,10 +56,12 @@ public class loginController {
         if(character.equals("doctor")){
             
             Doctor doctor=userDao.verifyDoctor(name, password);
-            if(doctor!=null){
+            if (doctor != null) {
                 session.setAttribute("Id", doctor.getId());
-                session.setAttribute("Name", doctor.getName()); 
-                session.setAttribute("doctor", doctor);
+                session.setAttribute("Name", doctor.getName());
+                //session.setAttribute("doctor", doctor);
+                session.setAttribute("userType", "doctor");
+
                 return "redirect:/showAllLivestock.htm";
             }
             
@@ -76,7 +78,8 @@ public class loginController {
             if(employee!=null){
                 session.setAttribute("Id", employee.getId());
                 session.setAttribute("Name", employee.getName()); 
-                session.setAttribute("employee", employee);
+                //session.setAttribute("employee", employee);
+                session.setAttribute("userType", "employee");
                 return "redirect:/showAllLivestock.htm";
             }
             

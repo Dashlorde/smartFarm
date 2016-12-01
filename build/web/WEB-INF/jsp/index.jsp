@@ -63,10 +63,10 @@
     </head>
     
     <c:choose>
-        <c:when test="${!empty sessionScope.doctor}">
+        <c:when test="${sessionScope.userType=='doctor'}">
             <jsp:include page="menu2.jsp"/>
         </c:when>
-        <c:when test="${!empty sessionScope.employee}">
+        <c:when test="${sessionScope.userType=='employee'}">
             <jsp:include page="menu3.jsp"/>
         </c:when>
         <c:otherwise>
@@ -98,7 +98,7 @@
                     <td>${livestock.type}</td>
                     <td>
                         <c:choose>
-                        <c:when test="${!empty sessionScope.employee}">
+                        <c:when test="${sessionScope.userType=='employee'}">
                             <a href="modifyLivestock.htm?type=${livestock.type}" id="modify">detail</a>
                         </c:when>
                         </c:choose>
