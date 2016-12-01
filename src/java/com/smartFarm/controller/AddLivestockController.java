@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author zhouyunlu
  */
 @Controller
-public class addLivestockController {
+public class AddLivestockController {
     
     @Autowired
     LivestockDao livestockDao=new LivestockDao();

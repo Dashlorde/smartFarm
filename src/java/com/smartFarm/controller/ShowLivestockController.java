@@ -6,7 +6,7 @@
 package com.smartFarm.controller;
 
 import com.smartFarm.DAO.LivestockDao;
-import com.smartFarm.DAO.userDao;
+import com.smartFarm.DAO.UserDao;
 import com.smartFarm.pojo.Livestock;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -21,13 +21,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author zhouyunlu
  */
 @Controller
-public class showLivestockController {
+public class ShowLivestockController {
     
     @Autowired
     LivestockDao livestockDao=new LivestockDao();
     
     @Autowired 
-    userDao userDao=new userDao();
+    UserDao userDao=new UserDao();
     
     
     //list all the livestock

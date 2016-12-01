@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  *
  * @author zhouyunlu
  */
-public class userDao extends DAO{
+public class UserDao extends DAO{
     
     Connection conn;
     PreparedStatement ps;
@@ -44,7 +44,7 @@ public class userDao extends DAO{
                 return doc;
             }
         }catch(SQLException ex){
-            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             close(conn);
             rs.close();
@@ -73,7 +73,7 @@ public class userDao extends DAO{
                 return doc;
             }
         }catch(SQLException ex){
-            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             close(conn);
             rs.close();
@@ -103,7 +103,7 @@ public class userDao extends DAO{
                 return e;
             }
         }catch(SQLException ex){
-            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             close(conn);
             rs.close();
@@ -132,7 +132,7 @@ public class userDao extends DAO{
                 return e;
             }
         }catch(SQLException ex){
-            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             close(conn);
             rs.close();

@@ -31,7 +31,7 @@ public class EmployeeDao extends DAO{
         int Id=0;
         try{
             conn=getConnection();
-            String query ="insert into Livestock (Id, Name, Phone, Category) values(?,?,?,?)";
+            String query ="insert into Employee (Id, Name, Phone, Category) values(?,?,?,?)";
             ps=conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
             
             ps.setLong(1, employee.getId());
@@ -65,7 +65,7 @@ public class EmployeeDao extends DAO{
             String query="select * from Employee";
             employeeList=runner.query(conn,query, resultSetHandler);
         }catch (SQLException ex) {
-            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EmployeeDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
         }

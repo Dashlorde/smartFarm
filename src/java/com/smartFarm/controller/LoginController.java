@@ -6,7 +6,7 @@
 package com.smartFarm.controller;
 
 
-import com.smartFarm.DAO.userDao;
+import com.smartFarm.DAO.UserDao;
 import com.smartFarm.pojo.Doctor;
 import com.smartFarm.pojo.Employee;
 import javax.servlet.http.HttpServletRequest;
@@ -23,10 +23,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/login.htm")
-public class loginController {
+public class LoginController {
     
     @Autowired
-    userDao userDao;
+    UserDao userDao;
     
     
     @RequestMapping(method=RequestMethod.GET)

@@ -5,13 +5,49 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Employee Information</title>
     </head>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+            
+        }
+        
+        th,td{
+            padding: 10px 15px;
+        }
+        
+        table{
+            width: 100%
+        }
+    </style>
     <body>
-        <h1>Hello World!</h1>
+       <a href="addemployee.htm" >Add New Employee</a><br/><br/>
+       
+           <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Category</th>
+                   
+            </tr>
+            <c:forEach var="employee" items="${requestScope.employeeList}">
+                <tr>
+                    <td>${employee.id}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.phone}</td>
+                    <td>${employee.category}</td>
+                </tr>
+            </c:forEach>
+            </table>
+       
     </body>
 </html>
