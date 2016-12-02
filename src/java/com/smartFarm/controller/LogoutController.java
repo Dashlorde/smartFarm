@@ -23,6 +23,6 @@ public class LogoutController {
     protected String logout(HttpServletRequest request) throws Exception{
         HttpSession session=request.getSession();
         session.invalidate();
-        return "redirect:/showAllLivestock.htm";
+        return "redirect:/showAllCow.htm";
     }
 }

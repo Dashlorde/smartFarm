@@ -62,7 +62,7 @@ public class LoginController {
                 //session.setAttribute("doctor", doctor);
                 session.setAttribute("userType", "doctor");
 
-                return "redirect:/showAllLivestock.htm";
+                return "redirect:/showAllCow.htm";
             }
             
             else{
@@ -80,7 +80,7 @@ public class LoginController {
                 session.setAttribute("Name", employee.getName()); 
                 //session.setAttribute("employee", employee);
                 session.setAttribute("userType", "employee");
-                return "redirect:/showAllLivestock.htm";
+                return "redirect:/showAllCow.htm";
             }
             
             else{
