@@ -34,6 +34,8 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="addCow.htm">addLivestockController</prop>
                 <prop key="addPig.htm">addLivestockController</prop>
                 
+                <prop key="searchLivestock.htm">searchController</prop>
+                
                 <prop key="login.htm">loginController</prop>
                 <prop key="logout.htm">logoutController</prop>
                 <prop key="adminManagement.htm">loginController</prop>
@@ -67,6 +69,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean name="addLivestockController" class="com.smartFarm.controller.AddLivestockController"/>
     
     <bean name="employeeController" class="com.smartFarm.controller.EmployeeController"/>
+    <bean name="searchController" class="com.smartFarm.controller.SearchController"/>
         
     
           
