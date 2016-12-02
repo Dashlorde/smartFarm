@@ -15,6 +15,13 @@
         <form action="addCow.htm"  method="post" >
 
 <table>
+    
+<tr>
+	<td>Cow Id:</td>
+	<td><input type="text" name="id" size="30" /></td>
+	
+</tr>
+
 <tr>
 	<td>Employee Id:</td>
 	<td><input type="text" name="employeeId" size="30" /></td>
@@ -33,15 +40,9 @@
 	<td><input type="text" name="weight" size="30" /></td>
 </tr>
 
-<tr>
-	<td>Estrous Detection:</td>
-	<td><input type="text" name="estrousDetection" size="30" /></td>
-</tr>
 
-<tr>
-	<td>Milk Production:</td>
-	<td><input type="text" name="milkProduction" size="30" /></td>
-</tr>
+
+
 
 </table>
 

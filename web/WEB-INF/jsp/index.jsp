@@ -83,7 +83,7 @@
                 <th>Age</th>
                 <th>Weight</th>
                 <th>Gender</th>
-                <th>Type</th>
+                
                 <th></th>
                 
             </tr>
@@ -95,11 +95,11 @@
                     <td>${livestock.age}</td>
                     <td>${livestock.weight}</td>
                     <td>${livestock.gender}</td>
-                    <td>${livestock.type}</td>
+                    
                     <td>
                         <c:choose>
                         <c:when test="${sessionScope.userType=='employee'}">
-                            <a href="modifyLivestock.htm?type=${livestock.type}" id="modify">detail</a>
+                            <a href="modifyLivestock.htm?" id="modify">detail</a>
                         </c:when>
                         </c:choose>
                     </td>

@@ -12,9 +12,14 @@ import java.util.Date;
  * @author zhouyunlu
  */
 public class Sensor {
-    long id, livestockId;
+    static long id = 10000;
+    long livestockId;
     String read, type;
     Date time;
+    
+    public Sensor(){
+        id++;
+    }
 
     public long getId() {
         return id;

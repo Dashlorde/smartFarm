@@ -13,7 +13,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
     <bean id="livestockDao" class="com.smartFarm.DAO.LivestockDao"></bean>
-    <bean id="userDao" class="com.smartFarm.DAO.userDao"></bean>
+    <bean id="userDao" class="com.smartFarm.DAO.UserDao"></bean>
     <bean id="EmployeeDao" class="com.smartFarm.DAO.EmployeeDao"></bean>
 
     
@@ -29,11 +29,16 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="showAllLivestock.htm">showLivestockController</prop>
                 <prop key="showAllCow.htm">showLivestockController</prop>
                 <prop key="showAllPig.htm">showLivestockController</prop>
+                
                 <prop key="addLivestock.htm">addLivestockController</prop>
+                <prop key="addCow.htm">addLivestockController</prop>
+                <prop key="addPig.htm">addLivestockController</prop>
+                
                 <prop key="login.htm">loginController</prop>
                 <prop key="logout.htm">logoutController</prop>
                 <prop key="adminManagement.htm">loginController</prop>
-                
+                <prop key="manageemployee.htm">employeeController</prop>
+                <prop key="addemployee.htm">employeeController</prop>
             </props>
         </property>
     </bean>
@@ -50,16 +55,19 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
     
-    <bean name="loginController" class="com.smartFarm.controller.loginController">
+    <bean name="loginController" class="com.smartFarm.controller.LoginController">
         
     </bean>
     
-    <bean name="showLivestockController" class="com.smartFarm.controller.showLivestockController">
+    <bean name="showLivestockController" class="com.smartFarm.controller.ShowLivestockController">
         
     </bean>
     
-    <bean name="logoutController" class="com.smartFarm.controller.logoutController" />
-    <bean name="addLivestockController" class="com.smartFarm.controller.addLivestockController"/>
+    <bean name="logoutController" class="com.smartFarm.controller.LogoutController" />
+    <bean name="addLivestockController" class="com.smartFarm.controller.AddLivestockController"/>
+    
+    <bean name="employeeController" class="com.smartFarm.controller.EmployeeController"/>
+        
     
           
 

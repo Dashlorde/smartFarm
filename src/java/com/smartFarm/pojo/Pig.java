@@ -12,10 +12,39 @@ package com.smartFarm.pojo;
 public class Pig {
     long id;
     String estrousDetection;
+    int age, weight;
+    String gender;
+    long employeeId;
     
-    public Pig(){
+     public Pig(){
         
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    
 
     public long getId() {
         return id;
@@ -31,6 +60,14 @@ public class Pig {
 
     public void setEstrousDetection(String estrousDetection) {
         this.estrousDetection = estrousDetection;
+    }
+
+    public long getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(long employeeId) {
+        this.employeeId = employeeId;
     }
     
     

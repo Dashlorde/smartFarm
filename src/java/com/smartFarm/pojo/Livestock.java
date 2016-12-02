@@ -10,12 +10,13 @@ package com.smartFarm.pojo;
  * @author zhouyunlu
  */
 public class Livestock {
-    long id, employeeId;
+    static long id = 1000;
+    long employeeId;
     int age, weight;
     String gender, type;
     
     public Livestock(){
-        
+        id++;
     }
 
     public long getId() {

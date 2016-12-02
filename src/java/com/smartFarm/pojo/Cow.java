@@ -9,9 +9,12 @@ package com.smartFarm.pojo;
  *
  * @author zhouyunlu
  */
-public class Cow extends Livestock{
-    //public long Id;
+public class Cow {
+    long id;
     String milkProduction, estrousDetection;
+    long employeeId;
+    int age, weight;
+    String gender;
     
      public Cow(){
         
@@ -25,15 +28,17 @@ public class Cow extends Livestock{
     public void setId(long id) {
         this.id = id;
     }
-    
-    
-    public long getEmployeeId(){
+
+    public long getEmployeeId() {
         return employeeId;
     }
-    
-    public void setEmployeeId(long id){
-        this.employeeId=id;
+
+    public void setEmployeeId(long employeeId) {
+        this.employeeId = employeeId;
     }
+    
+    
+    
     
     public int getAge() {
         return age;
@@ -59,14 +64,7 @@ public class Cow extends Livestock{
        this.gender = gender;
     }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType() {
-        this.type ="Cow";
-    }
-
+   
 
     public String getMilkProduction() {
         return milkProduction;

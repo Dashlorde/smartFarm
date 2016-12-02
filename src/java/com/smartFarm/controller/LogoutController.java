@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/logout.htm")
-public class logoutController {
+public class LogoutController {
     
     @RequestMapping(method=RequestMethod.GET)
     protected String logout(HttpServletRequest request) throws Exception{

@@ -16,5 +16,6 @@
 	<a href="manageemployee.htm" target="contents">Manage Employee</a><br/><br/>
         <a href="manageuseraccount.htm" target="contents">Manage User Account</a><br/><br/>
 	<a href="managelivestock.htm" target="contents">Manage Livestock</a><br/><br/>
+        <a href="index.htm" >Log Out</a><br/><br/>
 </body>
 </html>
