@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class AddLivestockController {
-    public static int count=2000;////////adsffaewga
+    public static int count=1000;
     
     @Autowired
     LivestockDao livestockDao=new LivestockDao();
@@ -37,13 +37,13 @@ public class AddLivestockController {
     protected String doSubmitLivestock(HttpServletRequest request)throws Exception{
         Livestock livestock=new Livestock();
         
-        String a=request.getParameter("age").toString();
-        int age=Integer.parseInt(a);
-        String e=request.getParameter("employeeId").toString();
-        long employeeId=Long.parseLong(e);
-        String w=request.getParameter("weight").toString();
-        int weight=Integer.parseInt(w);
-        long id=livestock.getId();
+        String ageString=request.getParameter("age").toString();
+        int age=Integer.parseInt(ageString);
+        String employeeString=request.getParameter("employeeId").toString();
+        long employeeId=Long.parseLong(employeeString);
+        String weightString=request.getParameter("weight").toString();
+        int weight=Integer.parseInt(weightString);
+        
         
         livestock.setId(count++);
         livestock.setAge(age);
