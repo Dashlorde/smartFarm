@@ -16,8 +16,8 @@
         <h1>Welcome to Login our System!</h1>
         <form action="j_security_check" method="post">
             <table>
-                <tr><td>User name: <input type="text" name="j_username">
-                <tr><td>Password: <input type="password" name="j_password">
+                <tr><td>User name: </td><td><input type="text" name="j_username"></td>
+                <tr><td>Password: </td><td><input type="password" name="j_password"></td>
                 <tr><th><input type="submit" value="Log In">
             </table>
         </form>

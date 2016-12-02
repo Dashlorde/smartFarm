@@ -6,7 +6,7 @@
 package com.smartFarm.DAO;
 
 
-import com.smartFarm.pojo.Employee;
+import com.smartFarm.pojo.Doctor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,29 +20,28 @@ import java.util.logging.Logger;
  *
  * @author he.fa
  */
-public class EmployeeDao extends DAO{
+public class DoctorDao extends DAO{
     Connection conn;
     PreparedStatement ps;
     ResultSet rs;
-   
     
-    public void addEmployee(Employee employee) throws SQLException{
+    public void addDoctor(Doctor dorcor) throws SQLException{
        
         try{
             conn=getConnection();
-            String query ="insert into Employee values(?,?,?,?,?)";
+            String query ="insert into Doctor values(?,?,?,?,?)";
             ps=conn.prepareStatement(query);
             
-            ps.setLong(1, employee.getId());
-            ps.setString(2, employee.getName());
-            ps.setString(3, employee.getPhone());
-            ps.setString(4, employee.getCategory());
-            ps.setString(5, employee.getPassword());
+            ps.setLong(1, dorcor.getId());
+            ps.setString(2, dorcor.getName());
+            ps.setString(3, dorcor.getPhone());
+            ps.setString(4, dorcor.getSpeciaty());
+            ps.setString(5, dorcor.getPassword());
             
             ps.executeUpdate();
             
         } catch (SQLException ex) {
-            Logger.getLogger(EmployeeDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DoctorDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
             ps.close();
@@ -51,8 +50,8 @@ public class EmployeeDao extends DAO{
         
     }
     
-    public List<Employee> getAllEmployee( )throws SQLException{
-        List<Employee> employeeList = new ArrayList<>();
+    public List<Doctor> getAllEmployee( )throws SQLException{
+        List<Doctor> doctorList = new ArrayList<>();
         try{
             conn=getConnection();
             
@@ -60,21 +59,21 @@ public class EmployeeDao extends DAO{
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()){
-                Employee employee = new Employee();
-                employee.setId(rs.getLong("Id"));
-                employee.setName(rs.getString("Name"));
-                employee.setPhone(rs.getString("Phone"));
-                employee.setCategory(rs.getString("Category"));
-                employee.setPassword(rs.getString("Password"));
-                employeeList.add(employee);
+                Doctor doctor = new Doctor();
+                doctor.setId(rs.getLong("Id"));
+                doctor.setName(rs.getString("Name"));
+                doctor.setPhone(rs.getString("Phone"));
+                doctor.setSpeciaty(rs.getString("Speciaty"));
+                doctor.setPassword(rs.getString("Password"));
+                doctorList.add(doctor);
             } 
         }catch (SQLException ex) {
-            Logger.getLogger(EmployeeDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DoctorDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
         }
         
-        return employeeList;
+        return doctorList;
             
     }
 }

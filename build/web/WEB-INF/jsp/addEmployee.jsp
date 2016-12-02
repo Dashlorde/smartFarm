@@ -41,6 +41,11 @@
                         </select>
                     </td>
                 </tr>
+                
+                 <tr>
+                    <td>Password:</td>
+                    <td><input type="text" name="password" size="30" /></td>
+                </tr>
 
             </table>
 

@@ -37,6 +37,7 @@
                 <th>Name</th>
                 <th>Phone Number</th>
                 <th>Category</th>
+                <th>Password</th>
                    
             </tr>
             <c:forEach var="employee" items="${requestScope.employeeList}">
@@ -45,6 +46,7 @@
                     <td>${employee.name}</td>
                     <td>${employee.phone}</td>
                     <td>${employee.category}</td>
+                    <td>${employee.password}</td>
                 </tr>
             </c:forEach>
             </table>

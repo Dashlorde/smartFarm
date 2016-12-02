@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class EmployeeController {
     
+    public static long count = 10000;
+    //List<Employee> employeeList;
     @Autowired
     EmployeeDao employeeDao=new EmployeeDao();
     
@@ -44,21 +46,26 @@ public class EmployeeController {
     }
     
     @RequestMapping(value="/addemployee.htm", method=RequestMethod.POST)
-    protected String doSubmitLivestock(HttpServletRequest request)throws Exception{
+    protected String doSubmitLivestock(Model model,HttpServletRequest request)throws Exception{
         Employee employee = new Employee();
         
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
         String category = request.getParameter("category");
+        String password = request.getParameter("password");
         
-        
+        employee.setId(count++);
         employee.setName(name);
         employee.setPhone(phone);
         employee.setCategory(category);
+        employee.setPassword(password);
         
-        int id = employeeDao.addEmployee(employee);
+        employeeDao.addEmployee(employee);
         
-        return "redirect://manageEmployee.htm";
+        List<Employee> employeeList;
+        employeeList = employeeDao.getAllEmployee();
+        model.addAttribute(employeeList);
+        return "manageEmployee";
     }
     
 }
