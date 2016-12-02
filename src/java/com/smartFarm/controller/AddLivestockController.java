@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class AddLivestockController {
-    public static int count=2000;
+    public static int count=2000;////////adsffaewga
     
     @Autowired
     LivestockDao livestockDao=new LivestockDao();
