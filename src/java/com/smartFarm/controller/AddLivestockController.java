@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class AddLivestockController {
+    public static int count=2000;
     
     @Autowired
     LivestockDao livestockDao=new LivestockDao();
@@ -42,7 +43,7 @@ public class AddLivestockController {
         int weight=Integer.parseInt(w);
         long id=livestock.getId();
         
-        livestock.setId(id);
+        livestock.setId(count++);
         livestock.setAge(age);
         livestock.setEmployeeId(employeeId);
         
