@@ -24,26 +24,25 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
  * @author zhouyunlu
  */
 public class LivestockDao extends DAO {
-    
+
     Connection conn;
     PreparedStatement ps;
     ResultSet rs;
-    
+
     //----------------------------------modify livestock-----------------------------------------
-    
-    public void addLivestock(Livestock livestock) throws SQLException{
-        int Id=0;
-        try{
-            conn=getConnection();
-            String query ="insert into Livestock (Id, Employee_Id, Age, Weight, Gender, Type) values(?,?,?,?,?,?)";
-            ps=conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setLong(1,livestock.getId());
+    public void addLivestock(Livestock livestock) throws SQLException {
+        int Id = 0;
+        try {
+            conn = getConnection();
+            String query = "insert into Livestock (Id, Employee_Id, Age, Weight, Gender, Type) values(?,?,?,?,?,?)";
+            ps = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setLong(1, livestock.getId());
             ps.setLong(2, livestock.getEmployeeId());
             ps.setInt(3, livestock.getAge());
             ps.setInt(4, livestock.getWeight());
             ps.setString(5, livestock.getGender());
             ps.setString(6, livestock.getType());
-            
+
             ps.executeUpdate();
             //int result = ps.executeUpdate();
             /*if (result > 0) {
@@ -52,50 +51,48 @@ public class LivestockDao extends DAO {
                 Id = rs.getInt(1);
                 return Id;
             }
-*/
+             */
         } catch (SQLException ex) {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
             ps.close();
-            
+
         }
-       // return Id;
+        // return Id;
     }
-    
-    public List<Livestock> getAllLivestock( )throws SQLException{
-        List<Livestock> livestockList=null;
-        try{
-            conn=getConnection();
-            QueryRunner runner=new QueryRunner();
-            ResultSetHandler<List<Livestock>> resultSetHandler=new BeanListHandler<>(Livestock.class);
-            String query="select * from Livestock";
-            livestockList=runner.query(conn,query, resultSetHandler);
-        }catch (SQLException ex) {
+
+    public List<Livestock> getAllLivestock() throws SQLException {
+        List<Livestock> livestockList = null;
+        try {
+            conn = getConnection();
+            QueryRunner runner = new QueryRunner();
+            ResultSetHandler<List<Livestock>> resultSetHandler = new BeanListHandler<>(Livestock.class);
+            String query = "select * from Livestock";
+            livestockList = runner.query(conn, query, resultSetHandler);
+        } catch (SQLException ex) {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
         }
-        
+
         return livestockList;
-            
+
     }
-    
-   //------------------------------get cow----------------------------------------------
-    
-    
-    public void addCow(Cow cow) throws SQLException{
-        
-        try{
-            conn=getConnection();
-            String query ="insert into Cow (Id,Employee_Id, Age, Weight, Gender) values(?,?,?,?,?)";
-            ps=conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+
+    //------------------------------get cow----------------------------------------------
+    public void addCow(Cow cow) throws SQLException {
+
+        try {
+            conn = getConnection();
+            String query = "insert into Cow (Id,Employee_Id, Age, Weight, Gender) values(?,?,?,?,?)";
+            ps = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setLong(1, cow.getId());
             ps.setLong(2, cow.getEmployeeId());
             ps.setInt(3, cow.getAge());
             ps.setInt(4, cow.getWeight());
             ps.setString(5, cow.getGender());
-            
+
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -104,72 +101,66 @@ public class LivestockDao extends DAO {
             ps.close();
         }
     }
-    
-    
-    public List<Livestock> getAllCow( )throws SQLException{
-        List<Livestock> cowList=null;
-        try{
-            conn=getConnection();
-            QueryRunner runner=new QueryRunner();
-            ResultSetHandler<List<Livestock>> resultSetHandler=new BeanListHandler<>(Livestock.class);
+
+    public List<Cow> getAllCow() throws SQLException {
+        List<Cow> cowList = null;
+        try {
+            conn = getConnection();
+            QueryRunner runner = new QueryRunner();
+            ResultSetHandler<List<Cow>> resultSetHandler = new BeanListHandler<>(Cow.class);
             //String query="select * from Livestock where Type='cow'";
-            String query="select * from Cow";
-            cowList=runner.query(conn,query, resultSetHandler);
-        }catch (SQLException ex) {
+            String query = "select * from Cow";
+            cowList = runner.query(conn, query, resultSetHandler);
+        } catch (SQLException ex) {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
         }
-        
+
         return cowList;
-            
+
     }
-    
-    
+
     //---------------------------------get pig------------------------------------------------
-    
-    
-    public void addPig(Pig pig) throws SQLException{
-        
-        try{
-            conn=getConnection();
-            String query ="insert into Pig (Id, Employee_Id, Age, Weight, Gender) values(?,?,?,?,?)";
-            ps=conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+    public void addPig(Pig pig) throws SQLException {
+
+        try {
+            conn = getConnection();
+            String query = "insert into Pig (Id, Employee_Id, Age, Weight, Gender) values(?,?,?,?,?)";
+            ps = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setLong(1, pig.getId());
             ps.setLong(2, pig.getEmployeeId());
             ps.setInt(3, pig.getAge());
             ps.setInt(4, pig.getWeight());
             ps.setString(5, pig.getGender());
-            
-            
+
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
             ps.close();
-            
+
         }
-       
+
     }
-    
-    
-    public List<Livestock> getAllPig( )throws SQLException{
-        List<Livestock> pigList=null;
-        try{
-            conn=getConnection();
-            QueryRunner runner=new QueryRunner();
-            ResultSetHandler<List<Livestock>> resultSetHandler=new BeanListHandler<>(Livestock.class);
+
+    public List<Pig> getAllPig() throws SQLException {
+        List<Pig> pigList = null;
+        try {
+            conn = getConnection();
+            QueryRunner runner = new QueryRunner();
+            ResultSetHandler<List<Pig>> resultSetHandler = new BeanListHandler<>(Pig.class);
             //String query="select * from Livestock where Type='pig'";
-            String query="select * from Pig";
-            pigList=runner.query(conn,query, resultSetHandler);
-        }catch (SQLException ex) {
+            String query = "select * from Pig";
+            pigList = runner.query(conn, query, resultSetHandler);
+        } catch (SQLException ex) {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
         }
-        
+
         return pigList;
-            
+
     }
 }

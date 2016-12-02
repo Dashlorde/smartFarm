@@ -7,7 +7,9 @@ package com.smartFarm.controller;
 
 import com.smartFarm.DAO.LivestockDao;
 import com.smartFarm.DAO.UserDao;
+import com.smartFarm.pojo.Cow;
 import com.smartFarm.pojo.Livestock;
+import com.smartFarm.pojo.Pig;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +40,7 @@ public class ShowLivestockController {
         for(Livestock l: livestockList){
             System.out.println(l.getId()+" "+l.getType());
         }
-        model.addAttribute(livestockList);
+        model.addAttribute("livestockList",livestockList);
         return "index";
         
     }
@@ -46,13 +48,13 @@ public class ShowLivestockController {
     //list all the cow
     @RequestMapping(value="/showAllCow.htm", method=RequestMethod.GET)
     protected String showAllCow(Model model) throws Exception{
-        List<Livestock> cowList;
+        List<Cow> cowList;
         
         cowList=livestockDao.getAllCow();
-        for(Livestock c: cowList){
+        for(Cow c: cowList){
             System.out.println(c.getId());
         }
-        model.addAttribute(cowList);
+        model.addAttribute("livestockList",cowList);
         return "index";
         
     }
@@ -60,13 +62,13 @@ public class ShowLivestockController {
     //list all the pig
     @RequestMapping(value="/showAllPig.htm", method=RequestMethod.GET)
     protected String showAllPig(Model model) throws Exception{
-        List<Livestock> pigList;
+        List<Pig> pigList;
         
         pigList=livestockDao.getAllPig();
-        for(Livestock p: pigList){
+        for(Pig p: pigList){
             System.out.println(p.getId());
         }
-        model.addAttribute(pigList);
+        model.addAttribute("livestockList",pigList);
         return "index";
         
     }
