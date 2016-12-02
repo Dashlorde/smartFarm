@@ -38,13 +38,13 @@
         
         .form{
             position: absolute;
-            top: 40px;
+            top: 60px;
             width:50%;
         }
         
          table{
             position: absolute;
-            top:80px;
+            top:100px;
             width: 100%
         }
         
@@ -135,7 +135,7 @@
                     <td>
                         <c:choose>
                         <c:when test="${sessionScope.userType=='employee'}">
-                            <a href="modifyLivestock.htm?type=${requestScope.livestockType}" id="modify">detail</a>
+                            <a href="modifyLivestock.htm?type=${requestScope.livestockType}&id=${livestock.id}" id="modify">modify</a>
                         </c:when>
                         </c:choose>
                     </td>

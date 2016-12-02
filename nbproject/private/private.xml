@@ -6,9 +6,11 @@
             <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/AddLivestockController.java</file>
             <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/LogoutController.java</file>
             <file>file:/Users/zhouyunlu/smartFarm/web/redirect.jsp</file>
-            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/EmployeeController.java</file>
-            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/LoginController.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/dispatcher-servlet.xml</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/DAO/LivestockDao.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/jsp/index.jsp</file>
             <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/ShowLivestockController.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/LoginController.java</file>
         </group>
     </open-files>
 </project-private>
