@@ -130,7 +130,8 @@ public class LivestockDao extends DAO {
         } catch (SQLException ex) {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            close(conn);
+            rs.close();
+            //close(conn);
         }
 
         return cowList;
@@ -161,6 +162,7 @@ public class LivestockDao extends DAO {
         } catch (SQLException ex) {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
+            rs.close();
             close(conn);
         }
 
@@ -191,6 +193,7 @@ public class LivestockDao extends DAO {
         } catch (SQLException ex) {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
+            rs.close();
             close(conn);
         }
 
@@ -222,10 +225,50 @@ public class LivestockDao extends DAO {
             Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
+            rs.close();
+
         }
 
         return cowList;
 
+    }
+
+    public void updateCowEmployeeId(long id, long employeeId) throws SQLException {
+        try {
+            conn = getConnection();
+            String query = "update Cow set Employee_Id = ? where Id = ?";
+            ps = conn.prepareStatement(query);
+            ps.setLong(1, employeeId);
+            ps.setLong(2, id);
+
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+
+            close(conn);
+        }
+    }
+
+    public void updateCowWeight(long id, int weight) throws SQLException {
+        try {
+            conn = getConnection();
+            
+            String query = "update Cow set Weight = ? where Id = ?";
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, weight);
+            ps.setLong(2, id);
+
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ps.close();
+            
+
+        }
     }
 
     //---------------------------------get pig------------------------------------------------
@@ -370,5 +413,37 @@ public class LivestockDao extends DAO {
 
         return pigList;
 
+    }
+
+    public void updatePigEmployeeId(long id, long employeeId) throws SQLException {
+        try {
+            conn = getConnection();
+            String query = "update Pig set Employee_Id=? where Id=?";
+            ps = conn.prepareStatement(query);
+            ps.setLong(1, employeeId);
+            ps.setLong(2, id);
+
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+        }
+    }
+
+    public void updatePigWeight(long id, int weight) throws SQLException {
+        try {
+            conn = getConnection();
+            String query = "update Pig set Weight=? where Id=?";
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, weight);
+            ps.setLong(2, id);
+
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+        }
     }
 }

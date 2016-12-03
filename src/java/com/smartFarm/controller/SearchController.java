@@ -52,6 +52,7 @@ public class SearchController {
             }
             
             model.addAttribute("livestockList", cowList);
+            model.addAttribute("livestockType", "cow");
         }
         
         else if(type.equals("pig")){
@@ -70,6 +71,7 @@ public class SearchController {
             }
             
             model.addAttribute("livestockList", pigList);
+            model.addAttribute("livestockType", "pig");
         
     }
         
