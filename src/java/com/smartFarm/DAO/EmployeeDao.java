@@ -27,11 +27,11 @@ public class EmployeeDao extends DAO{
    
     
     public void addEmployee(Employee employee) throws SQLException{
-       
         try{
             conn=getConnection();
             String query ="insert into Employee values(?,?,?,?,?)";
             ps=conn.prepareStatement(query);
+            System.out.println(query);
             
             ps.setLong(1, employee.getId());
             ps.setString(2, employee.getName());
@@ -40,6 +40,7 @@ public class EmployeeDao extends DAO{
             ps.setString(5, employee.getPassword());
             
             ps.executeUpdate();
+           // return ps.toString();
             
         } catch (SQLException ex) {
             Logger.getLogger(EmployeeDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,7 +49,7 @@ public class EmployeeDao extends DAO{
             ps.close();
            
         }
-        
+       // return null;
     }
     
     public List<Employee> getAllEmployee( )throws SQLException{

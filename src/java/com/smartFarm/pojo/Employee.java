@@ -10,7 +10,7 @@ package com.smartFarm.pojo;
  * @author zhouyunlu
  */
 public class Employee {
-    static long id;
+    long id;
     String name, phone, category;
     String password;
     

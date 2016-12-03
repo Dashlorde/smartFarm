@@ -15,6 +15,8 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean id="livestockDao" class="com.smartFarm.DAO.LivestockDao"></bean>
     <bean id="userDao" class="com.smartFarm.DAO.UserDao"></bean>
     <bean id="EmployeeDao" class="com.smartFarm.DAO.EmployeeDao"></bean>
+    <bean id="DoctorDao" class="com.smartFarm.DAO.DoctorDao"></bean>
+    
 
     
     <!--
@@ -41,6 +43,12 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="adminManagement.htm">loginController</prop>
                 <prop key="manageemployee.htm">employeeController</prop>
                 <prop key="addemployee.htm">employeeController</prop>
+                
+                <prop key="managedoctor.htm">doctorController</prop>
+                <prop key="adddoctor.htm">doctorController</prop>
+               
+                
+                
             </props>
         </property>
     </bean>
@@ -70,6 +78,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     
     <bean name="employeeController" class="com.smartFarm.controller.EmployeeController"/>
     <bean name="searchController" class="com.smartFarm.controller.SearchController"/>
+    <bean name="doctorController" class="com.smartFarm.controller.DoctorController"/>
         
     
           

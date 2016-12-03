@@ -1,6 +1,6 @@
 <%-- 
-    Document   : manageEmployee
-    Created on : Nov 29, 2016, 10:44:04 PM
+    Document   : manageDoctor
+    Created on : Dec 2, 2016, 3:12:00 PM
     Author     : he.fa
 --%>
 
@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Employee Information</title>
+        <title>Doctor Information</title>
     </head>
     <style>
         table, th, td{
@@ -29,27 +29,27 @@
         }
     </style>
     <body>
-       <a href="addemployee.htm" >Add New Employee</a><br/><br/>
+       <a href="adddoctor.htm" >Add New Doctor</a><br/><br/>
        
            <table>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Phone Number</th>
-                <th>Category</th>
+                <th>Specialty</th>
                 <th>Password</th>
                    
             </tr>
-            <c:forEach var="employee" items="${requestScope.employeeList}">
+            <c:forEach var="doctor" items="${requestScope.doctorList}">
                 <tr>
-                    <td>${employee.id}</td>
-                    <td>${employee.name}</td>
-                    <td>${employee.phone}</td>
-                    <td>${employee.category}</td>
-                    <td>${employee.password}</td>
+                    <td>${doctor.id}</td>
+                    <td>${doctor.name}</td>
+                    <td>${doctor.phone}</td>
+                    <td>${doctor.speciaty}</td>
+                    <td>${doctor.password}</td>
                 </tr>
             </c:forEach>
             </table>
-       <!--<h1>${requestScope.test}</h1>-->
+       
     </body>
 </html>

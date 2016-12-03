@@ -50,12 +50,12 @@ public class DoctorDao extends DAO{
         
     }
     
-    public List<Doctor> getAllEmployee( )throws SQLException{
+    public List<Doctor> getAllDoctor( )throws SQLException{
         List<Doctor> doctorList = new ArrayList<>();
         try{
             conn=getConnection();
             
-            String query="select * from Employee";
+            String query="select * from Doctor";
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()){
