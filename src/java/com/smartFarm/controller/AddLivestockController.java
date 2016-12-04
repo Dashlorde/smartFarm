@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class AddLivestockController {
-    public static int count=2000;////////adsffaewga
+    public static int count=1000;
     
     @Autowired
     LivestockDao livestockDao=new LivestockDao();
+    
+    //----------------------------add livestock-------------------------------------------------
     
     @RequestMapping(value="/addLivestock.htm", method=RequestMethod.GET)
     protected String getAddLivestockPage(){
@@ -35,13 +37,13 @@ public class AddLivestockController {
     protected String doSubmitLivestock(HttpServletRequest request)throws Exception{
         Livestock livestock=new Livestock();
         
-        String a=request.getParameter("age").toString();
-        int age=Integer.parseInt(a);
-        String e=request.getParameter("employeeId").toString();
-        long employeeId=Long.parseLong(e);
-        String w=request.getParameter("weight").toString();
-        int weight=Integer.parseInt(w);
-        long id=livestock.getId();
+        String ageString=request.getParameter("age").toString();
+        int age=Integer.parseInt(ageString);
+        String employeeString=request.getParameter("employeeId").toString();
+        long employeeId=Long.parseLong(employeeString);
+        String weightString=request.getParameter("weight").toString();
+        int weight=Integer.parseInt(weightString);
+        
         
         livestock.setId(count++);
         livestock.setAge(age);
@@ -53,8 +55,7 @@ public class AddLivestockController {
         livestock.setType(request.getParameter("type"));
         
         livestockDao.addLivestock(livestock);
-        //int livestockId=livestockDao.addLivestock(livestock);
-        //livestock.setId(livestockId);
+        
         return "redirect://showAllLivestock.htm";
     }
     
@@ -68,18 +69,16 @@ public class AddLivestockController {
     protected String doSubmitCow(HttpServletRequest request) throws Exception{
         Cow cow=new Cow();
         
-        String a=request.getParameter("age").toString();
-        int age=Integer.parseInt(a);
-        String e=request.getParameter("employeeId").toString();
-        long employeeId=Long.parseLong(e);
-        String w=request.getParameter("weight").toString();
-        int weight=Integer.parseInt(w);
-        String i=request.getParameter("id");
-        long id=Long.parseLong(i);
+        String ageString=request.getParameter("age").toString();
+        int age=Integer.parseInt(ageString);
+        String employeeIdString=request.getParameter("employeeId").toString();
+        long employeeId=Long.parseLong(employeeIdString);
+        String weightString=request.getParameter("weight").toString();
+        int weight=Integer.parseInt(weightString);
         
         cow.setAge(age);
         cow.setEmployeeId(employeeId);
-        cow.setId(id);
+        cow.setId(count++);
         cow.setGender("cow");
         
         cow.setWeight(weight);
@@ -99,19 +98,18 @@ public class AddLivestockController {
     protected String doSubmitPig(HttpServletRequest request) throws Exception{
         Pig pig=new Pig();
         
-        String a=request.getParameter("age").toString();
-        int age=Integer.parseInt(a);
-        String e=request.getParameter("employeeId").toString();
-        long employeeId=Long.parseLong(e);
-        String w=request.getParameter("weight").toString();
-        int weight=Integer.parseInt(w);
-        String i=request.getParameter("id");
-        long id=Long.parseLong(i);
+        String ageString=request.getParameter("age").toString();
+        int age=Integer.parseInt(ageString);
+        String employeeIdString=request.getParameter("employeeId").toString();
+        long employeeId=Long.parseLong(employeeIdString);
+        String weightString=request.getParameter("weight").toString();
+        int weight=Integer.parseInt(weightString);
+        
         String gender=request.getParameter("gender");
         
         pig.setAge(age);
         pig.setEmployeeId(employeeId);
-        pig.setId(id);
+        pig.setId(count++);
         pig.setGender(gender);
         
         pig.setWeight(weight);

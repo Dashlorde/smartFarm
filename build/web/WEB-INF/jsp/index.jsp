@@ -36,10 +36,23 @@
             color:white;
         }
         
+        .form{
+            position: absolute;
+            top: 60px;
+            width:50%;
+        }
+        
+         table{
+            position: absolute;
+            top:100px;
+            width: 100%
+        }
+        
         table, th, td{
             border: 1px solid black;
             text-align: center;
             border-collapse: collapse;
+           
             
         }
         
@@ -47,9 +60,7 @@
             padding: 10px 15px;
         }
         
-        table{
-            width: 100%
-        }
+        
         
         #modify {
             text-decoration: none; 
@@ -62,6 +73,12 @@
         </style>
     </head>
     
+    
+            
+
+    <body>
+        
+    <div>
     <c:choose>
         <c:when test="${sessionScope.userType=='doctor'}">
             <jsp:include page="menu2.jsp"/>
@@ -74,8 +91,25 @@
         </c:otherwise>
         
     </c:choose>
-
-    <body>
+    </div>
+     
+        <div class="form">
+        
+        <form action="searchLivestock.htm?type=${requestScope.livestockType}" method="post">
+                <input type="text" name="search" />
+                 search by: 
+                 <select name="option">
+                            <option value="id">id</option>
+                            <option value="employeeId">employeeId</option>
+                            <option value="age">age</option>
+                            
+                  </select>
+                <input type="submit" value="search"/>
+        </form>
+            
+        </div>
+        
+       
         <table>
             <tr>
                 <th>Id</th>
@@ -88,6 +122,8 @@
                 
             </tr>
             
+            
+            
             <c:forEach var="livestock" items="${requestScope.livestockList}">
                 <tr>
                     <td>${livestock.id}</td>
@@ -99,7 +135,7 @@
                     <td>
                         <c:choose>
                         <c:when test="${sessionScope.userType=='employee'}">
-                            <a href="modifyLivestock.htm?" id="modify">detail</a>
+                            <a href="modifyLivestock.htm?type=${requestScope.livestockType}&id=${livestock.id}" id="modify">modify</a>
                         </c:when>
                         </c:choose>
                     </td>
@@ -107,6 +143,8 @@
                 </tr>
             </c:forEach>
         </table>
+       
+        
     </body>
     
     

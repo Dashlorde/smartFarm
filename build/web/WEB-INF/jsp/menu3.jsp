@@ -11,7 +11,7 @@
         <li><a href="logout.htm">log out</a></li>
         <li><a href="showAllCow.htm">Cow</a></li>
         <li><a href="showAllPig.htm">Pig</a></li>
-        <li><a href="addLivestock.htm">add livestock</a></li>
+        
         <li><a href="addCow.htm">add cow</a></li>
         <li><a href="addPig.htm">add pig</a></li>
     </ul>

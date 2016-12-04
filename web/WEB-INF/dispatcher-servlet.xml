@@ -9,12 +9,14 @@ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/context  
 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     
-    <context:component-scan base-package="com.smartFarm"/> 
+    <!--<context:component-scan base-package="com.smartFarm"/> -->
 
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
     <bean id="livestockDao" class="com.smartFarm.DAO.LivestockDao"></bean>
     <bean id="userDao" class="com.smartFarm.DAO.UserDao"></bean>
     <bean id="EmployeeDao" class="com.smartFarm.DAO.EmployeeDao"></bean>
+    <bean id="DoctorDao" class="com.smartFarm.DAO.DoctorDao"></bean>
+    
 
     
     <!--
@@ -34,11 +36,20 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="addCow.htm">addLivestockController</prop>
                 <prop key="addPig.htm">addLivestockController</prop>
                 
+                <prop key="searchLivestock.htm">searchController</prop>
+                <prop key="modifyLivestock.htm">modifyLivestockController</prop>
+                
                 <prop key="login.htm">loginController</prop>
                 <prop key="logout.htm">logoutController</prop>
                 <prop key="adminManagement.htm">loginController</prop>
                 <prop key="manageemployee.htm">employeeController</prop>
                 <prop key="addemployee.htm">employeeController</prop>
+                
+                <prop key="managedoctor.htm">doctorController</prop>
+                <prop key="adddoctor.htm">doctorController</prop>
+               
+                
+                
             </props>
         </property>
     </bean>
@@ -67,6 +78,12 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean name="addLivestockController" class="com.smartFarm.controller.AddLivestockController"/>
     
     <bean name="employeeController" class="com.smartFarm.controller.EmployeeController"/>
+    <bean name="searchController" class="com.smartFarm.controller.SearchController"/>
+<<<<<<< HEAD
+    <bean name="doctorController" class="com.smartFarm.controller.DoctorController"/>
+=======
+    <bean name="modifyLivestockController" class="com.smartFarm.controller.ModifyLivestockController"/>
+>>>>>>> e24fb49f369a1e6f6f0a7bbf13f4509cc30ddcee
         
     
           

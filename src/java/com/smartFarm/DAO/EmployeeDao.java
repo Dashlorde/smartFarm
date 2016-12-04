@@ -11,12 +11,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.ResultSetHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 /**
  *
@@ -26,44 +24,51 @@ public class EmployeeDao extends DAO{
     Connection conn;
     PreparedStatement ps;
     ResultSet rs;
+   
     
-    public int addEmployee(Employee employee) throws SQLException{
-        int Id=0;
+    public void addEmployee(Employee employee) throws SQLException{
         try{
             conn=getConnection();
-            String query ="insert into Employee (Id, Name, Phone, Category) values(?,?,?,?)";
-            ps=conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+            String query ="insert into Employee values(?,?,?,?,?)";
+            ps=conn.prepareStatement(query);
+            System.out.println(query);
             
             ps.setLong(1, employee.getId());
             ps.setString(2, employee.getName());
             ps.setString(3, employee.getPhone());
             ps.setString(4, employee.getCategory());
+            ps.setString(5, employee.getPassword());
             
-            int result = ps.executeUpdate();
-            if (result > 0) {
-                rs = ps.getGeneratedKeys();
-                rs.next();
-                Id = rs.getInt(1);
-                return Id;
-            }
+            ps.executeUpdate();
+           // return ps.toString();
+            
         } catch (SQLException ex) {
-            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EmployeeDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
             ps.close();
-            rs.close();
+           
         }
-        return Id;
+       // return null;
     }
     
     public List<Employee> getAllEmployee( )throws SQLException{
-        List<Employee> employeeList=null;
+        List<Employee> employeeList = new ArrayList<>();
         try{
             conn=getConnection();
-            QueryRunner runner=new QueryRunner();
-            ResultSetHandler<List<Employee>> resultSetHandler=new BeanListHandler<>(Employee.class);
+            
             String query="select * from Employee";
-            employeeList=runner.query(conn,query, resultSetHandler);
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                Employee employee = new Employee();
+                employee.setId(rs.getLong("Id"));
+                employee.setName(rs.getString("Name"));
+                employee.setPhone(rs.getString("Phone"));
+                employee.setCategory(rs.getString("Category"));
+                employee.setPassword(rs.getString("Password"));
+                employeeList.add(employee);
+            } 
         }catch (SQLException ex) {
             Logger.getLogger(EmployeeDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

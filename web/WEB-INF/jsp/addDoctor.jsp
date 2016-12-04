@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addEmployee
-    Created on : Nov 30, 2016, 11:00:33 PM
+    Document   : addDoctor
+    Created on : Dec 2, 2016, 3:12:41 PM
     Author     : he.fa
 --%>
 
@@ -9,10 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add New Employee</title>
+        <title>Add New Doctor</title>
     </head>
     <body>
-        <form action="addemployee.htm"  method="post" >
+        <form action="adddoctor.htm"  method="post" >
 
             <table>
                 <!--<tr>
@@ -34,12 +34,8 @@
                 </tr>
 
                 <tr>
-                    <td>Category:</td>
-                    <td><select name = "category">
-                            <option value="cow">Cow</option>
-                            <option value="pig">Pig</option>
-                        </select>
-                    </td>
+                    <td>Specialty:</td>
+                    <td><input type="text" name="speciaty" size="30" /></td>
                 </tr>
                 
                  <tr>
@@ -49,7 +45,7 @@
 
             </table>
 
-            <input type="submit" value="Add Employee" id="submit"> <br/>
+            <input type="submit" value="Add Doctor" id="submit"> <br/>
 
         </form>
     </body>

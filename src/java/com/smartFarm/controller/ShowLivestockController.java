@@ -41,6 +41,7 @@ public class ShowLivestockController {
             System.out.println(l.getId()+" "+l.getType());
         }
         model.addAttribute("livestockList",livestockList);
+       
         return "index";
         
     }
@@ -55,6 +56,7 @@ public class ShowLivestockController {
             System.out.println(c.getId());
         }
         model.addAttribute("livestockList",cowList);
+         model.addAttribute("livestockType", "cow");
         return "index";
         
     }
@@ -69,6 +71,7 @@ public class ShowLivestockController {
             System.out.println(p.getId());
         }
         model.addAttribute("livestockList",pigList);
+        model.addAttribute("livestockType", "pig");
         return "index";
         
     }

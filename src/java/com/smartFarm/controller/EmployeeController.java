@@ -23,42 +23,50 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class EmployeeController {
     
+    public static long count = 10000;
+    
+    private List<Employee> employeeList;
     @Autowired
     EmployeeDao employeeDao=new EmployeeDao();
     
     @RequestMapping(value="/manageemployee.htm", method=RequestMethod.GET)
     public String handleRequest(Model model,HttpServletRequest hsr) throws Exception{
-        List<Employee> employeeList;
         employeeList = employeeDao.getAllEmployee();
-        for(Employee employee: employeeList){
-            System.out.println(employee.getId()+" "+employee.getName());
-        }
         model.addAttribute(employeeList);
+        //hsr.setAttribute("test", "get method");
         return "manageEmployee";
         
     }
     
     @RequestMapping(value="/addemployee.htm", method=RequestMethod.GET)
-    protected String getAddLivestockPage(){
+    protected String getAddEmployeePage(){
         return "addEmployee";
     }
     
     @RequestMapping(value="/addemployee.htm", method=RequestMethod.POST)
-    protected String doSubmitLivestock(HttpServletRequest request)throws Exception{
+    protected String doSubmitEmployee(Model model,HttpServletRequest request)throws Exception{
+        count = 10000 + employeeList.size();
+        
         Employee employee = new Employee();
         
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
         String category = request.getParameter("category");
+        String password = request.getParameter("password");
         
+        employeeList.add(employee);
         
+        long id = count++;
+        employee.setId(id);
         employee.setName(name);
         employee.setPhone(phone);
         employee.setCategory(category);
-        
-        int id = employeeDao.addEmployee(employee);
-        
-        return "redirect://manageEmployee.htm";
+        employee.setPassword(password);
+        //String q = 
+        employeeDao.addEmployee(employee);
+        //request.setAttribute("test", "post method");
+        model.addAttribute(employeeList);
+        return "manageEmployee";
     }
     
 }

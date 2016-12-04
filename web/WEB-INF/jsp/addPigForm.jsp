@@ -16,11 +16,7 @@
 
 <table>
     
-<tr>
-	<td>Pig Id:</td>
-	<td><input type="text" name="id" size="30" /></td>
-	
-</tr>
+
 
 <tr>
 	<td>Employee Id:</td>
