@@ -127,8 +127,6 @@ public class UserDao extends DAO{
                 e.setName(rs.getString("Name"));
                 e.setPhone(rs.getString("Phone"));
                 
-                
-                
                 return e;
             }
         }catch(SQLException ex){
