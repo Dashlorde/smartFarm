@@ -77,4 +77,35 @@ public class DiseaseDao extends DAO {
         return diseaseList;
             
     }
+    
+    public Disease getDiseaseById(long id) throws SQLException {
+        Disease disease = new Disease();
+
+        try {
+            conn = getConnection();
+
+            String query = "select * from Disease where Id=?";
+
+            ps = conn.prepareStatement(query);
+            ps.setLong(1,id);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+               
+                disease.setId(rs.getLong("Id"));
+                disease.setName(rs.getString("Name"));
+                disease.setDescription(rs.getString("Description"));
+                disease.setCure(rs.getString("Cure"));
+                disease.setRegion(rs.getString("Region"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DiseaseDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            rs.close();
+            close(conn);
+        }
+
+        return disease;
+
+    }
 }

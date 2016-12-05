@@ -125,7 +125,7 @@
                         <th>${diseasehistory.diseaseId}</th>
                         <th>${diseasehistory.doctorId}</th>
                         <th>${diseasehistory.curedOrNot}</th>
-                        <th><a href="diseaseditail.htm?id=${diseasehistory.livestockId}" id="detail">detail</a></th>
+                        <th><a href="doctorseelivestockdiseasedetail.htm?livestock_id=${diseasehistory.livestockId}&disease_id=${diseasehistory.diseaseId}" id="detail">detail</a></th>
                     
                     </tr>
                 </c:forEach>
