@@ -35,11 +35,22 @@ public class TempSensorDao extends DAO {
     Statement stmt;
     ResultSet rs;
     
+    //Boolean stop;
+    Timer tempTimer;
     
     public void sensing(){
         
-        Timer tempTimer = new Timer();
+        tempTimer = new Timer();
         tempTimer.schedule(new TempTimerTask(), 1, 2000);
+        
+        
+    }
+    
+    
+    public void stopSensing(){
+        
+        tempTimer.cancel();
+        tempTimer.purge();
         
     }
     
@@ -50,7 +61,7 @@ public class TempSensorDao extends DAO {
         public void run() {
             
                 addRecords();
-            
+
             
         }
         

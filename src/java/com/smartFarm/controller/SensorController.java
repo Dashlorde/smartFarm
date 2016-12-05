@@ -32,5 +32,14 @@ public class SensorController {
         tsd.sensing();
         return null;
     }
+    
+    //need map
+    @RequestMapping(value = "/.htm", method = RequestMethod.GET)
+    public String stopTempSensing() {
 
+        tsd.stopSensing();
+        return null;
+    }
+
+    
 }
