@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addDoctor
-    Created on : Dec 2, 2016, 3:12:41 PM
+    Document   : addVaccine
+    Created on : Dec 3, 2016, 10:56:17 AM
     Author     : he.fa
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add New Doctor</title>
+        <title>Add New Vaccine</title>
     </head>
     <style>
         a{
@@ -23,10 +23,9 @@
         
     </style>
     <body>
-        <form action="adddoctor.htm"  method="post" >
+        <form action="addvaccine.htm"  method="post" >
 
             <table>
-               
 
                 <tr>
                     <td>Name:</td>
@@ -34,25 +33,29 @@
                 </tr>
 
                 <tr>
-                    <td>Phone Number:</td>
-                    <td><input type="text" name="phone" size="30" /></td>
+                    <td>Prevented Disease:</td>
+                    <td><input type="text" name="prevent_disease" size="30" /></td>
                 </tr>
 
                 <tr>
-                    <td>Specialty:</td>
-                    <td><input type="text" name="speciaty" size="30" /></td>
+                    <td>Group:</td>
+                   <td><input type="text" name="group" size="30" /></td>
                 </tr>
                 
                  <tr>
-                    <td>Password:</td>
-                    <td><input type="text" name="password" size="30" /></td>
+                    <td>Vaccine Age:</td>
+                    <td><input type="text" name="vaccine_age" size="30" /></td>
+                </tr>
+                
+                <tr>
+                    <td>Immune Period:</td>
+                    <td><input type="text" name="immune_period" size="30" /></td>
                 </tr>
 
             </table>
 
-            <input type="submit" value="Add Doctor" id="submit"> <br/><br/><br/>
-             <a href="managedoctor.htm" >Cancel and Back</a><br/>
-
+            <input type="submit" value="Add Vaccine" id="submit"> <br/><br/><br/>
+            <a href="managevaccine.htm" >Cancel and Back</a><br/>
         </form>
     </body>
 </html>

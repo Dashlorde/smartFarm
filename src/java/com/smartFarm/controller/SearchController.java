@@ -31,7 +31,7 @@ public class SearchController {
     
     @RequestMapping(value="/searchLivestock.htm",method=RequestMethod.POST )
     protected String getLivestock(HttpServletRequest request, Model model) throws SQLException{
-        String type=request.getParameter("type").toString();
+        String type=request.getParameter("type");
         String option=request.getParameter("option");
         String search=request.getParameter("search");
         List<Cow> cowList=new ArrayList();

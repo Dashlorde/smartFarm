@@ -5,14 +5,15 @@
  */
 package com.smartFarm.pojo;
 
+import java.sql.Date;
 
-import java.util.Date;
+
 
 /**
  *
  * @author zhouyunlu
  */
-public class DieaseHistory {
+public class DiseaseHistory {
     long livestockId, diseaseId, doctorId;
     String curedOrNot;
     Date diagnosisDate;
