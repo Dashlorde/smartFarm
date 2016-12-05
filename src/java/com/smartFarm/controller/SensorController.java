@@ -26,20 +26,25 @@ public class SensorController {
     TempSensorDao tsd = new TempSensorDao();
 
     //need map
-    @RequestMapping(value = "/.htm", method = RequestMethod.GET)
+    @RequestMapping(value = "/startsensing.htm", method = RequestMethod.GET)
     public String beginTempSensing() {
 
         tsd.sensing();
-        return null;
+        return "sensing";
     }
-    
+
     //need map
-    @RequestMapping(value = "/.htm", method = RequestMethod.GET)
+    @RequestMapping(value = "/endsensing.htm", method = RequestMethod.GET)
     public String stopTempSensing() {
 
         tsd.stopSensing();
-        return null;
+        return "sensing";
     }
 
-    
+    @RequestMapping(value = "/sensing.htm", method = RequestMethod.GET)
+    public String sensing() {
+
+        return "sensing";
+    }
+
 }

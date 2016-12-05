@@ -14,5 +14,6 @@
         
         <li><a href="addCow.htm">add cow</a></li>
         <li><a href="addPig.htm">add pig</a></li>
+        <li><a href="sensing.htm">sensing</a></li>
     </ul>
 </div>
