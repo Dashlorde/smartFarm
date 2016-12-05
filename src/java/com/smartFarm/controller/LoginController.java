@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
     
     @Autowired
-    UserDao userDao;
+    UserDao userDao = new UserDao();
     
     
     @RequestMapping(method=RequestMethod.GET)
@@ -62,7 +62,9 @@ public class LoginController {
                 //session.setAttribute("doctor", doctor);
                 session.setAttribute("userType", "doctor");
 
-                return "redirect:/showAllCow.htm";
+                //return "redirect:/showAllCow.htm";
+                return "redirect:/managediseasehistory.htm";
+                
             }
             
             else{

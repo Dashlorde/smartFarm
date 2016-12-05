@@ -6,23 +6,23 @@
 package com.smartFarm.pojo;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  *
  * @author zhouyunlu
  */
-public class feedRecord {
-    Date time;
+public class FeedRecord {
+    Timestamp time;
     long livestockId;
     BigDecimal quantity;
     String feed;
 
-    public Date getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 

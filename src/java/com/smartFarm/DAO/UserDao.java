@@ -93,13 +93,12 @@ public class UserDao extends DAO{
             rs = ps.executeQuery();
             while(rs.next()){
                 Employee e=new Employee();
-                e.setId(rs.getInt("Id"));
-                e.setCategory(rs.getString("Category"));
+                e.setId(rs.getLong("Id"));
                 e.setName(rs.getString("Name"));
                 e.setPhone(rs.getString("Phone"));
+                e.setCategory(rs.getString("Category"));
+                e.setPassword(rs.getString("Password"));
                
-                
-                
                 return e;
             }
         }catch(SQLException ex){

@@ -31,7 +31,7 @@ public class EmployeeDao extends DAO{
             conn=getConnection();
             String query ="insert into Employee values(?,?,?,?,?)";
             ps=conn.prepareStatement(query);
-            System.out.println(query);
+           
             
             ps.setLong(1, employee.getId());
             ps.setString(2, employee.getName());

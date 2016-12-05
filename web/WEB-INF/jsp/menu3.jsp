@@ -14,5 +14,7 @@
         
         <li><a href="addCow.htm">add cow</a></li>
         <li><a href="addPig.htm">add pig</a></li>
+        
+        <li><a href="managevaccine.htm">Manage Vaccine</a></li>
     </ul>
 </div>
