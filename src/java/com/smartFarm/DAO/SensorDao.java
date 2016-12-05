@@ -46,7 +46,7 @@ public class SensorDao extends DAO{
     public void addAnimalSensor(AnimalSensor animalSensor)throws SQLException{
         try{
             conn=getConnection();
-            String query="insert into Animal_Sensor values (?,?)";
+            String query="insert into AnimalSensor values (?,?)";
             ps=conn.prepareStatement(query);
             ps.setLong(1, animalSensor.getLivestockId());
             ps.setLong(2, animalSensor.getSensorId());

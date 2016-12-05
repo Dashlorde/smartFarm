@@ -23,7 +23,8 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean id="QuarantineDao" class="com.smartFarm.DAO.QuarantineDao"></bean>
     <bean id="DiseaseDao" class="com.smartFarm.DAO.DiseaseDao"></bean>
     <bean id="DiseaseHistoryDao" class="com.smartFarm.DAO.DiseaseHistoryDao"></bean>
-
+    <bean id="notCuredDao" class="com.smartFarm.DAO.NotCuredDao"></bean>
+    
     <bean id="TempSensorDao" class="com.smartFarm.DAO.TempSensorDao"></bean>
     <bean id="sensorDao" class="com.smartFarm.DAO.SensorDao"></bean>
 
@@ -78,7 +79,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="adddisease.htm">diseaseController</prop>
                 <prop key="managediseasehistory.htm">diseaseController</prop>
                 <prop key="adddiseasehistory.htm">diseaseController</prop>
-                
+                <prop key="showNotCured.htm">showNotCuredController</prop>
                 
 
                 <prop key="startsensing.htm">sensorController</prop>
@@ -134,6 +135,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean name="diseaseController" class="com.smartFarm.controller.DiseaseController"/>
     
     <bean name="addSensorController" class="com.smartFarm.controller.AddSensorController"/>
+    <bean name="showNotCuredController" class="com.smartFarm.controller.ShowNotCuredController" />
            
 </beans>
 

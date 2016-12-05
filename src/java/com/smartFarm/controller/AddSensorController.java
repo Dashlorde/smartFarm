@@ -44,7 +44,7 @@ public class AddSensorController {
         String livestockIdString=request.getParameter("livestockId");
         long livestockId=Long.parseLong(livestockIdString);
         String sensorType=request.getParameter("sensorType");
-        count+=sensorList.size();
+        count=1+sensorList.size();
         long sensorId=count++;
         
         sensor.setSensorId(sensorId);
@@ -52,8 +52,8 @@ public class AddSensorController {
         aSensor.setLivestockId(livestockId);
         aSensor.setSensorId(sensorId);
         
-        sensorDao.addSensor(sensor);
         sensorDao.addAnimalSensor(aSensor);
+        sensorDao.addSensor(sensor);
         
         return "redirect://showAllCow.htm";
         
