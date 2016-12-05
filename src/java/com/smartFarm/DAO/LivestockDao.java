@@ -86,6 +86,37 @@ public class LivestockDao extends DAO {
         return livestockList;
 
     }
+    public Livestock getLivestockById(long id) throws SQLException {
+        Livestock livestock = new Livestock();
+
+        try {
+            conn = getConnection();
+
+            String query = "select * from Livestock where Id=?";
+
+            ps = conn.prepareStatement(query);
+            ps.setLong(1,id);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+               
+                livestock.setId(rs.getLong("Id"));
+                livestock.setEmployeeId(rs.getLong("Employee_Id"));
+                livestock.setAge(rs.getInt("Age"));
+                livestock.setWeight(rs.getInt("Weight"));
+                livestock.setGender(rs.getString("Gender"));
+                livestock.setType(rs.getString(""));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            rs.close();
+            close(conn);
+        }
+
+        return livestock;
+
+    }
 
     //-----------------------------------------get cow----------------------------------------------
     public void addCow(Cow cow) throws SQLException {
@@ -176,6 +207,40 @@ public class LivestockDao extends DAO {
         }
 
         return cowList;
+
+    }
+    
+    public Cow getSingleCowById(long id) throws SQLException {
+       Cow c = new Cow();
+
+        try {
+            conn = getConnection();
+
+            String query = "select * from Cow where Id=?";
+
+            ps = conn.prepareStatement(query);
+            ps.setLong(1,id);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+              
+                c.setId(rs.getLong("Id"));
+                c.setEmployeeId(rs.getLong("Employee_Id"));
+                c.setAge(rs.getInt("Age"));
+                c.setWeight(rs.getInt("Weight"));
+                c.setGender(rs.getString("Gender"));
+                c.setMilkProduction(rs.getString("Milk_Production"));
+                c.setEstrousDetection(rs.getString("Estrous_Detection"));
+               
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            rs.close();
+            close(conn);
+        }
+
+        return c;
 
     }
 
@@ -366,6 +431,37 @@ public class LivestockDao extends DAO {
         }
 
         return pigList;
+
+    }
+    public Pig getSiglePigById(long id) throws SQLException {
+        Pig p = new Pig();
+        try {
+            conn = getConnection();
+
+            String query = "select * from Pig where Id=?";
+
+            ps = conn.prepareStatement(query);
+            ps.setLong(1, id);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+               
+                p.setId(rs.getLong("Id"));
+                p.setEmployeeId(rs.getLong("Employee_Id"));
+                p.setAge(rs.getInt("Age"));
+                p.setWeight(rs.getInt("Weight"));
+                p.setGender(rs.getString("Gender"));
+                p.setEstrousDetection(rs.getString("Estrous_Detection"));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+        }
+
+        return p;
 
     }
 

@@ -26,7 +26,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
     
     @Autowired
-    UserDao userDao=new UserDao();
+
+
+    UserDao userDao = new UserDao();
+
+ 
+
+    
+
+   
+
     
     @RequestMapping(method=RequestMethod.GET)
     protected String getLoginPage(){

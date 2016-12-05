@@ -11,7 +11,6 @@ import com.smartFarm.DAO.DiseaseHistoryDao;
 import com.smartFarm.pojo.Disease;
 import com.smartFarm.pojo.DiseaseHistory;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;

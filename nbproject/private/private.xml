@@ -3,7 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/FangningHe/Documents/GitHub/smartFarm/web/WEB-INF/jsp/addFeedRecord.jsp</file>
+            <file>file:/C:/Users/FangningHe/Documents/GitHub/smartFarm/src/java/com/smartFarm/controller/ShowLivestockController.java</file>
+            <file>file:/C:/Users/FangningHe/Documents/GitHub/smartFarm/web/adminmenu.jsp</file>
+=======
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/DAO/QuarantineDao.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/DAO/SensorDao.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/AddLivestockController.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/AddSensorController.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/SensorController.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/pojo/AnimalSensor.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/DAO/LivestockDao.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/pojo/Sensor.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/jsp/addSensor.jsp</file>
+            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/jsp/menu3.jsp</file>
+            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/jsp/addCowForm.jsp</file>
+            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/dispatcher-servlet.xml</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/LoginController.java</file>
+>>>>>>> 939ce91e665af10850b71457e643061ba96ce9c7
             <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/DAO/DAO.java</file>
+>>>>>>> 39b7dc267cf83c96fbfb936c6dca20ded5c3703c
         </group>
     </open-files>
 </project-private>
