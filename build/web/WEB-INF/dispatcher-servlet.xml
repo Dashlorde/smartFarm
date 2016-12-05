@@ -25,7 +25,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean id="DiseaseHistoryDao" class="com.smartFarm.DAO.DiseaseHistoryDao"></bean>
 
 
-    <bean id="TempSensorDao" class="com.smartFarm.DAO.TempSensorDao"></bean>
+    
 
     <bean id="notCuredDao" class="com.smartFarm.DAO.NotCuredDao"></bean>
     
