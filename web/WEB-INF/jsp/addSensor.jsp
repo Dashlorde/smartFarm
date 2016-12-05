@@ -1,7 +1,7 @@
 <%-- 
-    Document   : addSensor
-    Created on : 2016-12-4, 23:18:34
-    Author     : jingli
+    Document   : addSensorJsp
+    Created on : 2016-12-5, 1:59:39
+    Author     : zhouyunlu
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,44 +9,35 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add Sensor</title>
+        <title>Add Sensro Page</title>
     </head>
     <body>
-        <form action="addsensor.htm"  method="post" >
+        
+        <form action="addSensor.htm"  method="post" >
 
             <table>
-                <!--<tr>
-                    <td>Employee Id:</td>
-                    <td><input type="text" name="Id" size="30" /></td>
-                    <td><div style="color:red">${error} </div></td>
-                </tr>-->
-
 
 
                 <tr>
-                    <td>Animal Id:</td>
-                    <td><input type="text" name="name" size="30" /></td>
+                    <td>Livestock_Id</td>
+                    <td><input type="text" name="livestockId" size="30" /></td>
                 </tr>
 
+                
                 <tr>
-                    <td>Sensor Id:</td>
-                    <td><input type="text" name="phone" size="30" /></td>
-                </tr>
-
-                <tr>
-                    <td>SensorType:</td>
-                    <td><input type="text" name="phone" size="30" /></td>
+                    <td>type:</td>
+                    <td><select name="sensorType">
+                            <option value="temperature">temperature</option>
+                            <option value="movement">movement</option>
+                        </select>
+                    </td>
                 </tr>
                 
-                 <tr>
-                    <td>Password:</td>
-                    <td><input type="text" name="password" size="30" /></td>
-                </tr>
 
             </table>
 
-            <input type="submit" value="Add Employee" id="submit"> <br/>
-
+            <input type="submit" value="add Sensor" id="submit"> <br/><br/><br/>
+ 
         </form>
     </body>
 </html>

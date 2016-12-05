@@ -37,7 +37,7 @@ public class TempSensor {
         tsTime=sdf.format(time);
         
         Random generator=new Random();
-        tsRead=36.7+4*generator.nextGaussian();
+        tsRead=38+3*generator.nextGaussian();
         
     }
 

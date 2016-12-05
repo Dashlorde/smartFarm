@@ -5,19 +5,15 @@
  */
 package com.smartFarm.pojo;
 
-import java.util.Date;
-
 /**
  *
  * @author zhouyunlu
  */
-public class Sensor {
-    long sensorId;
-    String sensorType;
+public class AnimalSensor {
+    long sensorId, livestockId;
     
-    
-    public Sensor(){
-       
+    public AnimalSensor(){
+        
     }
 
     public long getSensorId() {
@@ -28,17 +24,14 @@ public class Sensor {
         this.sensorId = sensorId;
     }
 
-    public String getSensorType() {
-        return sensorType;
+    public long getLivestockId() {
+        return livestockId;
     }
 
-    public void setSensorType(String sensorType) {
-        this.sensorType = sensorType;
+    public void setLivestockId(long livestockId) {
+        this.livestockId = livestockId;
     }
     
     
-
-   
-
     
 }
