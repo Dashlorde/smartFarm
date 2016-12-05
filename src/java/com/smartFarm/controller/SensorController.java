@@ -5,10 +5,14 @@
  */
 package com.smartFarm.controller;
 
+import com.smartFarm.DAO.TempSensorDao;
 import java.util.Timer;
 import java.util.TimerTask;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -18,13 +22,15 @@ import org.springframework.ui.Model;
 
 public class SensorController {
 
+    @Autowired
+    TempSensorDao tsd = new TempSensorDao();
+
+    //need map
+    @RequestMapping(value = "/.htm", method = RequestMethod.GET)
     public String beginTempSensing() {
 
-        Timer tempTimer = new Timer();
-        tempTimer.schedule(new TempTimerTask(), 1, 1000);
-
+        tsd.sensing();
         return null;
     }
 
-    //TempTimerTask ttt=new TempTimerTask();
 }

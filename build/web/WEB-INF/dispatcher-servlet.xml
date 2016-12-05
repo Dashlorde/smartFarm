@@ -16,6 +16,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean id="userDao" class="com.smartFarm.DAO.UserDao"></bean>
     <bean id="EmployeeDao" class="com.smartFarm.DAO.EmployeeDao"></bean>
     <bean id="DoctorDao" class="com.smartFarm.DAO.DoctorDao"></bean>
+    <bean id="TempSensorDao" class="com.smartFarm.DAO.TempSensorDao"></bean>
     
 
     
@@ -76,7 +77,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     
     <bean name="logoutController" class="com.smartFarm.controller.LogoutController" />
     <bean name="addLivestockController" class="com.smartFarm.controller.AddLivestockController"/>
-    
+    <bean name="sensorController" class="com.smartFarm.controller.SensorController"/>
     <bean name="employeeController" class="com.smartFarm.controller.EmployeeController"/>
     <bean name="searchController" class="com.smartFarm.controller.SearchController"/>
 <<<<<<< HEAD

@@ -5,7 +5,14 @@
  */
 package com.smartFarm.controller;
 
+import com.smartFarm.DAO.TempSensorDao;
+import com.smartFarm.pojo.TempSensor;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.TimerTask;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -13,9 +20,14 @@ import java.util.TimerTask;
  */
 public class TempTimerTask extends TimerTask{
 
+
+    
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        conn=get
+        TempSensor ts=new TempSensor(0);
+
     }
     
 }
