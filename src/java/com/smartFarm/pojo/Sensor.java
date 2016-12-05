@@ -12,54 +12,33 @@ import java.util.Date;
  * @author zhouyunlu
  */
 public class Sensor {
-    static long id = 10000;
-    long livestockId;
-    String read, type;
-    Date time;
+    long sensorId;
+    String sensorType;
+    
     
     public Sensor(){
-        id++;
+       
     }
 
-    public long getId() {
-        return id;
+    public long getSensorId() {
+        return sensorId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setSensorId(long sensorId) {
+        this.sensorId = sensorId;
     }
 
-    public long getLivestockId() {
-        return livestockId;
+    public String getSensorType() {
+        return sensorType;
     }
 
-    public void setLivestockId(long livestockId) {
-        this.livestockId = livestockId;
-    }
-
-    public String getRead() {
-        return read;
-    }
-
-    public void setRead(String read) {
-        this.read = read;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
+    public void setSensorType(String sensorType) {
+        this.sensorType = sensorType;
     }
     
+    
+
+   
+
     
 }

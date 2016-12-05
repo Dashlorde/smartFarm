@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,7 +27,16 @@
                 </tr>
             </table>
             <input type="submit" value="modify livestock" id="submit"> <br/>
-
+            
         </form>
+        <br/><br/>
+            <c:choose>
+                <c:when test = "${requestScope.livestockType == 'cow'}">
+                     <a href="showAllCow.htm" >Back to Main Menu</a><br/>
+                </c:when>
+                 <c:when test = "${requestScope.livestockType == 'pig'}">
+                     <a href="showAllPig.htm" >Back to Main Menu</a><br/>
+                </c:when>
+            </c:choose>
     </body>
 </html>

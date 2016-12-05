@@ -28,7 +28,6 @@ public class LoginController {
     @Autowired
     UserDao userDao=new UserDao();
     
-    
     @RequestMapping(method=RequestMethod.GET)
     protected String getLoginPage(){
         return "login";
@@ -62,7 +61,9 @@ public class LoginController {
                 //session.setAttribute("doctor", doctor);
                 session.setAttribute("userType", "doctor");
 
-                return "redirect:/showAllCow.htm";
+                //return "redirect:/showAllCow.htm";
+                return "redirect:/managediseasehistory.htm";
+                
             }
             
             else{

@@ -11,6 +11,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Add New Employee</title>
     </head>
+    <style>
+        a{
+                display: block;
+                color:black;
+                text-align:left;
+                font-family:Lucida Grande;
+                padding: 10px 15px;
+                text-decoration: none; 
+            }
+        
+    </style>
     <body>
         <form action="addemployee.htm"  method="post" >
 
@@ -49,7 +60,8 @@
 
             </table>
 
-            <input type="submit" value="Add Employee" id="submit"> <br/>
+            <input type="submit" value="Add Employee" id="submit"> <br/><br/><br/>
+            <a href="manageemployee.htm" >Cancel and Back</a><br/>
 
         </form>
     </body>

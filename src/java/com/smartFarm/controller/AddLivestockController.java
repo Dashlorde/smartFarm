@@ -9,6 +9,7 @@ import com.smartFarm.DAO.LivestockDao;
 import com.smartFarm.pojo.Cow;
 import com.smartFarm.pojo.Livestock;
 import com.smartFarm.pojo.Pig;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,10 +22,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class AddLivestockController {
-    public static int count=1000;
+    public static int count_cow=1000;
+    public static int count_pig=100;
     
     @Autowired
-    LivestockDao livestockDao=new LivestockDao();
+    LivestockDao livestockDao = new LivestockDao();
+//    List<Cow> cowList;
+//    List<Pig> pigList;
+//
+//    public AddLivestockController() throws SQLException {
+//        this.cowList = livestockDao.getAllCow();
+//        this.pigList = livestockDao.getAllPig();
+//    }
     
     //----------------------------add livestock-------------------------------------------------
     
@@ -45,7 +54,7 @@ public class AddLivestockController {
         int weight=Integer.parseInt(weightString);
         
         
-        livestock.setId(count++);
+        //livestock.setId(count++);
         livestock.setAge(age);
         livestock.setEmployeeId(employeeId);
         
@@ -67,19 +76,26 @@ public class AddLivestockController {
     
     @RequestMapping(value="/addCow.htm", method=RequestMethod.POST)
     protected String doSubmitCow(HttpServletRequest request) throws Exception{
+        List<Cow> cowList = livestockDao.getAllCow();
         Cow cow=new Cow();
         
-        String ageString=request.getParameter("age").toString();
+        String ageString=request.getParameter("age");
         int age=Integer.parseInt(ageString);
-        String employeeIdString=request.getParameter("employeeId").toString();
+        String employeeIdString=request.getParameter("employeeId");
         long employeeId=Long.parseLong(employeeIdString);
-        String weightString=request.getParameter("weight").toString();
+        String weightString=request.getParameter("weight");
         int weight=Integer.parseInt(weightString);
+        String milkProduction = request.getParameter("milk_production");
+        String estrousDetection = request.getParameter("estrous_detection");
         
+        count_cow = 1000 + cowList.size();
+        int id = count_cow++;
         cow.setAge(age);
         cow.setEmployeeId(employeeId);
-        cow.setId(count++);
+        cow.setId(id);
         cow.setGender("cow");
+        cow.setMilkProduction(milkProduction);
+        cow.setEstrousDetection(estrousDetection);
         
         cow.setWeight(weight);
         livestockDao.addCow(cow);
@@ -97,21 +113,24 @@ public class AddLivestockController {
      @RequestMapping(value="/addPig.htm", method=RequestMethod.POST)
     protected String doSubmitPig(HttpServletRequest request) throws Exception{
         Pig pig=new Pig();
-        
-        String ageString=request.getParameter("age").toString();
+        List<Pig> pigList = livestockDao.getAllPig();
+        String ageString=request.getParameter("age");
         int age=Integer.parseInt(ageString);
-        String employeeIdString=request.getParameter("employeeId").toString();
+        String employeeIdString=request.getParameter("employeeId");
         long employeeId=Long.parseLong(employeeIdString);
-        String weightString=request.getParameter("weight").toString();
+        String weightString=request.getParameter("weight");
         int weight=Integer.parseInt(weightString);
+        String estrousDetection = request.getParameter("estrous_detection");
         
         String gender=request.getParameter("gender");
         
+        count_pig = 100 + pigList.size();
+        int id = count_pig++;
         pig.setAge(age);
         pig.setEmployeeId(employeeId);
-        pig.setId(count++);
+        pig.setId(id);
         pig.setGender(gender);
-        
+        pig.setEstrousDetection(estrousDetection);
         pig.setWeight(weight);
         livestockDao.addPig(pig);
         return "redirect://showAllPig.htm";

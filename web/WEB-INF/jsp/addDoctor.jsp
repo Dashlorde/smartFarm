@@ -11,17 +11,22 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Add New Doctor</title>
     </head>
+    <style>
+        a{
+                display: block;
+                color:black;
+                text-align:left;
+                font-family:Lucida Grande;
+                padding: 10px 15px;
+                text-decoration: none; 
+            }
+        
+    </style>
     <body>
         <form action="adddoctor.htm"  method="post" >
 
             <table>
-                <!--<tr>
-                    <td>Employee Id:</td>
-                    <td><input type="text" name="Id" size="30" /></td>
-                    <td><div style="color:red">${error} </div></td>
-                </tr>-->
-
-
+               
 
                 <tr>
                     <td>Name:</td>
@@ -45,7 +50,8 @@
 
             </table>
 
-            <input type="submit" value="Add Doctor" id="submit"> <br/>
+            <input type="submit" value="Add Doctor" id="submit"> <br/><br/><br/>
+             <a href="managedoctor.htm" >Cancel and Back</a><br/>
 
         </form>
     </body>

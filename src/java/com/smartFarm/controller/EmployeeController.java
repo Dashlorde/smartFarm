@@ -23,11 +23,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class EmployeeController {
     
-    public static long count = 10000;
+    private static long count = 10000;
     
     private List<Employee> employeeList;
     @Autowired
-    EmployeeDao employeeDao=new EmployeeDao();
+    EmployeeDao employeeDao = new EmployeeDao();
     
     @RequestMapping(value="/manageemployee.htm", method=RequestMethod.GET)
     public String handleRequest(Model model,HttpServletRequest hsr) throws Exception{
