@@ -16,16 +16,15 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean id="userDao" class="com.smartFarm.DAO.UserDao"></bean>
     <bean id="EmployeeDao" class="com.smartFarm.DAO.EmployeeDao"></bean>
     <bean id="DoctorDao" class="com.smartFarm.DAO.DoctorDao"></bean>
-<<<<<<< HEAD
     <bean id="VaccineDao" class="com.smartFarm.DAO.VaccineDao"></bean>
     <bean id="VaccineRecordDao" class="com.smartFarm.DAO.VaccineRecordDao"></bean>
     <bean id="FeedRecordDao" class="com.smartFarm.DAO.FeedRecordDao"></bean>
     <bean id="QuarantineDao" class="com.smartFarm.DAO.QuarantineDao"></bean>
     <bean id="DiseaseDao" class="com.smartFarm.DAO.DiseaseDao"></bean>
     <bean id="DiseaseHistoryDao" class="com.smartFarm.DAO.DiseaseHistoryDao"></bean>
-=======
+
     <bean id="TempSensorDao" class="com.smartFarm.DAO.TempSensorDao"></bean>
->>>>>>> ab6afe39b5067a5219b1eed9c13f48b23de344f6
+
     
 
     
@@ -58,7 +57,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="managedoctor.htm">doctorController</prop>
                 <prop key="adddoctor.htm">doctorController</prop>
                 
-<<<<<<< HEAD
+
                 <prop key="managevaccine.htm">vaccineController</prop>
                 <prop key="addvaccine.htm">vaccineController</prop>
                 
@@ -78,12 +77,12 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="adddiseasehistory.htm">diseaseController</prop>
                 
                 
-=======
+
                 <prop key="startsensing.htm">sensorController</prop>
                 <prop key="endsensing.htm">sensorController</prop>
                 <prop key="sensing.htm">sensorController</prop>
->>>>>>> ab6afe39b5067a5219b1eed9c13f48b23de344f6
-               
+
+               <prop key="doctorseelivestockdiseasedetail.htm">livestockDiseaseHistoryDetialController</prop>
                 
                 
             </props>
@@ -121,11 +120,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean name="doctorController" class="com.smartFarm.controller.DoctorController"/>
 
     <bean name="modifyLivestockController" class="com.smartFarm.controller.ModifyLivestockController"/>
-<<<<<<< HEAD
-=======
 
-        
->>>>>>> ab6afe39b5067a5219b1eed9c13f48b23de344f6
     
     <bean name="vaccineController" class="com.smartFarm.controller.VaccineController"/>
     
@@ -136,6 +131,9 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean name="livestockDetailController" class="com.smartFarm.controller.LiveStockDetailController"/>
     
     <bean name="diseaseController" class="com.smartFarm.controller.DiseaseController"/>
+    
+    <bean name="livestockDiseaseHistoryDetialController" class="com.smartFarm.controller.LivestockDiseaseHistoryDetialController"/>
+    
            
 </beans>
 
