@@ -3,19 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/DAO/QuarantineDao.java</file>
-            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/DAO/SensorDao.java</file>
-            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/AddLivestockController.java</file>
-            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/AddSensorController.java</file>
-            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/SensorController.java</file>
-            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/pojo/AnimalSensor.java</file>
-            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/DAO/LivestockDao.java</file>
-            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/pojo/Sensor.java</file>
-            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/jsp/addSensor.jsp</file>
-            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/jsp/menu3.jsp</file>
-            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/jsp/addCowForm.jsp</file>
-            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/dispatcher-servlet.xml</file>
-            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/LoginController.java</file>
             <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/DAO/DAO.java</file>
         </group>
     </open-files>

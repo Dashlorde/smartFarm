@@ -88,6 +88,8 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 
                 
                 <prop key="addSensor.htm">addSensorController</prop>
+                <prop key="showSensorInfo.htm">showSensorInfoController</prop>
+                <prop key="showAllSensorInfo.htm">showSensorInfoController</prop>
 
               
             </props>
@@ -136,6 +138,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     
     <bean name="addSensorController" class="com.smartFarm.controller.AddSensorController"/>
     <bean name="showNotCuredController" class="com.smartFarm.controller.ShowNotCuredController" />
+    <bean name="showSensorInfoController" class="com.smartFarm.controller.ShowSensorInfoController" />
            
 </beans>
 

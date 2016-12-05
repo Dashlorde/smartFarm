@@ -55,7 +55,7 @@ public class AddSensorController {
         sensorDao.addAnimalSensor(aSensor);
         sensorDao.addSensor(sensor);
         
-        return "redirect://showAllCow.htm";
+        return "redirect://showAllSensorInfo.htm";
         
         
     }
