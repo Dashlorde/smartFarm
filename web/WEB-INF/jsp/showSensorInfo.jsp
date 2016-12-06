@@ -14,7 +14,7 @@
     <style>
         div.add {
                 position: fixed;
-                bottom: 30px;
+                bottom: 100px;
         }
           .add a{
                 
