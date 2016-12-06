@@ -5,12 +5,21 @@
  */
 package com.smartFarm.controller;
 
+<<<<<<< HEAD
 import com.smartFarm.DAO.LivestockSensorDao;
 import com.smartFarm.DAO.TempSensorDao;
 import com.smartFarm.pojo.LivestockSensor;
 import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+=======
+import com.smartFarm.DAO.AccelerationSensorDao;
+import com.smartFarm.DAO.MilkSensorDao;
+import com.smartFarm.DAO.TempSensorDao;
+import com.smartFarm.DAO.WeightSensorDao;
+import java.util.Timer;
+import java.util.TimerTask;
+>>>>>>> 1fe69cb9593e6a9e01ef581878eba66193763cfe
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,12 +37,25 @@ public class SensorController {
     TempSensorDao tsd = new TempSensorDao();
     
     @Autowired
+<<<<<<< HEAD
     LivestockSensorDao livestockSensorDao = new LivestockSensorDao();
+=======
+    WeightSensorDao wsd = new WeightSensorDao();
+    
+    @Autowired
+    AccelerationSensorDao asd = new AccelerationSensorDao();
+    
+    @Autowired
+    MilkSensorDao msd = new MilkSensorDao();
+>>>>>>> 1fe69cb9593e6a9e01ef581878eba66193763cfe
 
     //need map
     @RequestMapping(value = "/startsensing.htm", method = RequestMethod.GET)
     public String beginTempSensing() {
 
+        wsd.sensing();
+        asd.sensing();
+        msd.sensing();
         tsd.sensing();
         return "sensing";
     }
@@ -42,7 +64,11 @@ public class SensorController {
     @RequestMapping(value = "/endsensing.htm", method = RequestMethod.GET)
     public String stopTempSensing() {
 
+        wsd.stopSensing();
+        asd.stopSensing();
+        msd.stopSensing();
         tsd.stopSensing();
+        
         return "sensing";
     }
 

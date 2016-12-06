@@ -7,6 +7,7 @@ package com.smartFarm.DAO;
 
 import com.smartFarm.pojo.AnimalSensor;
 import com.smartFarm.pojo.Sensor;
+import com.smartFarm.pojo.SensorInfo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -82,5 +83,106 @@ public class SensorDao extends DAO{
         
         return sensorList;
     }
+    
+    public List<SensorInfo> getSensorInfo() throws SQLException{
+        List<SensorInfo> list=new ArrayList<>();
+        
+        try{
+            conn=getConnection();
+            String query="select Sensor.Sensor_Id, Sensor.Sensor_Type, AnimalSensor.Livestock_Id from Sensor inner join AnimalSensor on Sensor.Sensor_Id=AnimalSensor.Sensor_Id ;";
+            ps=conn.prepareStatement(query);
+            rs=ps.executeQuery();
+            
+            while(rs.next()){
+                SensorInfo s=new SensorInfo();
+                s.setLivestockId(rs.getLong("Livestock_Id"));
+                s.setSensorId(rs.getLong("Sensor_Id"));
+                s.setSensorType(rs.getString("Sensor_Type"));
+                list.add(s);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+            
+        } return list;
+    }
+    
+    public List<SensorInfo> getSensorInfoBySensorId(long sensorId) throws SQLException{
+        List<SensorInfo> list=new ArrayList<>();
+        
+        try{
+            conn=getConnection();
+            String query="select Sensor.Sensor_Id, Sensor.Sensor_Type, AnimalSensor.Livestock_Id from Sensor inner join AnimalSensor on Sensor.Sensor_Id=AnimalSensor.Sensor_Id where Sensor.Sensor_Id=?";
+            ps=conn.prepareStatement(query);
+            ps.setLong(1, sensorId);
+            rs=ps.executeQuery();
+            
+            while(rs.next()){
+                SensorInfo s=new SensorInfo();
+                s.setLivestockId(rs.getLong("Livestock_Id"));
+                s.setSensorId(rs.getLong("Sensor_Id"));
+                s.setSensorType(rs.getString("Sensor_Type"));
+                list.add(s);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+            
+        } return list;
+    }
+    
+    
+    public List<SensorInfo> getSensorInfoByLivestockId(long LivestockId) throws SQLException{
+        List<SensorInfo> list=new ArrayList<>();
+        
+        try{
+            conn=getConnection();
+            String query="select Sensor.Sensor_Id, Sensor.Sensor_Type, AnimalSensor.Livestock_Id from Sensor inner join AnimalSensor on Sensor.Sensor_Id=AnimalSensor.Sensor_Id where AnimalSensor.Livestock_Id=?";
+            ps=conn.prepareStatement(query);
+            ps.setLong(1, LivestockId);
+            rs=ps.executeQuery();
+            
+            while(rs.next()){
+                SensorInfo s=new SensorInfo();
+                s.setLivestockId(rs.getLong("Livestock_Id"));
+                s.setSensorId(rs.getLong("Sensor_Id"));
+                s.setSensorType(rs.getString("Sensor_Type"));
+                list.add(s);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+            
+        } return list;
+    }
+    
+    public List<SensorInfo> getSensorInfoBySensorType(String sensorType) throws SQLException{
+        List<SensorInfo> list=new ArrayList<>();
+        
+        try{
+            conn=getConnection();
+            String query="select Sensor.Sensor_Id, Sensor.Sensor_Type, AnimalSensor.Livestock_Id from Sensor inner join AnimalSensor on Sensor.Sensor_Id=AnimalSensor.Sensor_Id where Sensor.Sensor_Type=?";
+            ps=conn.prepareStatement(query);
+            ps.setString(1, sensorType);
+            rs=ps.executeQuery();
+            
+            while(rs.next()){
+                SensorInfo s=new SensorInfo();
+                s.setLivestockId(rs.getLong("Livestock_Id"));
+                s.setSensorId(rs.getLong("Sensor_Id"));
+                s.setSensorType(rs.getString("Sensor_Type"));
+                list.add(s);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+            
+        } return list;
+    }
+    
     
 }

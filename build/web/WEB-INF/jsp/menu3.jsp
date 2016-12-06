@@ -22,6 +22,11 @@
         <li><a href="sensing.htm">sensing</a></li>
 
         <li><a href="addSensor.htm">add sensor</a></li>
+<<<<<<< HEAD
+=======
+        <li><a href="showAllSensorInfo.htm">show sensor infomation</a></li>
+        <li><a href="sensing.htm">sensing</a></li>
+>>>>>>> 1fe69cb9593e6a9e01ef581878eba66193763cfe
         <li><a href="showNotCured.htm">show not cured</a></li>
 
 
