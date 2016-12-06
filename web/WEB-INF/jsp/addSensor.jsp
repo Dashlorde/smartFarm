@@ -28,7 +28,9 @@
                     <td>type:</td>
                     <td><select name="sensorType">
                             <option value="TEMP">temperature</option>
-                            <option value="ACC">movement</option>
+                            <option value="ACCELERATOR">accelerator</option>
+                            <option value="WEIGHT">weight</option>
+                            <option value="MILK">milk</option>
                         </select>
                     </td>
                 </tr>
