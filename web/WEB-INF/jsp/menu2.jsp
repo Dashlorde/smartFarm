@@ -9,6 +9,7 @@
 <div>
     <ul class="menu">
         <li><a href="logout.htm">log out</a></li>
+        <li><a href="managediseasehistory.htm">Disease History</a>
         <li><a href="managedisease.htm">Manage Disease</a></li>
         <li><a href="showNotCured.htm">show not cured</a></li>
     </ul>

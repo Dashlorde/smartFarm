@@ -5,6 +5,6 @@
 --%>
 
 <frameset cols="200,*">
-    <frame src="adminmenu.jsp" name="adminmenu" noresize/>
-    <frame src="contents.jsp" name="contents"/>
+    <frame src="adminmenu.jsp" name="adminmenu" noresize frameborder="0"/>
+    <frame src="contents.jsp" name="contents" frameborder="0"/>
 </frameset>

@@ -37,7 +37,7 @@
             text-align: left;
         }
     </style>
-    <body>
+    <body>       
         <a href="startsensing.htm">Start Sensing</a>
         <a href="endsensing.htm">End Sensing</a>
         <h3>Sensor Monitor</h3>

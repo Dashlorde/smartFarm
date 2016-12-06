@@ -11,6 +11,38 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Menu</title>
+        <style>
+            a{
+            display: block;
+            color:black;
+            text-align:left;
+            font-family:Lucida Grande;
+            padding: 10px 15px;
+            text-decoration: none; 
+        }
+        
+        a:hover{
+            color:white;
+            background-color: black;
+        }
+        
+        body{
+            background-color: #f1f1f1;
+        }
+        
+        #submit{
+                diplay:block;
+                width: 80%;
+                font-size: 15px;
+                font-family:Lucida Grande;
+                padding:10px;
+                background-color :black;
+                color: white;
+                border-radius:8px;
+
+            }
+
+        </style>
     </head>
     <script>
         function breakout() {
@@ -25,7 +57,7 @@
         <a href="managelivestock.htm" target="contents">Manage Livestock</a><br/><br/>
         <a href="showOverview.htm" target="contents">Overwiew</a><br/><br/>
 
-        <input type="submit" onclick="breakout()" value="Log out">
+        <input type="submit" onclick="breakout()" value="Log out" id="submit">
 
 
     </body>
