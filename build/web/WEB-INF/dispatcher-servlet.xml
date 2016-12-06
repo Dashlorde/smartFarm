@@ -23,14 +23,23 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean id="QuarantineDao" class="com.smartFarm.DAO.QuarantineDao"></bean>
     <bean id="DiseaseDao" class="com.smartFarm.DAO.DiseaseDao"></bean>
     <bean id="DiseaseHistoryDao" class="com.smartFarm.DAO.DiseaseHistoryDao"></bean>
+
     <bean id="SmartFarmInfoDao" class="com.smartFarm.DAO.SmartFarmInfoDao"></bean>
 
-    
+
+
 
     <bean id="notCuredDao" class="com.smartFarm.DAO.NotCuredDao"></bean>
     
     <bean id="TempSensorDao" class="com.smartFarm.DAO.TempSensorDao"></bean>
     <bean id="sensorDao" class="com.smartFarm.DAO.SensorDao"></bean>
+
+    <bean id="LivestockSensorDao" class="com.smartFarm.DAO.LivestockSensorDao"></bean>
+
+    <bean id="MilkSensorDao" class="com.smartFarm.DAO.MilkSensorDao"></bean>
+    <bean id="AccelerationSensorDao" class="com.smartFarm.DAO.AccelerationSensorDao"></bean>
+    <bean id="WeightSensorDao" class="com.smartFarm.DAO.WeightSensorDao"></bean>
+
 
 
 
@@ -85,16 +94,22 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="managediseasehistory.htm">diseaseController</prop>
                 <prop key="adddiseasehistory.htm">diseaseController</prop>
                 <prop key="showNotCured.htm">showNotCuredController</prop>
+
                 <prop key="showOverview.htm">showOverViewController</prop>
+
+               
 
                 <prop key="startsensing.htm">sensorController</prop>
                 <prop key="endsensing.htm">sensorController</prop>
                 <prop key="sensing.htm">sensorController</prop>
 
+                <prop key="livestocktempsenserdetail.htm">sensorController</prop>
+                
+
+
 
                <prop key="doctorseelivestockdiseasedetail.htm">livestockDiseaseHistoryDetialController</prop>
 
-                
                 
                 <prop key="addSensor.htm">addSensorController</prop>
                 <prop key="showSensorInfo.htm">showSensorInfoController</prop>
@@ -152,9 +167,10 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean name="addSensorController" class="com.smartFarm.controller.AddSensorController"/>
     <bean name="showNotCuredController" class="com.smartFarm.controller.ShowNotCuredController" />
 
+
     <bean name="showSensorInfoController" class="com.smartFarm.controller.ShowSensorInfoController" />
+
     <bean name="showOverViewController" class="com.smartFarm.controller.ShowOverviewController" />
-           
 </beans>
 
 

@@ -5,6 +5,7 @@
  */
 package com.smartFarm.DAO;
 
+import com.smartFarm.pojo.MilkSensor;
 import com.smartFarm.pojo.TempSensor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,8 +25,7 @@ import java.util.logging.Logger;
  *
  * @author jingli
  */
-public class TempSensorDao extends DAO {
-
+public class MilkSensorDao  extends DAO{
     Connection conn;
     PreparedStatement ps;
     Statement stmt;
@@ -37,7 +37,7 @@ public class TempSensorDao extends DAO {
     public void sensing(){
         
         tempTimer = new Timer();
-        tempTimer.schedule(new TempTimerTask(), 1, 5000);
+        tempTimer.schedule(new TempTimerTask(), 1, 12000);
         
         
     }
@@ -67,7 +67,7 @@ public class TempSensorDao extends DAO {
     
     public void addRecords(){
         
-        TempSensor ts;
+        MilkSensor ts;
             
             ArrayList<Integer> idList=getSensorIds();
             
@@ -75,7 +75,7 @@ public class TempSensorDao extends DAO {
                 
                 int tsId=integerId;
                 
-                ts=new TempSensor(tsId);
+                ts=new MilkSensor(tsId);
                 
                 addTempRecord(ts);
             }
@@ -88,7 +88,7 @@ public class TempSensorDao extends DAO {
         try {
             conn = getConnection();
 
-            String query = "select Sensor_Id from Sensor where Sensor_Type = 'TEMP'";
+            String query = "select Sensor_Id from Sensor where Sensor_Type = 'MILK'";
 
             stmt = conn.createStatement();
             
@@ -112,17 +112,17 @@ public class TempSensorDao extends DAO {
     }
     
 
-    public void addTempRecord(TempSensor ts) {
+    public void addTempRecord(MilkSensor ts) {
 
         try {
             conn = getConnection();
 
-            String query = "insert into TempSensorRecord (Sensor_Id, Ts_Time, Ts_Read) values (?,?,?)";
+            String query = "insert into MilkSensorRecord (Sensor_Id, Ms_Time, Ms_Read) values (?,?,?)";
 
             ps = conn.prepareStatement(query);
-            ps.setInt(1, ts.getTsId());
-            ps.setTimestamp(2, java.sql.Timestamp.valueOf(ts.getTsTime()));
-            ps.setDouble(3, ts.getTsRead());
+            ps.setInt(1, ts.getMsId());
+            ps.setTimestamp(2, java.sql.Timestamp.valueOf(ts.getMsTime()));
+            ps.setDouble(3, ts.getMsRead());
 
             int result = ps.executeUpdate();
             if (result > 0) {
@@ -140,16 +140,16 @@ public class TempSensorDao extends DAO {
 
     }
 
-    public List<TempSensor> getAllTempSensor() {
+    public List<MilkSensor> getAllTempSensor() {
 
-        List<TempSensor> tsList = new ArrayList<>();
+        List<MilkSensor> tsList = new ArrayList<>();
 
         try {
-            TempSensor ts;
+            MilkSensor ts;
 
             conn = getConnection();
 
-            String query = "select * from TempSensorRecord";
+            String query = "select * from MilkSensorRecord";
 
             ps = conn.prepareStatement(query);
 
@@ -157,11 +157,11 @@ public class TempSensorDao extends DAO {
 
             while (rs.next()) {
 
-                Date time = new Date(rs.getTimestamp("Ts_Time").getTime());
+                Date time = new Date(rs.getTimestamp("Ms_Time").getTime());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String strTime = sdf.format(time);
 
-                ts = new TempSensor(rs.getDouble("Ts_Read"), strTime, rs.getInt("Sensor_Id"));
+                ts = new MilkSensor(rs.getDouble("Ms_Read"), strTime, rs.getInt("Sensor_Id"));
 
                 tsList.add(ts);
 
@@ -180,25 +180,25 @@ public class TempSensorDao extends DAO {
 
     }
 
-    public TempSensor getTSById(int id) {
+    public MilkSensor getTSById(int id) {
 
-        TempSensor ts = null;
+        MilkSensor ts = null;
 
         try {
             conn = getConnection();
 
-            String query = "select * from TempSensorRecord where Sensor_Id = ?";
+            String query = "select * from MilkSensorRecord where Sensor_Id = ?";
             ps = conn.prepareStatement(query);
 
             rs = ps.executeQuery();
 
             while (rs.next()) {
 
-                Date time = new Date(rs.getTimestamp("Ts_Time").getTime());
+                Date time = new Date(rs.getTimestamp("Ms_Time").getTime());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String strTime = sdf.format(time);
 
-                ts = new TempSensor(rs.getDouble("Ts_Read"), strTime, rs.getInt("Sensor_Id"));
+                ts = new MilkSensor(rs.getDouble("Ms_Read"), strTime, rs.getInt("Sensor_Id"));
 
                 return ts;
 
@@ -212,5 +212,4 @@ public class TempSensorDao extends DAO {
 
         return null;
     }
-
 }

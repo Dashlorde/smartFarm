@@ -44,12 +44,12 @@
                 <c:choose>
                     <c:when test="${requestScope.type == 'cow'}">
                         <tr>
-                            <td>Cow ID</td>
-                            <td>Employee ID</td>
-                            <td>Age</td>
-                            <td>Weigh</td>
-                            <td>Milk Production</td>
-                            <td>Estrous Detection</td>
+                            <th>Cow ID</th>
+                            <th>Employee ID</th>
+                            <th>Age</th>
+                            <th>Weigh</th>
+                            <th>Milk Production</th>
+                            <th>Estrous Detection</th>
                         </tr>
                         <tr>
                             <td>${requestScope.cow.id}</td>
@@ -62,12 +62,12 @@
                     </c:when>
                     <c:when test="${requestScope.type == 'pig'}">
                         <tr>
-                            <td>Pig ID</td>
-                            <td>Employee ID</td>
-                            <td>Age</td>
-                            <td>Weigh</td>
-                            <td>Gender</td>
-                            <td>Estrous Detection</td>
+                            <th>Pig ID</th>
+                            <th>Employee ID</th>
+                            <th>Age</th>
+                            <th>Weigh</th>
+                            <th>Gender</th>
+                            <th>Estrous Detection</th>
                         </tr>
                         <tr>
                             <td>${requestScope.pig.id}</td>

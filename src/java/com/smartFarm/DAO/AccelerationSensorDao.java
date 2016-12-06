@@ -1,11 +1,11 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * To change this accelerationlate file, choose Tools | Accelerationlates
+ * and open the accelerationlate in the editor.
  */
 package com.smartFarm.DAO;
 
-import com.smartFarm.pojo.TempSensor;
+import com.smartFarm.pojo.AccelerationSensor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,20 +24,19 @@ import java.util.logging.Logger;
  *
  * @author jingli
  */
-public class TempSensorDao extends DAO {
-
+public class AccelerationSensorDao  extends DAO{
     Connection conn;
     PreparedStatement ps;
     Statement stmt;
     ResultSet rs;
     
     //Boolean stop;
-    Timer tempTimer;
+    Timer accelerationTimer;
     
     public void sensing(){
         
-        tempTimer = new Timer();
-        tempTimer.schedule(new TempTimerTask(), 1, 5000);
+        accelerationTimer = new Timer();
+        accelerationTimer.schedule(new AccelerationTimerTask(), 1, 10000);
         
         
     }
@@ -45,13 +44,13 @@ public class TempSensorDao extends DAO {
     
     public void stopSensing(){
         
-        tempTimer.cancel();
-        tempTimer.purge();
+        accelerationTimer.cancel();
+        accelerationTimer.purge();
         
     }
     
     
-    public class TempTimerTask extends TimerTask{
+    public class AccelerationTimerTask extends TimerTask{
 
         @Override
         public void run() {
@@ -67,17 +66,17 @@ public class TempSensorDao extends DAO {
     
     public void addRecords(){
         
-        TempSensor ts;
+        AccelerationSensor as;
             
             ArrayList<Integer> idList=getSensorIds();
             
             for(Integer integerId: idList){
                 
-                int tsId=integerId;
+                int asId=integerId;
                 
-                ts=new TempSensor(tsId);
+                as=new AccelerationSensor(asId);
                 
-                addTempRecord(ts);
+                addAccelerationRecord(as);
             }
         
     }
@@ -88,7 +87,7 @@ public class TempSensorDao extends DAO {
         try {
             conn = getConnection();
 
-            String query = "select Sensor_Id from Sensor where Sensor_Type = 'TEMP'";
+            String query = "select Sensor_Id from Sensor where Sensor_Type = 'ACCELERATOR'";
 
             stmt = conn.createStatement();
             
@@ -102,7 +101,7 @@ public class TempSensorDao extends DAO {
 
 
         } catch (SQLException ex) {
-            Logger.getLogger(TempSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AccelerationSensorDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
 
@@ -112,27 +111,27 @@ public class TempSensorDao extends DAO {
     }
     
 
-    public void addTempRecord(TempSensor ts) {
+    public void addAccelerationRecord(AccelerationSensor as) {
 
         try {
             conn = getConnection();
 
-            String query = "insert into TempSensorRecord (Sensor_Id, Ts_Time, Ts_Read) values (?,?,?)";
+            String query = "insert into AccelerationSensorRecord (Sensor_Id, As_Time, As_Read) values (?,?,?)";
 
             ps = conn.prepareStatement(query);
-            ps.setInt(1, ts.getTsId());
-            ps.setTimestamp(2, java.sql.Timestamp.valueOf(ts.getTsTime()));
-            ps.setDouble(3, ts.getTsRead());
+            ps.setInt(1, as.getAsId());
+            ps.setTimestamp(2, java.sql.Timestamp.valueOf(as.getAsTime()));
+            ps.setDouble(3, as.getAsRead());
 
             int result = ps.executeUpdate();
             if (result > 0) {
-                System.out.println("temp record added successfully!");
+                System.out.println("acceleration record added successfully!");
             } else {
-                System.out.println("temp record cannot be added!");
+                System.out.println("acceleration record cannot be added!");
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(TempSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AccelerationSensorDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
 
@@ -140,16 +139,16 @@ public class TempSensorDao extends DAO {
 
     }
 
-    public List<TempSensor> getAllTempSensor() {
+    public List<AccelerationSensor> getAllAccelerationSensor() {
 
-        List<TempSensor> tsList = new ArrayList<>();
+        List<AccelerationSensor> asList = new ArrayList<>();
 
         try {
-            TempSensor ts;
+            AccelerationSensor as;
 
             conn = getConnection();
 
-            String query = "select * from TempSensorRecord";
+            String query = "select * from AccelerationSensorRecord";
 
             ps = conn.prepareStatement(query);
 
@@ -157,60 +156,59 @@ public class TempSensorDao extends DAO {
 
             while (rs.next()) {
 
-                Date time = new Date(rs.getTimestamp("Ts_Time").getTime());
+                Date time = new Date(rs.getTimestamp("As_Time").getTime());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String strTime = sdf.format(time);
 
-                ts = new TempSensor(rs.getDouble("Ts_Read"), strTime, rs.getInt("Sensor_Id"));
+                as = new AccelerationSensor(rs.getDouble("As_Read"), strTime, rs.getInt("Sensor_Id"));
 
-                tsList.add(ts);
+                asList.add(as);
 
             }
 
             //QueryRunner qr=new QueryRunner();
-            //ResultSetHandler<List<TempSensor>> handler=new BeanListHandler<>(TempSensor.class);
-            //tsList=qr.query(conn, query, handler);
+            //ResultSetHandler<List<AccelerationSensor>> handler=new BeanListHandler<>(AccelerationSensor.class);
+            //asList=qr.query(conn, query, handler);
         } catch (SQLException ex) {
-            Logger.getLogger(TempSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AccelerationSensorDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
         }
 
-        return tsList;
+        return asList;
 
     }
 
-    public TempSensor getTSById(int id) {
+    public AccelerationSensor getTSById(int id) {
 
-        TempSensor ts = null;
+        AccelerationSensor as = null;
 
         try {
             conn = getConnection();
 
-            String query = "select * from TempSensorRecord where Sensor_Id = ?";
+            String query = "select * from AccelerationSensorRecord where Sensor_Id = ?";
             ps = conn.prepareStatement(query);
 
             rs = ps.executeQuery();
 
             while (rs.next()) {
 
-                Date time = new Date(rs.getTimestamp("Ts_Time").getTime());
+                Date time = new Date(rs.getTimestamp("As_Time").getTime());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String strTime = sdf.format(time);
 
-                ts = new TempSensor(rs.getDouble("Ts_Read"), strTime, rs.getInt("Sensor_Id"));
+                as = new AccelerationSensor(rs.getDouble("As_Read"), strTime, rs.getInt("Sensor_Id"));
 
-                return ts;
+                return as;
 
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(TempSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AccelerationSensorDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
         }
 
         return null;
     }
-
 }

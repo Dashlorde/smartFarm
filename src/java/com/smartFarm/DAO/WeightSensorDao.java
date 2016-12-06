@@ -1,11 +1,11 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * To change this weightlate file, choose Tools | Weightlates
+ * and open the weightlate in the editor.
  */
 package com.smartFarm.DAO;
 
-import com.smartFarm.pojo.TempSensor;
+import com.smartFarm.pojo.WeightSensor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,20 +24,19 @@ import java.util.logging.Logger;
  *
  * @author jingli
  */
-public class TempSensorDao extends DAO {
-
+public class WeightSensorDao  extends DAO{
     Connection conn;
     PreparedStatement ps;
     Statement stmt;
     ResultSet rs;
     
     //Boolean stop;
-    Timer tempTimer;
+    Timer weightTimer;
     
     public void sensing(){
         
-        tempTimer = new Timer();
-        tempTimer.schedule(new TempTimerTask(), 1, 5000);
+        weightTimer = new Timer();
+        weightTimer.schedule(new WeightTimerTask(), 1, 12000);
         
         
     }
@@ -45,13 +44,13 @@ public class TempSensorDao extends DAO {
     
     public void stopSensing(){
         
-        tempTimer.cancel();
-        tempTimer.purge();
+        weightTimer.cancel();
+        weightTimer.purge();
         
     }
     
     
-    public class TempTimerTask extends TimerTask{
+    public class WeightTimerTask extends TimerTask{
 
         @Override
         public void run() {
@@ -67,17 +66,17 @@ public class TempSensorDao extends DAO {
     
     public void addRecords(){
         
-        TempSensor ts;
+        WeightSensor ws;
             
             ArrayList<Integer> idList=getSensorIds();
             
             for(Integer integerId: idList){
                 
-                int tsId=integerId;
+                int wsId=integerId;
                 
-                ts=new TempSensor(tsId);
+                ws=new WeightSensor(wsId);
                 
-                addTempRecord(ts);
+                addWeightRecord(ws);
             }
         
     }
@@ -88,7 +87,7 @@ public class TempSensorDao extends DAO {
         try {
             conn = getConnection();
 
-            String query = "select Sensor_Id from Sensor where Sensor_Type = 'TEMP'";
+            String query = "select Sensor_Id from Sensor where Sensor_Type = 'WEIGHT'";
 
             stmt = conn.createStatement();
             
@@ -102,7 +101,7 @@ public class TempSensorDao extends DAO {
 
 
         } catch (SQLException ex) {
-            Logger.getLogger(TempSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WeightSensorDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
 
@@ -112,27 +111,27 @@ public class TempSensorDao extends DAO {
     }
     
 
-    public void addTempRecord(TempSensor ts) {
+    public void addWeightRecord(WeightSensor ws) {
 
         try {
             conn = getConnection();
 
-            String query = "insert into TempSensorRecord (Sensor_Id, Ts_Time, Ts_Read) values (?,?,?)";
+            String query = "insert into WeightSensorRecord (Sensor_Id, Ws_Time, Ws_Read) values (?,?,?)";
 
             ps = conn.prepareStatement(query);
-            ps.setInt(1, ts.getTsId());
-            ps.setTimestamp(2, java.sql.Timestamp.valueOf(ts.getTsTime()));
-            ps.setDouble(3, ts.getTsRead());
+            ps.setInt(1, ws.getWsId());
+            ps.setTimestamp(2, java.sql.Timestamp.valueOf(ws.getWsTime()));
+            ps.setDouble(3, ws.getWsRead());
 
             int result = ps.executeUpdate();
             if (result > 0) {
-                System.out.println("temp record added successfully!");
+                System.out.println("weight record added successfully!");
             } else {
-                System.out.println("temp record cannot be added!");
+                System.out.println("weight record cannot be added!");
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(TempSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WeightSensorDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
 
@@ -140,16 +139,16 @@ public class TempSensorDao extends DAO {
 
     }
 
-    public List<TempSensor> getAllTempSensor() {
+    public List<WeightSensor> getAllWeightSensor() {
 
-        List<TempSensor> tsList = new ArrayList<>();
+        List<WeightSensor> wsList = new ArrayList<>();
 
         try {
-            TempSensor ts;
+            WeightSensor ws;
 
             conn = getConnection();
 
-            String query = "select * from TempSensorRecord";
+            String query = "select * from WeightSensorRecord";
 
             ps = conn.prepareStatement(query);
 
@@ -157,60 +156,59 @@ public class TempSensorDao extends DAO {
 
             while (rs.next()) {
 
-                Date time = new Date(rs.getTimestamp("Ts_Time").getTime());
+                Date time = new Date(rs.getTimestamp("Ws_Time").getTime());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String strTime = sdf.format(time);
 
-                ts = new TempSensor(rs.getDouble("Ts_Read"), strTime, rs.getInt("Sensor_Id"));
+                ws = new WeightSensor(rs.getDouble("Ws_Read"), strTime, rs.getInt("Sensor_Id"));
 
-                tsList.add(ts);
+                wsList.add(ws);
 
             }
 
             //QueryRunner qr=new QueryRunner();
-            //ResultSetHandler<List<TempSensor>> handler=new BeanListHandler<>(TempSensor.class);
-            //tsList=qr.query(conn, query, handler);
+            //ResultSetHandler<List<WeightSensor>> handler=new BeanListHandler<>(WeightSensor.class);
+            //wsList=qr.query(conn, query, handler);
         } catch (SQLException ex) {
-            Logger.getLogger(TempSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WeightSensorDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
         }
 
-        return tsList;
+        return wsList;
 
     }
 
-    public TempSensor getTSById(int id) {
+    public WeightSensor getTSById(int id) {
 
-        TempSensor ts = null;
+        WeightSensor ws = null;
 
         try {
             conn = getConnection();
 
-            String query = "select * from TempSensorRecord where Sensor_Id = ?";
+            String query = "select * from WeightSensorRecord where Sensor_Id = ?";
             ps = conn.prepareStatement(query);
 
             rs = ps.executeQuery();
 
             while (rs.next()) {
 
-                Date time = new Date(rs.getTimestamp("Ts_Time").getTime());
+                Date time = new Date(rs.getTimestamp("Ws_Time").getTime());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String strTime = sdf.format(time);
 
-                ts = new TempSensor(rs.getDouble("Ts_Read"), strTime, rs.getInt("Sensor_Id"));
+                ws = new WeightSensor(rs.getDouble("Ws_Read"), strTime, rs.getInt("Sensor_Id"));
 
-                return ts;
+                return ws;
 
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(TempSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WeightSensorDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             close(conn);
         }
 
         return null;
     }
-
 }

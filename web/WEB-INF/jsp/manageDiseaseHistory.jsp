@@ -120,12 +120,12 @@
                 </tr>
                 <c:forEach var="diseasehistory" items = "${requestScope.diseaseHistoryList}">
                     <tr>
-                        <th>${diseasehistory.livestockId}</th>
-                        <th>${diseasehistory.diagnosisDate}</th>
-                        <th>${diseasehistory.diseaseId}</th>
-                        <th>${diseasehistory.doctorId}</th>
-                        <th>${diseasehistory.curedOrNot}</th>
-                        <th><a href="doctorseelivestockdiseasedetail.htm?livestock_id=${diseasehistory.livestockId}&disease_id=${diseasehistory.diseaseId}" id="detail">detail</a></th>
+                        <td>${diseasehistory.livestockId}</td>
+                        <td>${diseasehistory.diagnosisDate}</td>
+                        <td>${diseasehistory.diseaseId}</td>
+                        <td>${diseasehistory.doctorId}</td>
+                        <td>${diseasehistory.curedOrNot}</td>
+                        <td><a href="doctorseelivestockdiseasedetail.htm?livestock_id=${diseasehistory.livestockId}&disease_id=${diseasehistory.diseaseId}" id="detail">detail</a></td>
                     
                     </tr>
                 </c:forEach>

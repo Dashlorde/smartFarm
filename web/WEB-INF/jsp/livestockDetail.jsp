@@ -33,6 +33,12 @@
             color:black;
             text-align: right;
         }
+        a.sensor{
+            text-decoration: none; 
+            display: block;
+            color:red;
+            text-align: left;
+        }
     </style>
     <body>
         <h2>Livestock Detail</h2>
@@ -46,12 +52,14 @@
         </c:choose>
         <c:choose>
             <c:when test = "${requestScope.type == 'cow'}">
-                Cow ID: <c:out value = "${requestScope.id}"/>
+                Cow ID: ${requestScope.id}
             </c:when>
             <c:when test = "${requestScope.type == 'pig'}">
-                Pig ID: <c:out value = "${requestScope.id}"/> 
+                Pig ID: ${requestScope.id}
             </c:when>
         </c:choose>
+                
+        <a href = "livestocktempsenserdetail.htm?livestock_id=${requestScope.id}&source=livestockdetail&type=${requestScope.type}" class = "sensor">Sensor Monitor</a>
 
         <div>
             <h3>Feed Record</h3>
