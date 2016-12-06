@@ -27,15 +27,11 @@
 
             <table>
 
-
-
                 <tr>
                     <td>Employee Id:</td>
                     <td><input type="text" name="employeeId" size="30" /></td>
                     <td><div style="color:red">${error} </div></td>
                 </tr>
-
-
 
                 <tr>
                     <td>Age:</td>
@@ -43,24 +39,9 @@
                 </tr>
 
                 <tr>
-                    <td>Milk Production:</td>
-                    <td><input type="text" name="milk_production" size="30" /></td>
-                </tr>
-                <tr>
-                    <td>Estrous Detection:</td>
-                    <td><select name="estrous_detection">
-                            <option value="Y">Yes</option>
-                            <option value="N">No</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
                     <td>Weight:</td>
                     <td><input type="text" name="weight" size="30" /></td>
                 </tr>
-
-
-
 
 
             </table>

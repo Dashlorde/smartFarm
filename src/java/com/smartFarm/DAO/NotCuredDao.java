@@ -38,11 +38,11 @@ public class NotCuredDao extends DAO {
             while (rs.next()){
                 Livestock l=new Livestock();
                 
-                l.setAge(rs.getInt("age"));
+                l.setAge(rs.getInt("Age"));
                 l.setEmployeeId(rs.getLong("Employee_Id"));
-                l.setGender(rs.getString("gender"));
-                l.setId(rs.getLong("id"));
-                l.setWeight(rs.getInt("weight"));
+                l.setGender(rs.getString("Gender"));
+                l.setId(rs.getLong("Id"));
+                l.setWeight(rs.getInt("Weight"));
                 livestockList.add(l);
             } 
         } catch (SQLException ex) {

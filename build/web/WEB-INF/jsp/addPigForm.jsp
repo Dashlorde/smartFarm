@@ -27,15 +27,11 @@
 
             <table>
 
-
-
                 <tr>
                     <td>Employee Id:</td>
                     <td><input type="text" name="employeeId" size="30" /></td>
                     <td><div style="color:red">${error} </div></td>
                 </tr>
-
-
 
                 <tr>
                     <td>Age:</td>
@@ -55,26 +51,13 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>Estrous Detection:</td>
-                    <td><select name="estrous_detection">
-                            <option value="Y">Yes</option>
-                            <option value="N">No</option>
-                        </select>
-                    </td>
-                </tr>
-
-
-
-
+            
             </table>
 
             <input type="submit" value="add Pig" id="submit"> <br/><br/><br/>
 
 
             <a href="showAllPig.htm" >Cancel and Back</a><br/>
-
-
 
         </form>
     </body>
