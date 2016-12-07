@@ -12,6 +12,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     <style>
+        div.add {
+                position: fixed;
+                bottom: 100px;
+        }
+          .add a{
+                
+                display: block;
+                color: black;
+                text-align: center;
+                font-family:Lucida Grande;
+                padding: 10px 15px;
+                text-decoration: none; 
+                border: solid 1px #3c6e09;
+            }
+            
             ul.menu{
                 background-color: #f1f1f1;
                 list-style-type:none;
@@ -26,7 +41,7 @@
                 float: left;
             }
 
-            .menu a{
+           .menu a{
                 display: block;
                 color:black;
                 text-align:center;
@@ -39,6 +54,8 @@
                 background-color: black;
                 color:white;
             }
+            
+           
 
             .form{
                 position: absolute;
@@ -79,7 +96,7 @@
         
     </head>
     
-    <body>
+    <body>       
        <div>
             <c:choose>
                 <c:when test="${sessionScope.userType=='doctor'}">
@@ -129,6 +146,9 @@
             </c:forEach>
             
             </table>
-
+        
+        <div class="add">
+            <a href="addSensor.htm" class="add">add sensor</a>
+        </div>
     </body>
 </html>

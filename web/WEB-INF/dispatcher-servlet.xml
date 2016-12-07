@@ -22,14 +22,32 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean id="QuarantineDao" class="com.smartFarm.DAO.QuarantineDao"></bean>
     <bean id="DiseaseDao" class="com.smartFarm.DAO.DiseaseDao"></bean>
     <bean id="DiseaseHistoryDao" class="com.smartFarm.DAO.DiseaseHistoryDao"></bean>
+<<<<<<< HEAD
+=======
+
+    <bean id="SmartFarmInfoDao" class="com.smartFarm.DAO.SmartFarmInfoDao"></bean>
+
+
+
+
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
     <bean id="notCuredDao" class="com.smartFarm.DAO.NotCuredDao"></bean>
     <bean id="TempSensorDao" class="com.smartFarm.DAO.TempSensorDao"></bean>
     <bean id="sensorDao" class="com.smartFarm.DAO.SensorDao"></bean>
+<<<<<<< HEAD
     <bean id="LivestockSensorDao" class="com.smartFarm.DAO.LivestockSensorDao"></bean>
     <bean id="MilkSensorDao" class="com.smartFarm.DAO.MilkSensorDao"></bean>
     <bean id="AccelerationSensorDao" class="com.smartFarm.DAO.AccelerationSensorDao"></bean>
     <bean id="WeightSensorDao" class="com.smartFarm.DAO.WeightSensorDao"></bean>
      <bean id="AlertDao" class="com.smartFarm.DAO.AlertDao"></bean>
+=======
+
+    <bean id="LivestockSensorDao" class="com.smartFarm.DAO.LivestockSensorDao"></bean>
+
+    <bean id="MilkSensorDao" class="com.smartFarm.DAO.MilkSensorDao"></bean>
+    <bean id="AccelerationSensorDao" class="com.smartFarm.DAO.AccelerationSensorDao"></bean>
+    <bean id="WeightSensorDao" class="com.smartFarm.DAO.WeightSensorDao"></bean>
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
 
 
 
@@ -90,11 +108,19 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 
                 
                 <prop key="showNotCured.htm">showNotCuredController</prop>
+<<<<<<< HEAD
                 
+=======
+
+                <prop key="showOverview.htm">showOverViewController</prop>
+
+               
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
 
                 <prop key="startsensing.htm">sensorController</prop>
                 <prop key="endsensing.htm">sensorController</prop>
                 <prop key="sensing.htm">sensorController</prop>
+<<<<<<< HEAD
                 <prop key="livestocktempsenserdetail.htm">sensorController</prop>
                 <prop key="livestockmilksenserdetail.htm">sensorController</prop>
                 <prop key="livestockweightsenserdetail.htm">sensorController</prop>
@@ -103,6 +129,17 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
                <prop key="doctorseelivestockdiseasedetail.htm">livestockDiseaseHistoryDetialController</prop>
 
+=======
+
+                <prop key="livestocktempsenserdetail.htm">sensorController</prop>
+                
+
+
+
+               <prop key="doctorseelivestockdiseasedetail.htm">livestockDiseaseHistoryDetialController</prop>
+
+                
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
                 <prop key="addSensor.htm">addSensorController</prop>
                 <prop key="showSensorInfo.htm">showSensorInfoController</prop>
                 <prop key="showAllSensorInfo.htm">showSensorInfoController</prop>
@@ -157,11 +194,20 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean name="addSensorController" class="com.smartFarm.controller.AddSensorController"/>
     
     <bean name="showNotCuredController" class="com.smartFarm.controller.ShowNotCuredController" />
+<<<<<<< HEAD
     
+=======
+
+
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
     <bean name="showSensorInfoController" class="com.smartFarm.controller.ShowSensorInfoController" />
     
     <bean name="alertController" class="com.smartFarm.controller.AlertController" />
 
+<<<<<<< HEAD
+=======
+    <bean name="showOverViewController" class="com.smartFarm.controller.ShowOverviewController" />
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
 </beans>
 
 

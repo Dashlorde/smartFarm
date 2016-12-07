@@ -32,7 +32,7 @@
             padding: 10px 15px;
             text-decoration: none; 
         }
-
+                    
     </style>
     <body>
         <form action="adddiseasehistory.htm"  method="post" >

@@ -3,9 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/FangningHe/Documents/GitHub/smartFarm/web/WEB-INF/jsp/livestockDetail.jsp</file>
             <file>file:/C:/Users/FangningHe/Documents/GitHub/smartFarm/web/WEB-INF/jsp/livestockSensorDetail.jsp</file>
             <file>file:/C:/Users/FangningHe/Documents/GitHub/smartFarm/src/java/com/smartFarm/controller/SensorController.java</file>
+=======
+            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/jsp/addSensor.jsp</file>
+            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/jsp/menu3.jsp</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/SensorController.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/web/WEB-INF/dispatcher-servlet.xml</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/controller/ShowOverviewController.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/DAO/SmartFarmInfoDao.java</file>
+            <file>file:/Users/zhouyunlu/smartFarm/src/java/com/smartFarm/DAO/DAO.java</file>
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
         </group>
     </open-files>
 </project-private>

@@ -5,6 +5,10 @@
  */
 package com.smartFarm.controller;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
 import com.smartFarm.DAO.LivestockSensorDao;
 import com.smartFarm.pojo.LivestockSensor;
 import java.sql.SQLException;
@@ -15,6 +19,11 @@ import com.smartFarm.DAO.AccelerationSensorDao;
 import com.smartFarm.DAO.MilkSensorDao;
 import com.smartFarm.DAO.TempSensorDao;
 import com.smartFarm.DAO.WeightSensorDao;
+<<<<<<< HEAD
+=======
+import java.util.Timer;
+import java.util.TimerTask;
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +42,12 @@ public class SensorController {
     TempSensorDao tsd = new TempSensorDao();
     
     @Autowired
+<<<<<<< HEAD
+=======
+
+    LivestockSensorDao livestockSensorDao = new LivestockSensorDao();
+
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
     WeightSensorDao wsd = new WeightSensorDao();
     
     @Autowired
@@ -40,9 +55,13 @@ public class SensorController {
     
     @Autowired
     MilkSensorDao msd = new MilkSensorDao();
+<<<<<<< HEAD
     
     @Autowired
     LivestockSensorDao livestockSensorDao = new LivestockSensorDao();
+=======
+
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
 
     //need map
     @RequestMapping(value = "/startsensing.htm", method = RequestMethod.GET)

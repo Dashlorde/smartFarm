@@ -20,10 +20,40 @@
             padding: 10px 15px;
             text-decoration: none; 
         }
+        
+        #form{
+                width: 50%;
+                margin: auto;
+                padding: 20px 30px;
+                border: 2px solid black;
+                border-radius: 8px;
+                font-size: 15px;
+                font-family:Lucida Grande;
+
+            }
+
+            input{
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+            }
+
+            #submit{
+                diplay:block;
+                width: 80%;
+                font-size: 15px;
+                font-family:Lucida Grande;
+                padding:10px;
+                background-color :black;
+                color: white;
+                border-radius:8px;
+
+            }
 
     </style>
     <body>
-        <form action="addCow.htm"  method="post" >
+        <form action="addCow.htm"  method="post" id="form">
 
             <table>
 

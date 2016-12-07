@@ -25,17 +25,59 @@
         }
         
         table{
-            width: 100%
+            width: 100%;
+            position:absolute;
+            top:60px;
+            
         }
-        a{
+        
+        .add{
             text-decoration: none; 
             display: block;
             color:black;
-            text-align: left;
+            text-align: center;
+            font-family:Lucida Grande;
+            position: fixed;
+            bottom: 100px;
+            padding: 10px 15px;
+            margin:auto;
+            border: solid 1px black;
         }
+        
+         ul.menu{
+                background-color: #f1f1f1;
+                list-style-type:none;
+                margin:0;
+                padding:0;
+                width:100%;
+                opacity: 0.8;
+
+            }
+
+            .menu li {
+                float: left;
+            }
+
+           .menu a{
+                display: block;
+                color:black;
+                text-align:center;
+                font-family:Lucida Grande;
+                padding: 10px 15px;
+                text-decoration: none; 
+            }
+
+            .menu a:hover{
+                background-color: black;
+                color:white;
+            }
+            
     </style>
     <body>
-       <a href="addvaccine.htm" >Add New Vaccine</a><br/><br/>
+        <div>
+            <jsp:include page="menu3.jsp"/>
+        </div>
+       
        
            <table>
             <tr>
@@ -60,6 +102,6 @@
             </table>
        <!--<h1>${requestScope.test}</h1>-->
                     <br/><br/>
-           <a href="showAllCow.htm" >Back to Main Menu</a><br/>
+         <a href="addvaccine.htm" class="add">Add New Vaccine</a><br/><br/>  
     </body>
 </html>

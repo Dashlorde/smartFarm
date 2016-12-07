@@ -12,19 +12,52 @@
         <title>Add Feed Record</title>
     </head>
     <style>
-        a{
-            display: block;
-            color:black;
-            text-align:left;
-            font-family:Lucida Grande;
-            padding: 10px 15px;
-            text-decoration: none; 
-        }
+        #form{
+                position: absolute;
+                top: 100px;
+                width: 50%;
+                margin: auto;
+                padding: 20px 30px;
+                border: 2px solid black;
+                border-radius: 8px;
+                font-size: 15px;
+                font-family:Lucida Grande;
+
+            }
+
+            input{
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+            }
+
+            #submit{
+                diplay:block;
+                width: 80%;
+                font-size: 15px;
+                font-family:Lucida Grande;
+                padding:10px;
+                background-color: black;
+                color: white;
+                border-radius:8px;
+
+            }
+            
+            a{
+                display: block;
+                color:black;
+                width: 200px;
+                font-family:Lucida Grande;
+                padding: 10px 15px;
+                text-decoration: none; 
+                
+            }
 
     </style>
     <body>
         ${requestScope.type} ID: ${requestScope.id}
-        <form action="addfeedrecord.htm"  method="post" >
+        <form action="addfeedrecord.htm"  method="post"id="form" >
             <table>
                 <input type = "hidden" name = "id" value = "${requestScope.id}">
                 <input type = "hidden" name = "type" value = "${requestScope.type}">

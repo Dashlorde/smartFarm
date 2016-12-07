@@ -15,17 +15,19 @@
         <li><a href="addCow.htm">add cow</a></li>
         <li><a href="addPig.htm">add pig</a></li>
 
-        
         <li><a href="managevaccine.htm">Manage Vaccine</a></li>
 
-
+        <li><a href="showAllSensorInfo.htm">sensor infomation</a></li>
         <li><a href="sensing.htm">sensing</a></li>
 
+<<<<<<< HEAD
         <li><a href="addSensor.htm">add sensor</a></li>
 
         <li><a href="showAllSensorInfo.htm">show sensor information</a></li>
         
 
+=======
+>>>>>>> f02974072a7434e2de0133869aa947684f0b7307
         <li><a href="showNotCured.htm">show not cured</a></li>
         
         <li><a href="managealert.htm">Alert List</a></li>
