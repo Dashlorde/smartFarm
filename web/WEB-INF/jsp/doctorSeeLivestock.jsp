@@ -49,7 +49,7 @@
                             <th>Age</th>
                             <th>Weigh</th>
                             <th>Milk Production</th>
-                            <th>Estrous Detection</th>
+                            
                         </tr>
                         <tr>
                             <td>${requestScope.cow.id}</td>
@@ -57,7 +57,7 @@
                             <td>${requestScope.cow.age}</td>
                             <td>${requestScope.cow.weight}</td>
                             <td>${requestScope.cow.milkProduction}</td>
-                            <td>${requestScope.cow.estrousDetection}</td>
+                            
                         </tr>
                     </c:when>
                     <c:when test="${requestScope.type == 'pig'}">
@@ -67,7 +67,7 @@
                             <th>Age</th>
                             <th>Weigh</th>
                             <th>Gender</th>
-                            <th>Estrous Detection</th>
+                            
                         </tr>
                         <tr>
                             <td>${requestScope.pig.id}</td>
@@ -75,7 +75,7 @@
                             <td>${requestScope.pig.age}</td>
                             <td>${requestScope.pig.weight}</td>
                             <td>${requestScope.pig.gender}</td>
-                            <td>${requestScope.pig.estrousDetection}</td>
+                            
                         </tr>
                     </c:when>
                 </c:choose>

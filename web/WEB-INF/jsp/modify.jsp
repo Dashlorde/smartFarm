@@ -68,10 +68,7 @@
                     <td><input type="text" name="employeeId" size="30" /></td>
                 </tr>
                 
-                <tr>
-                    <td>Change Weight:</td>
-                    <td><input type="text" name="weight" size="30" /></td>
-                </tr>
+                
             </table>
             <input type="submit" value="modify livestock" id="submit"> <br/>
             
