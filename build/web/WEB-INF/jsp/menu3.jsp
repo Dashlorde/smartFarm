@@ -21,6 +21,8 @@
         <li><a href="sensing.htm">sensing</a></li>
 
         <li><a href="showNotCured.htm">show not cured</a></li>
+        
+        <li><a href="managealert.htm">Alert List</a></li>
 
 
     </ul>

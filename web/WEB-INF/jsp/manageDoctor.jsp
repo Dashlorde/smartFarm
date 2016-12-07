@@ -27,6 +27,12 @@
         table{
             width: 100%
         }
+         a{
+            text-decoration: none; 
+            display: block;
+            color:black;
+            text-align: left;
+        }
     </style>
     <body>
        <a href="adddoctor.htm" >Add New Doctor</a><br/><br/>

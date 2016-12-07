@@ -11,6 +11,7 @@
         <li><a href="logout.htm">log out</a></li>
         <li><a href="managediseasehistory.htm">Disease History</a>
         <li><a href="managedisease.htm">Manage Disease</a></li>
-        <li><a href="showNotCured.htm">show not cured</a></li>
+        <li><a href="searchdiseasehistorynotcure.htm?status=not">Show Not Cured</a></li>
+        <li><a href="managediseasehistory.htm" >Back To All</a></li>
     </ul>
 </div>

@@ -16,36 +16,28 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean id="userDao" class="com.smartFarm.DAO.UserDao"></bean>
     <bean id="EmployeeDao" class="com.smartFarm.DAO.EmployeeDao"></bean>
     <bean id="DoctorDao" class="com.smartFarm.DAO.DoctorDao"></bean>
-
     <bean id="VaccineDao" class="com.smartFarm.DAO.VaccineDao"></bean>
     <bean id="VaccineRecordDao" class="com.smartFarm.DAO.VaccineRecordDao"></bean>
     <bean id="FeedRecordDao" class="com.smartFarm.DAO.FeedRecordDao"></bean>
     <bean id="QuarantineDao" class="com.smartFarm.DAO.QuarantineDao"></bean>
     <bean id="DiseaseDao" class="com.smartFarm.DAO.DiseaseDao"></bean>
     <bean id="DiseaseHistoryDao" class="com.smartFarm.DAO.DiseaseHistoryDao"></bean>
-
     <bean id="SmartFarmInfoDao" class="com.smartFarm.DAO.SmartFarmInfoDao"></bean>
 
 
 
 
+
     <bean id="notCuredDao" class="com.smartFarm.DAO.NotCuredDao"></bean>
-    
     <bean id="TempSensorDao" class="com.smartFarm.DAO.TempSensorDao"></bean>
     <bean id="sensorDao" class="com.smartFarm.DAO.SensorDao"></bean>
 
     <bean id="LivestockSensorDao" class="com.smartFarm.DAO.LivestockSensorDao"></bean>
-
     <bean id="MilkSensorDao" class="com.smartFarm.DAO.MilkSensorDao"></bean>
     <bean id="AccelerationSensorDao" class="com.smartFarm.DAO.AccelerationSensorDao"></bean>
     <bean id="WeightSensorDao" class="com.smartFarm.DAO.WeightSensorDao"></bean>
-
-
-
-
-    
-
-    
+     <bean id="AlertDao" class="com.smartFarm.DAO.AlertDao"></bean>
+  
     <!--
     Most controllers will use the ControllerClassNameHandlerMapping above, but
     for the index controller we are using ParameterizableViewController, so we must
@@ -55,6 +47,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
         <property name="mappings">
             <props>
                 <prop key="index.htm">indexController</prop>
+                
                 <prop key="showAllLivestock.htm">showLivestockController</prop>
                 <prop key="showAllCow.htm">showLivestockController</prop>
                 <prop key="showAllPig.htm">showLivestockController</prop>
@@ -69,6 +62,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="login.htm">loginController</prop>
                 <prop key="logout.htm">logoutController</prop>
                 <prop key="adminManagement.htm">loginController</prop>
+                
                 <prop key="manageemployee.htm">employeeController</prop>
                 <prop key="addemployee.htm">employeeController</prop>
                 
@@ -78,7 +72,6 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
                 <prop key="managevaccine.htm">vaccineController</prop>
                 <prop key="addvaccine.htm">vaccineController</prop>
-                
                 <prop key="addvaccinerecord.htm">vaccineController</prop>
                 
                 
@@ -93,15 +86,32 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                 <prop key="adddisease.htm">diseaseController</prop>
                 <prop key="managediseasehistory.htm">diseaseController</prop>
                 <prop key="adddiseasehistory.htm">diseaseController</prop>
+                <prop key="searchdiseasehistory.htm">diseaseController</prop>
+                <prop key="searchdiseasehistorynotcure.htm">diseaseController</prop>
+                
+                
                 <prop key="showNotCured.htm">showNotCuredController</prop>
+
+                
+
 
                 <prop key="showOverview.htm">showOverViewController</prop>
 
-               
+
 
                 <prop key="startsensing.htm">sensorController</prop>
                 <prop key="endsensing.htm">sensorController</prop>
                 <prop key="sensing.htm">sensorController</prop>
+
+                <prop key="livestocktempsenserdetail.htm">sensorController</prop>
+                <prop key="livestockmilksenserdetail.htm">sensorController</prop>
+                <prop key="livestockweightsenserdetail.htm">sensorController</prop>
+                <prop key="livestockaccesenserdetail.htm">sensorController</prop>
+                <prop key="livestockallsenserdetail.htm">sensorController</prop>
+
+               <prop key="doctorseelivestockdiseasedetail.htm">livestockDiseaseHistoryDetialController</prop>
+
+
 
                 <prop key="livestocktempsenserdetail.htm">sensorController</prop>
                 
@@ -111,11 +121,12 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
                <prop key="doctorseelivestockdiseasedetail.htm">livestockDiseaseHistoryDetialController</prop>
 
                 
+
                 <prop key="addSensor.htm">addSensorController</prop>
                 <prop key="showSensorInfo.htm">showSensorInfoController</prop>
                 <prop key="showAllSensorInfo.htm">showSensorInfoController</prop>
-
-              
+                
+                <prop key="managealert.htm">alertController</prop>
             </props>
         </property>
     </bean>
@@ -134,13 +145,14 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     
     <bean name="loginController" class="com.smartFarm.controller.LoginController"></bean>
     
-    <bean name="showLivestockController" class="com.smartFarm.controller.ShowLivestockController">
-    </bean>
+    <bean name="showLivestockController" class="com.smartFarm.controller.ShowLivestockController"></bean>
     
     <bean name="logoutController" class="com.smartFarm.controller.LogoutController" />
     
     <bean name="addLivestockController" class="com.smartFarm.controller.AddLivestockController"/>
+    
     <bean name="sensorController" class="com.smartFarm.controller.SensorController"/>
+    
     <bean name="employeeController" class="com.smartFarm.controller.EmployeeController"/>
     
     <bean name="searchController" class="com.smartFarm.controller.SearchController"/>
@@ -148,7 +160,6 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <bean name="doctorController" class="com.smartFarm.controller.DoctorController"/>
 
     <bean name="modifyLivestockController" class="com.smartFarm.controller.ModifyLivestockController"/>
-
     
     <bean name="vaccineController" class="com.smartFarm.controller.VaccineController"/>
     
@@ -160,17 +171,19 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     
     <bean name="diseaseController" class="com.smartFarm.controller.DiseaseController"/>
     
-
     <bean name="livestockDiseaseHistoryDetialController" class="com.smartFarm.controller.LivestockDiseaseHistoryDetialController"/>
     
-
     <bean name="addSensorController" class="com.smartFarm.controller.AddSensorController"/>
+    
     <bean name="showNotCuredController" class="com.smartFarm.controller.ShowNotCuredController" />
 
-
     <bean name="showSensorInfoController" class="com.smartFarm.controller.ShowSensorInfoController" />
+    
+    <bean name="alertController" class="com.smartFarm.controller.AlertController" />
+
 
     <bean name="showOverViewController" class="com.smartFarm.controller.ShowOverviewController" />
+
 </beans>
 
 

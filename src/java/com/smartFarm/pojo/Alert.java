@@ -5,7 +5,8 @@
  */
 package com.smartFarm.pojo;
 
-import java.util.Date;
+import java.sql.Timestamp;
+
 
 
 
@@ -14,9 +15,15 @@ import java.util.Date;
  * @author zhouyunlu
  */
 public class Alert {
+
+    public Alert() {
+    }
+    
     long sensorId;
     String possibleEvent;
-    Date datetime;
+    Timestamp time;
+    long livestockId;
+    String sensorType;
 
     public long getSensorId() {
         return sensorId;
@@ -34,15 +41,28 @@ public class Alert {
         this.possibleEvent = possibleEvent;
     }
 
-    public Date getDatetime() {
-        return datetime;
+    public Timestamp getTime() {
+        return time;
     }
 
-    public void setDatetime(Date datetime) {
-        this.datetime = datetime;
+    public void setTime(Timestamp time) {
+        this.time = time;
     }
 
-    
-    
-    
+    public long getLivestockId() {
+        return livestockId;
+    }
+
+    public void setLivestockId(long livestockId) {
+        this.livestockId = livestockId;
+    }
+
+    public String getSensorType() {
+        return sensorType;
+    }
+
+    public void setSensorType(String sensorType) {
+        this.sensorType = sensorType;
+    }
+  
 }

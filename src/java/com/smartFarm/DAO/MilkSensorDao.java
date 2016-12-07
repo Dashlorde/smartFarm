@@ -6,7 +6,6 @@
 package com.smartFarm.DAO;
 
 import com.smartFarm.pojo.MilkSensor;
-import com.smartFarm.pojo.TempSensor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

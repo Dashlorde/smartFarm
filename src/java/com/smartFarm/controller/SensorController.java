@@ -7,7 +7,6 @@ package com.smartFarm.controller;
 
 
 import com.smartFarm.DAO.LivestockSensorDao;
-import com.smartFarm.DAO.TempSensorDao;
 import com.smartFarm.pojo.LivestockSensor;
 import java.sql.SQLException;
 import java.util.List;
@@ -17,9 +16,6 @@ import com.smartFarm.DAO.AccelerationSensorDao;
 import com.smartFarm.DAO.MilkSensorDao;
 import com.smartFarm.DAO.TempSensorDao;
 import com.smartFarm.DAO.WeightSensorDao;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,10 +31,6 @@ public class SensorController {
 
     @Autowired
     TempSensorDao tsd = new TempSensorDao();
-    
-    @Autowired
-
-    LivestockSensorDao livestockSensorDao = new LivestockSensorDao();
 
     WeightSensorDao wsd = new WeightSensorDao();
     
@@ -47,6 +39,10 @@ public class SensorController {
     
     @Autowired
     MilkSensorDao msd = new MilkSensorDao();
+
+    
+    @Autowired
+    LivestockSensorDao livestockSensorDao = new LivestockSensorDao();
 
 
     //need map
@@ -75,9 +71,16 @@ public class SensorController {
     @RequestMapping(value = "/sensing.htm", method = RequestMethod.GET)
     public String getAllSensor(Model model,HttpServletRequest hsr) throws SQLException {
         List<LivestockSensor> livestockTempSensorList = livestockSensorDao.getAllTempSenorResult();
+        List<LivestockSensor> livestockMilkSensorList = livestockSensorDao.getAllMilkSenorResult();
+        List<LivestockSensor> livestockWeightSensorList = livestockSensorDao.getAllWeightSenorResult();
+        List<LivestockSensor> livestockAcceSensorList = livestockSensorDao.getAllAcceSenorResult();
+        
         //model.addAttribute(livestockTempSensorList);
         hsr.setAttribute("livestocksensorlist", livestockTempSensorList);
-        //model.addAttribute("size", livestockTempSensorList.get(0).getLivestockId());
+        hsr.setAttribute("livestocksensorlistM", livestockMilkSensorList);
+        hsr.setAttribute("livestocksensorlistW", livestockWeightSensorList);
+        hsr.setAttribute("livestocksensorlistA", livestockAcceSensorList);
+        //model.addAttribute("size", livestockAcceSensorList.size());
         return "sensing";
     }
     
@@ -97,7 +100,80 @@ public class SensorController {
         hsr.setAttribute("livestock_type", type);
         return "livestockSensorDetail";
     }
-   
     
-
+    @RequestMapping(value = "/livestockmilksenserdetail.htm", method = RequestMethod.GET)
+    public String getSingleMilkSenser(Model model,HttpServletRequest hsr) throws SQLException {
+        int livestockId = Integer.parseInt(hsr.getParameter("livestock_id"));
+        String source = hsr.getParameter("source");
+        String type = hsr.getParameter("type");
+        List<LivestockSensor> livestockMilkSensorList = livestockSensorDao.getSingleMilkSenorResult(livestockId);
+        //model.addAttribute(livestockTempSensorList);
+        hsr.setAttribute("livestocksensorlistM", livestockMilkSensorList);
+        //model.addAttribute("size", livestockTempSensorList.size());
+        //model.addAttribute("id", livestockId);
+        model.addAttribute("id", livestockMilkSensorList.get(0).getLivestockId());
+        model.addAttribute("type", livestockMilkSensorList.get(0).getSensorType());
+        hsr.setAttribute("source", source);
+        hsr.setAttribute("livestock_type", type);
+        return "livestockSensorDetail";
+    }
+    
+    @RequestMapping(value = "/livestockweightsenserdetail.htm", method = RequestMethod.GET)
+    public String getSingleWeightSenser(Model model,HttpServletRequest hsr) throws SQLException {
+        int livestockId = Integer.parseInt(hsr.getParameter("livestock_id"));
+        String source = hsr.getParameter("source");
+        String type = hsr.getParameter("type");
+        List<LivestockSensor> livestockWeightSensorList = livestockSensorDao.getSingleWeightSenorResult(livestockId);
+        //model.addAttribute(livestockTempSensorList);
+        hsr.setAttribute("livestocksensorlistW", livestockWeightSensorList);
+        //model.addAttribute("size", livestockTempSensorList.size());
+        //model.addAttribute("id", livestockId);
+        model.addAttribute("id", livestockWeightSensorList.get(0).getLivestockId());
+        model.addAttribute("type", livestockWeightSensorList.get(0).getSensorType());
+        hsr.setAttribute("source", source);
+        hsr.setAttribute("livestock_type", type);
+        return "livestockSensorDetail";
+    }
+    
+    @RequestMapping(value = "/livestockaccesenserdetail.htm", method = RequestMethod.GET)
+    public String getSingleAcceSenser(Model model,HttpServletRequest hsr) throws SQLException {
+        int livestockId = Integer.parseInt(hsr.getParameter("livestock_id"));
+        String source = hsr.getParameter("source");
+        String type = hsr.getParameter("type");
+        List<LivestockSensor> livestockAcceSensorList = livestockSensorDao.getSingleAcceSenorResult(livestockId);
+        //model.addAttribute(livestockTempSensorList);
+        hsr.setAttribute("livestocksensorlistA", livestockAcceSensorList);
+        //model.addAttribute("size", livestockTempSensorList.size());
+        //model.addAttribute("id", livestockId);
+        model.addAttribute("id", livestockAcceSensorList.get(0).getLivestockId());
+        model.addAttribute("type", livestockAcceSensorList.get(0).getSensorType());
+        hsr.setAttribute("source", source);
+        hsr.setAttribute("livestock_type", type);
+        return "livestockSensorDetail";
+    }
+    
+    @RequestMapping(value = "/livestockallsenserdetail.htm", method = RequestMethod.GET)
+    public String getSingleLivestockSenser(Model model,HttpServletRequest hsr) throws SQLException {
+        int livestockId = Integer.parseInt(hsr.getParameter("livestock_id"));
+        String source = hsr.getParameter("source");
+        String type = hsr.getParameter("type");
+        List<LivestockSensor> livestockTempSensorList = livestockSensorDao.getSingleTempSenorResult(livestockId);
+        List<LivestockSensor> livestockMilkSensorList = livestockSensorDao.getSingleMilkSenorResult(livestockId);
+        List<LivestockSensor> livestockWeightSensorList = livestockSensorDao.getSingleWeightSenorResult(livestockId);
+        List<LivestockSensor> livestockAcceSensorList = livestockSensorDao.getSingleAcceSenorResult(livestockId);
+        //model.addAttribute(livestockTempSensorList);
+        hsr.setAttribute("livestocksensorlist", livestockTempSensorList);
+        hsr.setAttribute("livestocksensorlistM", livestockMilkSensorList);
+        hsr.setAttribute("livestocksensorlistW", livestockWeightSensorList);
+        hsr.setAttribute("livestocksensorlistA", livestockAcceSensorList);
+        //model.addAttribute("size", livestockTempSensorList.size());
+        //model.addAttribute("id", livestockId);
+        model.addAttribute("id", livestockId);
+       // model.addAttribute("type", livestockAcceSensorList.get(0).getSensorType());
+        hsr.setAttribute("source", source);
+        hsr.setAttribute("livestock_type", type);
+        return "employeeSeeLivestockSensorDetail";
+    }
+   
+   
 }

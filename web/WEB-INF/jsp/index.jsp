@@ -122,13 +122,6 @@
                 <th>Age</th>
                 <th>Weight</th>
                 <th>Gender</th>
-                <th>Estrous Detection</th>
-                    <c:choose>
-                        <c:when test = "${requestScope.livestockType == 'cow'}">
-                        <th>Milk Production</th>
-                        </c:when>
-                    </c:choose>
-
                 <th></th>
 
             </tr>
@@ -140,13 +133,6 @@
                     <td>${livestock.age}</td>
                     <td>${livestock.weight}</td>
                     <td>${livestock.gender}</td>
-                    <td>${livestock.estrousDetection}</td>
-                    <c:choose>
-                        <c:when test = "${requestScope.livestockType == 'cow'}">
-                            <td>${livestock.milkProduction}</td>
-                        </c:when>
-                    </c:choose>
-
                     <td>
                         <c:choose>
                             <c:when test="${sessionScope.userType=='employee'}">

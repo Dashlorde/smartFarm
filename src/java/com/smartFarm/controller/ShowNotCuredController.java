@@ -29,10 +29,11 @@ public class ShowNotCuredController {
     NotCuredDao notCuredDao=new NotCuredDao();
     
     @RequestMapping(method=RequestMethod.GET)
-    public String getNotCuredPage(Model model) throws SQLException{
+    public String getNotCuredPage(Model model,HttpServletRequest request) throws SQLException{
         List<Livestock> list=notCuredDao.getLivestockNotCured();
         
-        model.addAttribute("livestockList", list);
+        request.setAttribute("livestockList", list);
+        //request.setAttribute("size", list.size());
         
         return "showNotCured"; 
     }
@@ -63,7 +64,7 @@ public class ShowNotCuredController {
         else if(option.equals("showPigNotCured")){
             pigList=notCuredDao.getPigNotCured();
             model.addAttribute("livestockList", pigList);
-            model.addAttribute("livestockType", "cow");    
+            model.addAttribute("livestockType", "pig");    
             
             return "showNotCured";
         }

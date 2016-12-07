@@ -54,10 +54,12 @@
     <body>
         <a href="manageemployee.htm" target="contents">Manage Employee</a><br/><br/>
         <a href="managedoctor.htm" target="contents">Manage Doctor</a><br/><br/>
-        <a href="managelivestock.htm" target="contents">Manage Livestock</a><br/><br/>
+
+        <a href="managealert.htm" target="contents">Alert</a><br/><br/>
         <a href="showOverview.htm" target="contents">Overwiew</a><br/><br/>
 
         <input type="submit" onclick="breakout()" value="Log out" id="submit">
+
 
 
     </body>

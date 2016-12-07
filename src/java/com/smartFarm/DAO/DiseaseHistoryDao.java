@@ -105,4 +105,88 @@ public class DiseaseHistoryDao extends DAO {
         return diseaseHistoryList;
 
     }
+    
+    public List<DiseaseHistory> getSingleDiseaseHistoryByDoctorId(Long DoctorId) throws SQLException {
+        List<DiseaseHistory> diseaseHistoryList = new ArrayList<>();
+        try {
+            conn = getConnection();
+
+            String query = "select * from Disease_History where Doctor_Id = ?";
+            ps = conn.prepareStatement(query);
+            ps.setLong(1, DoctorId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                DiseaseHistory diseaseHistory = new DiseaseHistory();
+                diseaseHistory.setLivestockId(rs.getLong("Livestock_Id"));
+                diseaseHistory.setDiagnosisDate(rs.getDate("Diagnosis_Date"));
+                diseaseHistory.setDiseaseId(rs.getLong("Disease_Id"));
+                diseaseHistory.setDoctorId(rs.getLong("Doctor_Id"));
+                diseaseHistory.setCuredOrNot(rs.getString("Cured_or_Not"));
+                diseaseHistoryList.add(diseaseHistory);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DiseaseHistoryDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+        }
+
+        return diseaseHistoryList;
+
+    }
+    
+    public List<DiseaseHistory> getSingleDiseaseHistoryByDiseaseId(Long DiseaseId) throws SQLException {
+        List<DiseaseHistory> diseaseHistoryList = new ArrayList<>();
+        try {
+            conn = getConnection();
+
+            String query = "select * from Disease_History where Disease_Id = ?";
+            ps = conn.prepareStatement(query);
+            ps.setLong(1, DiseaseId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                DiseaseHistory diseaseHistory = new DiseaseHistory();
+                diseaseHistory.setLivestockId(rs.getLong("Livestock_Id"));
+                diseaseHistory.setDiagnosisDate(rs.getDate("Diagnosis_Date"));
+                diseaseHistory.setDiseaseId(rs.getLong("Disease_Id"));
+                diseaseHistory.setDoctorId(rs.getLong("Doctor_Id"));
+                diseaseHistory.setCuredOrNot(rs.getString("Cured_or_Not"));
+                diseaseHistoryList.add(diseaseHistory);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DiseaseHistoryDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+        }
+
+        return diseaseHistoryList;
+
+    }
+    
+    public List<DiseaseHistory> getSingleDiseaseHistoryByNotCured(String cureornot) throws SQLException {
+        List<DiseaseHistory> diseaseHistoryList = new ArrayList<>();
+        try {
+            conn = getConnection();
+
+            String query = "select * from Disease_History where Cured_or_Not = ?";
+            ps = conn.prepareStatement(query);
+            ps.setString(1, cureornot);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                DiseaseHistory diseaseHistory = new DiseaseHistory();
+                diseaseHistory.setLivestockId(rs.getLong("Livestock_Id"));
+                diseaseHistory.setDiagnosisDate(rs.getDate("Diagnosis_Date"));
+                diseaseHistory.setDiseaseId(rs.getLong("Disease_Id"));
+                diseaseHistory.setDoctorId(rs.getLong("Doctor_Id"));
+                diseaseHistory.setCuredOrNot(rs.getString("Cured_or_Not"));
+                diseaseHistoryList.add(diseaseHistory);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DiseaseHistoryDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+        }
+
+        return diseaseHistoryList;
+
+    }
 }
