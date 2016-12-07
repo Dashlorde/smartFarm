@@ -35,6 +35,7 @@
         }
     </style>
     <body>
+
         <c:choose>
             <c:when test="${requestScope.type == 'TEMP'}">
                 <h4>Temperature Monitor: Livestock ID ${requestScope.id}</h4>
@@ -53,15 +54,65 @@
                     </c:forEach>   
                 </table>
             </c:when>
+
+            <c:when test="${requestScope.type == 'MILK'}">
+                <h4>Milk Monitor: Livestock ID ${requestScope.id}</h4>
+                <table>
+                    <tr>
+                        <th>Sensor ID</th>
+                        <th>Sensor Time</th>
+                        <th>Sensor Read</th>
+                    </tr> 
+                    <c:forEach var = "milksensor" items = "${requestScope.livestocksensorlistM}">
+                        <tr>
+                            <td>${milksensor.sensorId}</td>
+                            <td>${milksensor.time}</td>
+                            <td>${milksensor.read}</td>
+                        </tr>
+                    </c:forEach>   
+                </table>
+            </c:when>
+
+            <c:when test="${requestScope.type == 'WEIGHT'}">
+                <h4>Livestock Weight Monitor: Livestock ID ${requestScope.id}</h4>
+                <table>
+                    <tr>
+                        <th>Sensor ID</th>
+                        <th>Sensor Time</th>
+                        <th>Sensor Read</th>
+                    </tr> 
+                    <c:forEach var = "weightsensor" items = "${requestScope.livestocksensorlistW}">
+                        <tr>
+                            <td>${weightsensor.sensorId}</td>
+                            <td>${weightsensor.time}</td>
+                            <td>${weightsensor.read}</td>
+                        </tr>
+                    </c:forEach>   
+                </table>
+            </c:when>
+
+            <c:when test="${requestScope.type == 'ACCELERATOR'}">
+                <h4>Acceleration Monitor: Livestock ID ${requestScope.id}</h4>
+                <table>
+                    <tr>
+                        <th>Sensor ID</th>
+                        <th>Sensor Time</th>
+                        <th>Sensor Read</th>
+                    </tr> 
+                    <c:forEach var = "accesensor" items = "${requestScope.livestocksensorlistA}">
+                        <tr>
+                            <td>${accesensor.sensorId}</td>
+                            <td>${accesensor.time}</td>
+                            <td>${accesensor.read}</td>
+                        </tr>
+                    </c:forEach>   
+                </table>
+            </c:when>
         </c:choose>
         <br/><br/>
-        <c:choose>
-            <c:when test = "${requestScope.source == 'livestockdetail'}">
-                <a href="livestockdetail.htm?id=${requestScope.id}&type=${requestScope.livestock_type}" >Back</a><br/>
-            </c:when>
-            <c:otherwise>
-                <a href="sensing.htm" >Back</a><br/>
-            </c:otherwise>
-        </c:choose>
+
+
+        <a href="sensing.htm" >Back</a><br/>
+
     </body>
 </html>

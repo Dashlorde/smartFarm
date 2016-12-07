@@ -22,10 +22,6 @@
     <body>
         <a href="manageemployee.htm" target="contents">Manage Employee</a><br/><br/>
         <a href="managedoctor.htm" target="contents">Manage Doctor</a><br/><br/>
-        <a href="managelivestock.htm" target="contents">Manage Livestock</a><br/><br/>
-
         <input type="submit" onclick="breakout()" value="Log out">
-
-
     </body>
 </html>

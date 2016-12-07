@@ -26,7 +26,7 @@ public class DAO {
         driver = "com.mysql.jdbc.Driver";
         dburl = "jdbc:mysql://localhost:3306/smartFarmFinal";
         dbuser = "root";
-        dbpassword="";
+        dbpassword="1234";
         
         DbUtils.loadDriver(driver);
     }

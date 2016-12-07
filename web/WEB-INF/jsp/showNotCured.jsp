@@ -74,13 +74,13 @@
             }
 
 
-      
+
         </style>
-        
+
     </head>
-    
+
     <body>
-       <div>
+        <div>
             <c:choose>
                 <c:when test="${sessionScope.userType=='doctor'}">
                     <jsp:include page="menu2.jsp"/>
@@ -94,11 +94,12 @@
 
             </c:choose>
         </div>
-        
+
         <div class="form">
 
+
             <form action="showNotCured.htm?type=${requestScope.livestockType}" method="post">
-                
+
                 search by: 
                 <select name="option">
                     <option value="showLivestockNotCured">all livestock</option>
@@ -108,27 +109,38 @@
                 <input type="submit" value="search"/>
             </form>
         </div>
-            
-            <table>
-                <tr>
-                <th>Id</th>
+
+        <table>
+            <tr>
+                <c:choose>
+                        <c:when test="${requestScope.livestockType == 'cow'}">
+                        <th>Cow Id</th>
+                        </c:when>
+                        <c:when test="${requestScope.livestockType == 'pig'}">
+                        <th>Pig Id</th>
+                        </c:when>
+                        <c:otherwise>
+                        <th>Livestock Id</th>
+                        </c:otherwise>
+                    </c:choose>
+
                 <th>Employee_Id</th>
                 <th>Age</th>
                 <th>Weight</th>
                 <th>Gender</th>
             </tr>
-            
+
             <c:forEach var="livestock" items="${requestScope.livestockList}">
-                 <tr>
+                <tr>
                     <td>${livestock.id}</td>
                     <td>${livestock.employeeId}</td>
                     <td>${livestock.age}</td>
                     <td>${livestock.weight}</td>
                     <td>${livestock.gender}</td>
-                 </tr>
+                </tr>
             </c:forEach>
-            
-            </table>
+
+        </table>
 
     </body>
 </html>

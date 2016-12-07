@@ -96,6 +96,7 @@
         </div>
         
         <div class="form">
+            
 
             <form action="showSensorInfo.htm?action=searchSensor" method="post">
                 
@@ -111,7 +112,6 @@
                 <input type="submit" value="search"/>
             </form>
         </div>
-            
             <table>
                 <tr>
                 <th>sensor id</th>

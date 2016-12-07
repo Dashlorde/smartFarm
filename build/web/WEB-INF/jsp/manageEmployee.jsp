@@ -27,6 +27,12 @@
         table{
             width: 100%
         }
+         a{
+            text-decoration: none; 
+            display: block;
+            color:black;
+            text-align: left;
+        }
     </style>
     <body>
        <a href="addemployee.htm" >Add New Employee</a><br/><br/>

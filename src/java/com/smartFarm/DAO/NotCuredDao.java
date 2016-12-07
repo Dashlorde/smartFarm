@@ -37,12 +37,12 @@ public class NotCuredDao extends DAO {
             rs=stmt.executeQuery("{call getLivestockNotCured}");
             while (rs.next()){
                 Livestock l=new Livestock();
-                
-                l.setAge(rs.getInt("Age"));
-                l.setEmployeeId(rs.getLong("Employee_Id"));
-                l.setGender(rs.getString("Gender"));
                 l.setId(rs.getLong("Id"));
+                l.setEmployeeId(rs.getLong("Employee_Id"));
+                l.setAge(rs.getInt("Age"));
                 l.setWeight(rs.getInt("Weight"));
+                l.setGender(rs.getString("Gender"));
+                l.setType("");
                 livestockList.add(l);
             } 
         } catch (SQLException ex) {
@@ -64,11 +64,13 @@ public class NotCuredDao extends DAO {
             rs=stmt.executeQuery("{call getCowNotCured}");
             while (rs.next()){
                 Cow c = new Cow();
-                c.setAge(rs.getInt("age"));
+                c.setAge(rs.getInt("Age"));
                 c.setEmployeeId(rs.getLong("Employee_Id"));
-                c.setGender(rs.getString("gender"));
-                c.setId(rs.getLong("id"));
-                c.setWeight(rs.getInt("weight"));
+                c.setGender(rs.getString("Gender"));
+                c.setId(rs.getLong("Id"));
+                c.setWeight(rs.getInt("Weight"));
+                c.setMilkProduction("");
+                c.setEstrousDetection("");
                 cowList.add(c);
             } 
         } catch (SQLException ex) {
@@ -89,11 +91,12 @@ public class NotCuredDao extends DAO {
             rs=stmt.executeQuery("{call getPigNotCured}");
             while (rs.next()){
                 Pig p = new Pig();
-                p.setAge(rs.getInt("age"));
+                p.setAge(rs.getInt("Age"));
                 p.setEmployeeId(rs.getLong("Employee_Id"));
-                p.setGender(rs.getString("gender"));
-                p.setId(rs.getLong("id"));
-                p.setWeight(rs.getInt("weight"));
+                p.setGender(rs.getString("Gender"));
+                p.setId(rs.getLong("Id"));
+                p.setWeight(rs.getInt("Weight"));
+                p.setEstrousDetection("");
                 pigList.add(p);
             } 
         } catch (SQLException ex) {

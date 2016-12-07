@@ -59,7 +59,7 @@
             </c:when>
         </c:choose>
                 
-        <a href = "livestocktempsenserdetail.htm?livestock_id=${requestScope.id}&source=livestockdetail&type=${requestScope.type}" class = "sensor">Sensor Monitor</a>
+        <a href = "livestockallsenserdetail.htm?livestock_id=${requestScope.id}&source=livestockdetail&type=${requestScope.type}" class = "sensor">Sensor Monitor</a>
 
         <div>
             <h3>Feed Record</h3>

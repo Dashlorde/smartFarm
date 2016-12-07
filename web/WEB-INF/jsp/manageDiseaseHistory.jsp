@@ -89,17 +89,18 @@
 
         <div class="form">
 
-            <form action="searchLivestock.htm?type=${requestScope.livestockType}" method="post">
+            <form action="searchdiseasehistory.htm" method="post">
                 <input type="text" name="search" />
                 search by: 
                 <select name="option">
-                    <option value="id">id</option>
-                    <option value="employeeId">employeeId</option>
-                    <option value="age">age</option>
+                    <option value="livestockId">Livestock ID</option>
+                    <option value="doctorId">Doctor ID</option>
+                    <option value="diseaseId">Disease ID</option>
 
                 </select>
                 <input type="submit" value="search"/>
             </form>
+            
             <br/><br/>
         </div>
 

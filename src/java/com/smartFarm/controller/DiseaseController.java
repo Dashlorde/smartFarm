@@ -11,6 +11,8 @@ import com.smartFarm.DAO.DiseaseHistoryDao;
 import com.smartFarm.pojo.Disease;
 import com.smartFarm.pojo.DiseaseHistory;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,7 @@ public class DiseaseController {
     private static long count = 1;
     
     private List<Disease> diseaseList;
-    private List<DiseaseHistory> diseaseHistoryList;
+    //private List<DiseaseHistory> diseaseHistoryList;
     @Autowired
     DiseaseDao diseaseDao = new DiseaseDao();
     
@@ -78,6 +80,7 @@ public class DiseaseController {
     
     @RequestMapping(value="/managediseasehistory.htm", method=RequestMethod.GET)
     public String handleHistoryRequest(Model model,HttpServletRequest hsr) throws Exception{
+        List<DiseaseHistory> diseaseHistoryList;
         diseaseHistoryList = diseaseHistoryDao.getAllDiseaseHistory();
         model.addAttribute( diseaseHistoryList);
         //hsr.setAttribute("test", "get method");
@@ -94,7 +97,7 @@ public class DiseaseController {
     
     @RequestMapping(value="/adddiseasehistory.htm", method=RequestMethod.POST)
     protected String doSubmitDiseaseHistory(Model model,HttpServletRequest request)throws Exception{
-        
+        List<DiseaseHistory> diseaseHistoryList = diseaseHistoryDao.getAllDiseaseHistory();
         DiseaseHistory diseaseHistory = new DiseaseHistory();
         //List<DiseaseHistory> diseaseHistoryList = new ArrayList<>();
         Long doctorId = Long.parseLong(request.getParameter("doctor_id"));
@@ -114,6 +117,31 @@ public class DiseaseController {
         diseaseHistoryDao.addDiseaseHistory(diseaseHistory);
         //request.setAttribute("test", "post method");
         model.addAttribute(diseaseHistoryList);
+        return "manageDiseaseHistory";
+    }
+    
+    @RequestMapping(value="/searchdiseasehistory.htm",method=RequestMethod.POST )
+    protected String getLivestockDisaseHitory(HttpServletRequest request, Model model) throws SQLException{
+        String option=request.getParameter("option");
+        Long id = Long.parseLong(request.getParameter("search"));
+        List<DiseaseHistory> diseaseHistoryList;
+        if(option.equals("livestockId")){
+            diseaseHistoryList = diseaseHistoryDao.getSingleDiseaseHistory(id);
+        }else if(option.equals("doctorId")){
+            diseaseHistoryList = diseaseHistoryDao.getSingleDiseaseHistoryByDoctorId(id);
+        }else{
+            diseaseHistoryList = diseaseHistoryDao.getSingleDiseaseHistoryByDiseaseId(id);
+        }
+        request.setAttribute("diseaseHistoryList", diseaseHistoryList);
+        //model.addAllAttributes(diseaseHistoryList);
+        return "manageDiseaseHistory";
+    }
+    
+    @RequestMapping(value="/searchdiseasehistorynotcure.htm",method=RequestMethod.GET )
+     protected String getDiseaseHistoryNotCure(HttpServletRequest request) throws SQLException{
+        String status = request.getParameter("status");
+        List<DiseaseHistory> diseaseHistoryList = diseaseHistoryDao.getSingleDiseaseHistoryByNotCured(status);
+        request.setAttribute("diseaseHistoryList", diseaseHistoryList);
         return "manageDiseaseHistory";
     }
     

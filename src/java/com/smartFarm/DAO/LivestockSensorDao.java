@@ -80,4 +80,167 @@ public class LivestockSensorDao extends DAO{
         return livestockSensorList;
     } 
     
+    
+    
+    public List<LivestockSensor> getAllMilkSenorResult() throws SQLException{
+        List<LivestockSensor> livestockSensorList=new ArrayList<>();
+        try{
+          
+            conn=getConnection();
+            stmt=conn.createStatement();
+            rs=stmt.executeQuery("{call getMilkSensorResult}");
+            while (rs.next()){
+                LivestockSensor livestockSensor=new LivestockSensor();
+                
+                livestockSensor.setLivestockId(rs.getLong("Livestock_Id"));
+                livestockSensor.setRead(rs.getDouble("Ms_Read"));
+                livestockSensor.setSensorId(rs.getInt("Sensor_Id"));
+                livestockSensor.setSensorType(rs.getString("Sensor_Type"));
+                livestockSensor.setTime(rs.getTimestamp("Ms_Time"));
+                livestockSensorList.add(livestockSensor);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            
+            close(conn);
+        } 
+        return livestockSensorList;
+    } 
+    
+    public List<LivestockSensor> getSingleMilkSenorResult(int livestockId) throws SQLException{
+        List<LivestockSensor> livestockSensorList=new ArrayList<>();
+        try{
+          
+            conn=getConnection();
+            ps = conn.prepareStatement("{call getMilkSensorResultByLivestockId(?)}");
+            ps.setInt(1, livestockId);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                LivestockSensor livestockSensor=new LivestockSensor();
+                
+                livestockSensor.setLivestockId(rs.getLong("Livestock_Id"));
+                livestockSensor.setRead(rs.getDouble("Ms_Read"));
+                livestockSensor.setSensorId(rs.getInt("Sensor_Id"));
+                livestockSensor.setSensorType(rs.getString("Sensor_Type"));
+                livestockSensor.setTime(rs.getTimestamp("Ms_Time"));
+                livestockSensorList.add(livestockSensor);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            
+            close(conn);
+        } 
+        return livestockSensorList;
+    } 
+    
+    public List<LivestockSensor> getAllWeightSenorResult() throws SQLException{
+        List<LivestockSensor> livestockSensorList=new ArrayList<>();
+        try{
+          
+            conn=getConnection();
+            stmt=conn.createStatement();
+            rs=stmt.executeQuery("{call getWeightSensorResult}");
+            while (rs.next()){
+                LivestockSensor livestockSensor=new LivestockSensor();
+                
+                livestockSensor.setLivestockId(rs.getLong("Livestock_Id"));
+                livestockSensor.setRead(rs.getDouble("Ws_Read"));
+                livestockSensor.setSensorId(rs.getInt("Sensor_Id"));
+                livestockSensor.setSensorType(rs.getString("Sensor_Type"));
+                livestockSensor.setTime(rs.getTimestamp("Ws_Time"));
+                livestockSensorList.add(livestockSensor);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            
+            close(conn);
+        } 
+        return livestockSensorList;
+    } 
+    
+    public List<LivestockSensor> getSingleWeightSenorResult(int livestockId) throws SQLException{
+        List<LivestockSensor> livestockSensorList=new ArrayList<>();
+        try{
+          
+            conn=getConnection();
+            ps = conn.prepareStatement("{call getWeightSensorResultByLivestockId(?)}");
+            ps.setInt(1, livestockId);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                LivestockSensor livestockSensor=new LivestockSensor();
+                
+                livestockSensor.setLivestockId(rs.getLong("Livestock_Id"));
+                livestockSensor.setRead(rs.getDouble("Ws_Read"));
+                livestockSensor.setSensorId(rs.getInt("Sensor_Id"));
+                livestockSensor.setSensorType(rs.getString("Sensor_Type"));
+                livestockSensor.setTime(rs.getTimestamp("Ws_Time"));
+                livestockSensorList.add(livestockSensor);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            
+            close(conn);
+        } 
+        return livestockSensorList;
+    } 
+    
+    
+    
+    public List<LivestockSensor> getAllAcceSenorResult() throws SQLException{
+        List<LivestockSensor> livestockSensorList=new ArrayList<>();
+        try{
+          
+            conn=getConnection();
+            stmt=conn.createStatement();
+            rs=stmt.executeQuery("{call getAcceSensorResult}");
+            while (rs.next()){
+                LivestockSensor livestockSensor=new LivestockSensor();
+                
+                livestockSensor.setLivestockId(rs.getLong("Livestock_Id"));
+                livestockSensor.setRead(rs.getDouble("As_Read"));
+                livestockSensor.setSensorId(rs.getInt("Sensor_Id"));
+                livestockSensor.setSensorType(rs.getString("Sensor_Type"));
+                livestockSensor.setTime(rs.getTimestamp("As_Time"));
+                livestockSensorList.add(livestockSensor);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            
+            close(conn);
+        } 
+        return livestockSensorList;
+    } 
+    
+    public List<LivestockSensor> getSingleAcceSenorResult(int livestockId) throws SQLException{
+        List<LivestockSensor> livestockSensorList=new ArrayList<>();
+        try{
+          
+            conn=getConnection();
+            ps = conn.prepareStatement("{call getAcceSensorResultByLivestockId(?)}");
+            ps.setInt(1, livestockId);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                LivestockSensor livestockSensor=new LivestockSensor();
+                
+                livestockSensor.setLivestockId(rs.getLong("Livestock_Id"));
+                livestockSensor.setRead(rs.getDouble("As_Read"));
+                livestockSensor.setSensorId(rs.getInt("Sensor_Id"));
+                livestockSensor.setSensorType(rs.getString("Sensor_Type"));
+                livestockSensor.setTime(rs.getTimestamp("As_Time"));
+                livestockSensorList.add(livestockSensor);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockSensorDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            
+            close(conn);
+        } 
+        return livestockSensorList;
+    } 
+    
 }
