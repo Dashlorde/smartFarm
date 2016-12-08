@@ -44,6 +44,27 @@ public class SensorDao extends DAO{
         }
     }
     
+    public int getSensorId()throws SQLException{
+        int id=0;
+        try{
+            conn=getConnection();
+            String query="select max(Sensor_Id) from Sensor";
+            stmt=conn.createStatement();
+            rs=stmt.executeQuery(query);
+            rs.next();
+            id=rs.getInt(1);
+            id++;
+            return id;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+        }
+        
+        return id;
+    }
+    
     public void addAnimalSensor(AnimalSensor animalSensor)throws SQLException{
         try{
             conn=getConnection();

@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/addSensor.htm")
 public class AddSensorController {
     
-    public static int count=1;
     
     @Autowired
     SensorDao sensorDao=new SensorDao();
@@ -39,13 +38,11 @@ public class AddSensorController {
         AnimalSensor aSensor=new AnimalSensor();
         List<Sensor> sensorList=sensorDao.getAllSensor();
         
-        //String sensorIdString=request.getParameter("sensorId");
-        //long sensorId=Long.parseLong(sensorIdString);
         String livestockIdString=request.getParameter("livestockId");
         long livestockId=Long.parseLong(livestockIdString);
         String sensorType=request.getParameter("sensorType");
-        count=1+sensorList.size();
-        long sensorId=count++;
+        
+        long sensorId=sensorDao.getSensorId();
         
         sensor.setSensorId(sensorId);
         sensor.setSensorType(sensorType);

@@ -141,6 +141,27 @@ public class LivestockDao extends DAO {
             ps.close();
         }
     }
+    
+    public int getCowId()throws SQLException{
+        int id=1000;
+        try{
+            conn=getConnection();
+            String query="select max(Id) from Cow";
+            stmt=conn.createStatement();
+            rs=stmt.executeQuery(query);
+            rs.next();
+            id=rs.getInt(1);
+            id++;
+            return id;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+        }
+        
+        return id;
+    }
 
     public List<Cow> getAllCow() throws SQLException {
         List<Cow> cowList = new ArrayList<Cow>();
@@ -370,6 +391,28 @@ public class LivestockDao extends DAO {
 
         }
 
+    }
+    
+    
+    public int getPigId()throws SQLException{
+        int id=100;
+        try{
+            conn=getConnection();
+            String query="select max(Id) from Pig";
+            stmt=conn.createStatement();
+            rs=stmt.executeQuery(query);
+            rs.next();
+            id=rs.getInt(1);
+            id++;
+            return id;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LivestockDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
+        }
+        
+        return id;
     }
 
     public List<Pig> getAllPig() throws SQLException {

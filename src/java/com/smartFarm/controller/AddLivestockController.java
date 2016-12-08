@@ -22,18 +22,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class AddLivestockController {
-    public static int count_cow=1000;
-    public static int count_pig=100;
     
     @Autowired
     LivestockDao livestockDao = new LivestockDao();
-//    List<Cow> cowList;
-//    List<Pig> pigList;
-//
-//    public AddLivestockController() throws SQLException {
-//        this.cowList = livestockDao.getAllCow();
-//        this.pigList = livestockDao.getAllPig();
-//    }
     
     //----------------------------add livestock-------------------------------------------------
     
@@ -52,9 +43,7 @@ public class AddLivestockController {
         long employeeId=Long.parseLong(employeeString);
         String weightString=request.getParameter("weight").toString();
         int weight=Integer.parseInt(weightString);
-        
-        
-        //livestock.setId(count++);
+       
         livestock.setAge(age);
         livestock.setEmployeeId(employeeId);
         
@@ -88,8 +77,7 @@ public class AddLivestockController {
         String milkProduction = request.getParameter("milk_production");
         String estrousDetection = request.getParameter("estrous_detection");
         
-        count_cow = 1000 + cowList.size();
-        int id = count_cow++;
+        int id=livestockDao.getCowId();
         cow.setAge(age);
         cow.setEmployeeId(employeeId);
         cow.setId(id);
@@ -124,8 +112,8 @@ public class AddLivestockController {
         
         String gender=request.getParameter("gender");
         
-        count_pig = 100 + pigList.size();
-        int id = count_pig++;
+        
+        int id=livestockDao.getPigId();
         pig.setAge(age);
         pig.setEmployeeId(employeeId);
         pig.setId(id);
